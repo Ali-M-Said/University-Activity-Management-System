@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class AdminDashboardForm : Form
+    public partial class AddLocationForm : Form
     {
-        public AdminDashboardForm()
+        public AddLocationForm()
         {
             InitializeComponent();
         }
 
-        private void pnlQuickStats_Paint(object sender, PaintEventArgs e)
+        private void StartdateTimePicker_ValueChanged(object sender, EventArgs e)
         {
 
         }

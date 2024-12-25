@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class AdminDashboardForm : Form
+    public partial class CreateEventForm : Form
     {
-        public AdminDashboardForm()
+        public CreateEventForm()
         {
             InitializeComponent();
         }
 
-        private void pnlQuickStats_Paint(object sender, PaintEventArgs e)
+        private void CreateEventForm_Load(object sender, EventArgs e)
         {
 
         }

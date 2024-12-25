@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class AdminDashboardForm : Form
+    public partial class EditEventForm : Form
     {
-        public AdminDashboardForm()
+        public EditEventForm()
         {
             InitializeComponent();
-        }
-
-        private void pnlQuickStats_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

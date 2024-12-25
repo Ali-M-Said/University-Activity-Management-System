@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddLocationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLocationForm.Designer.cs">
+      <DependentUpon>AddLocationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,11 +62,92 @@
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="CreateAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAdminForm.Designer.cs">
+      <DependentUpon>CreateAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateClubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateClubForm.Designer.cs">
+      <DependentUpon>CreateClubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateEventForm.Designer.cs">
+      <DependentUpon>CreateEventForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBManager.cs" />
+    <Compile Include="EditEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditEventForm.Designer.cs">
+      <DependentUpon>EditEventForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditLocationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditLocationsForm.Designer.cs">
+      <DependentUpon>EditLocationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEventsForm.Designer.cs">
+      <DependentUpon>ManageEventsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageLocationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageLocationsForm.Designer.cs">
+      <DependentUpon>ManageLocationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMembershipRequestsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageMembershipRequestsForm.Designer.cs">
+      <DependentUpon>ManageMembershipRequestsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewUsersForm.Designer.cs">
+      <DependentUpon>ViewUsersForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddLocationForm.resx">
+      <DependentUpon>AddLocationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAdminForm.resx">
+      <DependentUpon>CreateAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateClubForm.resx">
+      <DependentUpon>CreateClubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateEventForm.resx">
+      <DependentUpon>CreateEventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditEventForm.resx">
+      <DependentUpon>EditEventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditLocationsForm.resx">
+      <DependentUpon>EditLocationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEventsForm.resx">
+      <DependentUpon>ManageEventsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageLocationsForm.resx">
+      <DependentUpon>ManageLocationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageMembershipRequestsForm.resx">
+      <DependentUpon>ManageMembershipRequestsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,6 +159,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ViewUsersForm.resx">
+      <DependentUpon>ViewUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
