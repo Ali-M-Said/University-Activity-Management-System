@@ -145,7 +145,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(535, 380);
+            this.btnCancel.Location = new System.Drawing.Point(434, 381);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(170, 32);
             this.btnCancel.TabIndex = 12;
@@ -154,7 +154,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(732, 380);
+            this.btnCreate.Location = new System.Drawing.Point(631, 381);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(170, 32);
             this.btnCreate.TabIndex = 13;
@@ -165,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 442);
+            this.ClientSize = new System.Drawing.Size(823, 442);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.comboBoxLocation);

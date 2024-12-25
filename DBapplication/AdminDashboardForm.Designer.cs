@@ -60,6 +60,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.ButtLogout = new System.Windows.Forms.Button();
             this.pnlQuickStats.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -249,7 +250,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(18, 178);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1134, 277);
+            this.panel1.Size = new System.Drawing.Size(880, 277);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -378,11 +379,21 @@
             this.label12.TabIndex = 12;
             this.label12.Text = "Reporting";
             // 
+            // ButtLogout
+            // 
+            this.ButtLogout.Location = new System.Drawing.Point(762, 461);
+            this.ButtLogout.Name = "ButtLogout";
+            this.ButtLogout.Size = new System.Drawing.Size(144, 39);
+            this.ButtLogout.TabIndex = 5;
+            this.ButtLogout.Text = "Logout";
+            this.ButtLogout.UseVisualStyleBackColor = true;
+            // 
             // AdminDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 520);
+            this.ClientSize = new System.Drawing.Size(929, 520);
+            this.Controls.Add(this.ButtLogout);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pnlQuickStats);
@@ -429,5 +440,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtLogout;
     }
 }
