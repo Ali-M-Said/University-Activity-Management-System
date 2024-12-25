@@ -34,12 +34,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEvents = new System.Windows.Forms.DataGridView();
+            this.buttBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
             this.SuspendLayout();
             // 
             // buttDeleteEvent
             // 
-            this.buttDeleteEvent.Location = new System.Drawing.Point(554, 384);
+            this.buttDeleteEvent.Location = new System.Drawing.Point(662, 384);
             this.buttDeleteEvent.Name = "buttDeleteEvent";
             this.buttDeleteEvent.Size = new System.Drawing.Size(138, 27);
             this.buttDeleteEvent.TabIndex = 13;
@@ -48,7 +49,7 @@
             // 
             // buttEditLoc
             // 
-            this.buttEditLoc.Location = new System.Drawing.Point(380, 384);
+            this.buttEditLoc.Location = new System.Drawing.Point(488, 384);
             this.buttEditLoc.Name = "buttEditLoc";
             this.buttEditLoc.Size = new System.Drawing.Size(138, 27);
             this.buttEditLoc.TabIndex = 12;
@@ -91,11 +92,21 @@
             this.dgvEvents.Size = new System.Drawing.Size(732, 193);
             this.dgvEvents.TabIndex = 8;
             // 
+            // buttBack
+            // 
+            this.buttBack.Location = new System.Drawing.Point(327, 385);
+            this.buttBack.Name = "buttBack";
+            this.buttBack.Size = new System.Drawing.Size(125, 26);
+            this.buttBack.TabIndex = 15;
+            this.buttBack.Text = "Back";
+            this.buttBack.UseVisualStyleBackColor = true;
+            // 
             // ManageLocationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(857, 450);
+            this.Controls.Add(this.buttBack);
             this.Controls.Add(this.buttDeleteEvent);
             this.Controls.Add(this.buttEditLoc);
             this.Controls.Add(this.txtLocID);
@@ -118,5 +129,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvEvents;
+        private System.Windows.Forms.Button buttBack;
     }
 }

@@ -44,7 +44,7 @@
             this.dgvEvents.Name = "dgvEvents";
             this.dgvEvents.RowHeadersWidth = 51;
             this.dgvEvents.RowTemplate.Height = 24;
-            this.dgvEvents.Size = new System.Drawing.Size(732, 193);
+            this.dgvEvents.Size = new System.Drawing.Size(658, 193);
             this.dgvEvents.TabIndex = 0;
             // 
             // label1
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(731, 450);
             this.Controls.Add(this.buttDeleteEvent);
             this.Controls.Add(this.buttEditEvent);
             this.Controls.Add(this.txtEventID);

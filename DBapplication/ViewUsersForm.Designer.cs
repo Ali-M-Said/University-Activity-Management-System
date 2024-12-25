@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttResetPass = new System.Windows.Forms.Button();
             this.buttDeact = new System.Windows.Forms.Button();
+            this.buttBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
-            this.dgvUsers.Size = new System.Drawing.Size(733, 193);
+            this.dgvUsers.Size = new System.Drawing.Size(549, 193);
             this.dgvUsers.TabIndex = 0;
             // 
             // label1
@@ -74,7 +75,7 @@
             // 
             // buttResetPass
             // 
-            this.buttResetPass.Location = new System.Drawing.Point(274, 359);
+            this.buttResetPass.Location = new System.Drawing.Point(377, 356);
             this.buttResetPass.Name = "buttResetPass";
             this.buttResetPass.Size = new System.Drawing.Size(138, 27);
             this.buttResetPass.TabIndex = 4;
@@ -83,18 +84,28 @@
             // 
             // buttDeact
             // 
-            this.buttDeact.Location = new System.Drawing.Point(448, 359);
+            this.buttDeact.Location = new System.Drawing.Point(551, 356);
             this.buttDeact.Name = "buttDeact";
             this.buttDeact.Size = new System.Drawing.Size(138, 27);
             this.buttDeact.TabIndex = 5;
             this.buttDeact.Text = "Deactivate";
             this.buttDeact.UseVisualStyleBackColor = true;
             // 
+            // buttBack
+            // 
+            this.buttBack.Location = new System.Drawing.Point(228, 356);
+            this.buttBack.Name = "buttBack";
+            this.buttBack.Size = new System.Drawing.Size(125, 26);
+            this.buttBack.TabIndex = 15;
+            this.buttBack.Text = "Back";
+            this.buttBack.UseVisualStyleBackColor = true;
+            // 
             // ViewUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(755, 450);
+            this.Controls.Add(this.buttBack);
             this.Controls.Add(this.buttDeact);
             this.Controls.Add(this.buttResetPass);
             this.Controls.Add(this.label2);
@@ -117,5 +128,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttResetPass;
         private System.Windows.Forms.Button buttDeact;
+        private System.Windows.Forms.Button buttBack;
     }
 }
