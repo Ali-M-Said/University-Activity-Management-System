@@ -72,6 +72,7 @@
             this.txtEventID.Name = "txtEventID";
             this.txtEventID.Size = new System.Drawing.Size(179, 22);
             this.txtEventID.TabIndex = 3;
+            this.txtEventID.TextChanged += new System.EventHandler(this.txtEventID_TextChanged);
             // 
             // buttDeleteEvent
             // 
@@ -90,6 +91,7 @@
             this.buttEditEvent.TabIndex = 6;
             this.buttEditEvent.Text = "Edit Event";
             this.buttEditEvent.UseVisualStyleBackColor = true;
+            this.buttEditEvent.Click += new System.EventHandler(this.buttEditEvent_Click);
             // 
             // ManageEventsForm
             // 

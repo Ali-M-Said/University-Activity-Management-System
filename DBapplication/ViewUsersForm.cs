@@ -12,9 +12,17 @@ namespace DBapplication
 {
     public partial class ViewUsersForm : Form
     {
-        public ViewUsersForm()
+        Form prevForm;
+        public ViewUsersForm(Form pf)
         {
+            prevForm = pf;
             InitializeComponent();
+            this.FormClosed += (s, e) => prevForm.Show();
+        }
+
+        private void ViewUsersForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

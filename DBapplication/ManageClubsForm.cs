@@ -10,14 +10,26 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class CreateClubForm : Form
+    public partial class ManageClubsForm : Form
     {
         Form prevForm;
-        public CreateClubForm(Form pf)
+        public ManageClubsForm(Form pf)
         {
             prevForm = pf;
             InitializeComponent();
             this.FormClosed += (s, e) => prevForm.Show();
+        }
+
+        private void buttEditEvent_Click(object sender, EventArgs e)
+        {
+            EditClubForm EditClub = new EditClubForm(this, int.Parse(txtClubID.Text));
+            EditClub.Show();
+            this.Hide();
+        }
+
+        private void txtEventID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

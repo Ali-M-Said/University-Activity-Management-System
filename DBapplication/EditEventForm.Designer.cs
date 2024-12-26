@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.comboBoxLocation = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxEventCat = new System.Windows.Forms.ComboBox();
@@ -52,15 +51,6 @@
             this.btnSave.TabIndex = 27;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(424, 390);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(170, 32);
-            this.btnCancel.TabIndex = 26;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // comboBoxLocation
             // 
@@ -167,7 +157,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 488);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.comboBoxLocation);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxEventCat);
@@ -190,7 +179,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox comboBoxLocation;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxEventCat;

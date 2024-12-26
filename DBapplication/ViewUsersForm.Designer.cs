@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttResetPass = new System.Windows.Forms.Button();
             this.buttDeact = new System.Windows.Forms.Button();
-            this.buttBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,21 +90,11 @@
             this.buttDeact.Text = "Deactivate";
             this.buttDeact.UseVisualStyleBackColor = true;
             // 
-            // buttBack
-            // 
-            this.buttBack.Location = new System.Drawing.Point(228, 356);
-            this.buttBack.Name = "buttBack";
-            this.buttBack.Size = new System.Drawing.Size(125, 26);
-            this.buttBack.TabIndex = 15;
-            this.buttBack.Text = "Back";
-            this.buttBack.UseVisualStyleBackColor = true;
-            // 
             // ViewUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 450);
-            this.Controls.Add(this.buttBack);
             this.Controls.Add(this.buttDeact);
             this.Controls.Add(this.buttResetPass);
             this.Controls.Add(this.label2);
@@ -114,6 +103,7 @@
             this.Controls.Add(this.dgvUsers);
             this.Name = "ViewUsersForm";
             this.Text = "ViewUsersForm";
+            this.Load += new System.EventHandler(this.ViewUsersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -128,6 +118,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttResetPass;
         private System.Windows.Forms.Button buttDeact;
-        private System.Windows.Forms.Button buttBack;
     }
 }

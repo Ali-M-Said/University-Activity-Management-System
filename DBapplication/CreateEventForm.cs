@@ -12,9 +12,12 @@ namespace DBapplication
 {
     public partial class CreateEventForm : Form
     {
-        public CreateEventForm()
+        Form prevForm;
+        public CreateEventForm(Form pf)
         {
+            prevForm = pf;
             InitializeComponent();
+            this.FormClosed += (s, e) => prevForm.Show();
         }
 
         private void CreateEventForm_Load(object sender, EventArgs e)

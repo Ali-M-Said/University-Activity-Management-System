@@ -31,7 +31,6 @@
             this.txtCapacity = new System.Windows.Forms.TextBox();
             this.txtLocName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.comboBoxEndPM_AM = new System.Windows.Forms.ComboBox();
             this.comboBoxEndMin = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,15 +69,6 @@
             this.btnSave.TabIndex = 49;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(384, 308);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(170, 32);
-            this.btnCancel.TabIndex = 48;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // comboBoxEndPM_AM
             // 
@@ -207,7 +197,6 @@
             this.Controls.Add(this.txtCapacity);
             this.Controls.Add(this.txtLocName);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.comboBoxEndPM_AM);
             this.Controls.Add(this.comboBoxEndMin);
             this.Controls.Add(this.label7);
@@ -234,7 +223,6 @@
         private System.Windows.Forms.TextBox txtCapacity;
         private System.Windows.Forms.TextBox txtLocName;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox comboBoxEndPM_AM;
         private System.Windows.Forms.ComboBox comboBoxEndMin;
         private System.Windows.Forms.Label label7;

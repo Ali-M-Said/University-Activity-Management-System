@@ -12,9 +12,24 @@ namespace DBapplication
 {
     public partial class ManageEventsForm : Form
     {
-        public ManageEventsForm()
+        Form prevForm;
+        public ManageEventsForm(Form pf)
         {
+            prevForm = pf;
             InitializeComponent();
+            this.FormClosed += (s, e) => prevForm.Show();
+        }
+
+        private void buttEditEvent_Click(object sender, EventArgs e)
+        {
+            EditEventForm EditEvent = new EditEventForm(this, int.Parse(txtEventID.Text));
+            EditEvent.Show();
+            this.Hide();
+        }
+
+        private void txtEventID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -43,7 +43,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxEndHour = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.txtLocName = new System.Windows.Forms.TextBox();
             this.txtCapacity = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -176,15 +175,6 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(383, 283);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(170, 32);
-            this.btnCancel.TabIndex = 30;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
             // txtLocName
             // 
             this.txtLocName.Location = new System.Drawing.Point(180, 46);
@@ -207,7 +197,6 @@
             this.Controls.Add(this.txtCapacity);
             this.Controls.Add(this.txtLocName);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.comboBoxEndPM_AM);
             this.Controls.Add(this.comboBoxEndMin);
             this.Controls.Add(this.label7);
@@ -246,7 +235,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxEndHour;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtLocName;
         private System.Windows.Forms.TextBox txtCapacity;
     }

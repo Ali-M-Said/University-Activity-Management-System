@@ -12,9 +12,12 @@ namespace DBapplication
 {
     public partial class AddLocationForm : Form
     {
-        public AddLocationForm()
+        Form prevForm;
+        public AddLocationForm(Form pf)
         {
+            prevForm = pf;
             InitializeComponent();
+            this.FormClosed += (s, e) => prevForm.Show();
         }
 
         private void StartdateTimePicker_ValueChanged(object sender, EventArgs e)

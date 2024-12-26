@@ -12,9 +12,22 @@ namespace DBapplication
 {
     public partial class CreateAdminForm : Form
     {
-        public CreateAdminForm()
+        Form prevForm;
+        public CreateAdminForm(Form pf)
         {
+            prevForm = pf;
             InitializeComponent();
+            this.FormClosed += (s, e) => prevForm.Show();
+        }
+
+        private void CreateAdminForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

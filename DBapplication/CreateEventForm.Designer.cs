@@ -40,7 +40,6 @@
             this.comboBoxEventCat = new System.Windows.Forms.ComboBox();
             this.comboBoxLocation = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -143,15 +142,6 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Location";
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(434, 381);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(170, 32);
-            this.btnCancel.TabIndex = 12;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
             // btnCreate
             // 
             this.btnCreate.Location = new System.Drawing.Point(631, 381);
@@ -167,7 +157,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 442);
             this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.comboBoxLocation);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxEventCat);
@@ -202,7 +191,6 @@
         private System.Windows.Forms.ComboBox comboBoxEventCat;
         private System.Windows.Forms.ComboBox comboBoxLocation;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnCreate;
     }
 }

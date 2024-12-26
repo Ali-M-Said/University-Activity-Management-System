@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class ManageMembershipRequestsForm : Form
+    public partial class EditClubForm : Form
     {
-        public ManageMembershipRequestsForm()
+        Form prevForm;
+        int EventID;
+        public EditClubForm(Form pf, int id)
         {
+            prevForm = pf;
+            EventID = id;
             InitializeComponent();
+            this.FormClosed += (s, e) => prevForm.Show();
         }
     }
 }

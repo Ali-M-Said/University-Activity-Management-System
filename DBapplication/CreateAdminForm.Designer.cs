@@ -37,7 +37,6 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,6 +54,7 @@
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(155, 22);
             this.txtFName.TabIndex = 1;
+            this.txtFName.TextChanged += new System.EventHandler(this.txtFName_TextChanged);
             // 
             // txtLName
             // 
@@ -113,21 +113,11 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(165, 256);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(134, 30);
-            this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
             // CreateAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 344);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.label5);
@@ -139,6 +129,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateAdminForm";
             this.Text = "CreateAdminForm";
+            this.Load += new System.EventHandler(this.CreateAdminForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,6 +146,5 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
     }
 }

@@ -12,9 +12,24 @@ namespace DBapplication
 {
     public partial class ManageLocationsForm : Form
     {
-        public ManageLocationsForm()
+        Form prevForm;
+        public ManageLocationsForm(Form pf)
         {
+            prevForm = pf;
             InitializeComponent();
+            this.FormClosed += (s, e) => prevForm.Show();
+        }
+
+        private void buttEditLoc_Click(object sender, EventArgs e)
+        {
+            EditLocationsForm EditLoc = new EditLocationsForm(this,int.Parse(txtLocID.Text));
+            EditLoc.Show();
+            this.Hide();
+        }
+
+        private void txtLocID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

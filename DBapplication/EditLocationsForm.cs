@@ -12,9 +12,14 @@ namespace DBapplication
 {
     public partial class EditLocationsForm : Form
     {
-        public EditLocationsForm()
+        Form prevForm;
+        int EventID;
+        public EditLocationsForm(Form pf, int id)
         {
+            prevForm = pf;
+            EventID = id;
             InitializeComponent();
+            this.FormClosed += (s, e) => prevForm.Show();
         }
     }
 }

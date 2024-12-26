@@ -1,6 +1,6 @@
 ﻿namespace DBapplication
 {
-    partial class CreateClubForm
+    partial class EditClubForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,87 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.txtSupervisor = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.txtClubDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtClubTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.txtSupervisor = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // txtClubDescription
-            // 
-            this.txtClubDescription.Location = new System.Drawing.Point(188, 119);
-            this.txtClubDescription.Multiline = true;
-            this.txtClubDescription.Name = "txtClubDescription";
-            this.txtClubDescription.Size = new System.Drawing.Size(317, 74);
-            this.txtClubDescription.TabIndex = 21;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 122);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 16);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Club Description";
-            // 
-            // txtClubTitle
-            // 
-            this.txtClubTitle.Location = new System.Drawing.Point(188, 64);
-            this.txtClubTitle.Name = "txtClubTitle";
-            this.txtClubTitle.Size = new System.Drawing.Size(183, 22);
-            this.txtClubTitle.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 16);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Club Title";
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(544, 259);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(170, 32);
-            this.btnCreate.TabIndex = 29;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
             // 
             // txtSupervisor
             // 
-            this.txtSupervisor.Location = new System.Drawing.Point(188, 215);
+            this.txtSupervisor.Location = new System.Drawing.Point(186, 224);
             this.txtSupervisor.Name = "txtSupervisor";
             this.txtSupervisor.Size = new System.Drawing.Size(183, 22);
-            this.txtSupervisor.TabIndex = 31;
+            this.txtSupervisor.TabIndex = 38;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 218);
+            this.label3.Location = new System.Drawing.Point(53, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 16);
-            this.label3.TabIndex = 30;
+            this.label3.TabIndex = 37;
             this.label3.Text = "Faculty Supervisor";
             // 
-            // CreateClubForm
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(542, 268);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(170, 32);
+            this.btnEdit.TabIndex = 36;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // txtClubDescription
+            // 
+            this.txtClubDescription.Location = new System.Drawing.Point(186, 128);
+            this.txtClubDescription.Multiline = true;
+            this.txtClubDescription.Name = "txtClubDescription";
+            this.txtClubDescription.Size = new System.Drawing.Size(317, 74);
+            this.txtClubDescription.TabIndex = 35;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 16);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Club Description";
+            // 
+            // txtClubTitle
+            // 
+            this.txtClubTitle.Location = new System.Drawing.Point(186, 73);
+            this.txtClubTitle.Name = "txtClubTitle";
+            this.txtClubTitle.Size = new System.Drawing.Size(183, 22);
+            this.txtClubTitle.TabIndex = 33;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(53, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 16);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Club Title";
+            // 
+            // EditClubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 326);
+            this.ClientSize = new System.Drawing.Size(743, 360);
             this.Controls.Add(this.txtSupervisor);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtClubDescription);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtClubTitle);
             this.Controls.Add(this.label1);
-            this.Name = "CreateClubForm";
-            this.Text = "CreateClubForm";
+            this.Name = "EditClubForm";
+            this.Text = "EditClubForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,12 +116,12 @@
 
         #endregion
 
+        private System.Windows.Forms.TextBox txtSupervisor;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtClubDescription;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtClubTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.TextBox txtSupervisor;
-        private System.Windows.Forms.Label label3;
     }
 }
