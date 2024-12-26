@@ -32,13 +32,32 @@ namespace DBapplication
 
         private void btnReserve_Click(object sender, EventArgs e)
         {
-            int userId = 1;
-            string StartTime = dtpStartTime.Value.ToString("HH:mm:ss");
-            string EndTime = dtpEndTime.Value.ToString("HH:mm:ss");
-            int locationId = (int)cmbLocation.SelectedValue;
-                studentController.ReserveLocation(userId, locationId,StartTime,EndTime);
-            
-          
+            int currentUserId = 1;
+            try
+            {
+                bool success = studentController.ReserveLocation(currentUserId, (int)cmbLocation.SelectedValue, dtpStartTime.Value.ToString("HH:mm:ss"), dtpEndTime.Value.ToString("HH:mm:ss"));
+
+                if (success)
+                {
+                    MessageBox.Show("Space reserved successfully!",
+                                  "Success",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Information);
+                    // Optionally refresh your reservations display here
+                }
+                else
+                {
+                    MessageBox.Show("Unable to reserve space. The space is either already reserved for this time or the time is outside location hours.",
+                                  "Reservation Failed",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error making reservation: " + ex.Message);
+            }
+
         }
         private void SetupTimePickers()
         {

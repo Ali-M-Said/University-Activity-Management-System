@@ -43,22 +43,41 @@ namespace DBapplication
         }
         public bool ReserveLocation(int userId, int locationId, string startTime, string endTime)
         {
-            // Single query to validate and insert if the time range is valid
-            string query = $@"
+            // First check if the location is already reserved for this time period
+            string checkQuery = $@"
+        SELECT COUNT(*) 
+        FROM Reservation 
+        WHERE LocationID = '{locationId}'
+        AND (
+            (StartTime <= '{startTime}' AND EndTime > '{startTime}')
+            OR 
+            (StartTime < '{endTime}' AND EndTime >= '{endTime}')
+            OR
+            (StartTime >= '{startTime}' AND EndTime <= '{endTime}')
+        )";
+
+            int existingReservations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            if (existingReservations > 0)
+            {
+                // Location is already reserved during this time
+                return false;
+            }
+
+
+            // If not reserved, check location hours and make reservation
+            string insertQuery = $@"
         INSERT INTO Reservation (UserID, LocationID, StartTime, EndTime)
         SELECT '{userId}', '{locationId}', '{startTime}', '{endTime}'
         WHERE EXISTS (
             SELECT 1 
             FROM Location 
             WHERE LocationID = '{locationId}'
-              AND CAST('{startTime}' AS TIME) >= StartTime 
-              AND CAST('{endTime}' AS TIME) <= EndTime
+            AND CAST('{startTime}' AS TIME) >= StartTime 
+            AND CAST('{endTime}' AS TIME) <= EndTime
         )";
 
-            // Execute the query and check if a row was inserted
-            int rowsAffected = dbMan.ExecuteNonQuery(query);
-
-            // Return true if the reservation was successfully inserted
+            int rowsAffected = dbMan.ExecuteNonQuery(insertQuery);
             return rowsAffected > 0;
         }
         public DataTable LoadAttendedEvents(int userId)
