@@ -42,30 +42,30 @@ namespace DBapplication
             this.lblTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(275, 22);
+            this.lblTitle.Size = new System.Drawing.Size(234, 29);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Feedback and Attendance Tracker";
+            this.lblTitle.Text = "Attendance Tracker";
             // 
             // cbEventFilter
             // 
             this.cbEventFilter.FormattingEnabled = true;
             this.cbEventFilter.Location = new System.Drawing.Point(20, 60);
             this.cbEventFilter.Name = "cbEventFilter";
-            this.cbEventFilter.Size = new System.Drawing.Size(200, 21);
+            this.cbEventFilter.Size = new System.Drawing.Size(200, 24);
             this.cbEventFilter.TabIndex = 1;
             // 
             // dpFromDate
             // 
             this.dpFromDate.Location = new System.Drawing.Point(240, 60);
             this.dpFromDate.Name = "dpFromDate";
-            this.dpFromDate.Size = new System.Drawing.Size(200, 20);
+            this.dpFromDate.Size = new System.Drawing.Size(200, 22);
             this.dpFromDate.TabIndex = 2;
             // 
             // dpToDate
             // 
             this.dpToDate.Location = new System.Drawing.Point(460, 60);
             this.dpToDate.Name = "dpToDate";
-            this.dpToDate.Size = new System.Drawing.Size(200, 20);
+            this.dpToDate.Size = new System.Drawing.Size(200, 22);
             this.dpToDate.TabIndex = 3;
             // 
             // btnFilter
@@ -82,6 +82,7 @@ namespace DBapplication
             this.dgvEventDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEventDetails.Location = new System.Drawing.Point(20, 100);
             this.dgvEventDetails.Name = "dgvEventDetails";
+            this.dgvEventDetails.RowHeadersWidth = 51;
             this.dgvEventDetails.Size = new System.Drawing.Size(760, 300);
             this.dgvEventDetails.TabIndex = 5;
             // 
@@ -103,7 +104,7 @@ namespace DBapplication
             this.btnViewDetails.Text = "View Details";
             this.btnViewDetails.UseVisualStyleBackColor = true;
             // 
-            // FeedbackAttendanceTrackerForm
+            // FeedbackAndAttendanceTrackerForm
             // 
             this.ClientSize = new System.Drawing.Size(800, 470);
             this.Controls.Add(this.btnViewDetails);
@@ -114,11 +115,12 @@ namespace DBapplication
             this.Controls.Add(this.dpFromDate);
             this.Controls.Add(this.cbEventFilter);
             this.Controls.Add(this.lblTitle);
-            this.Name = "FeedbackAttendanceTrackerForm";
+            this.Name = "FeedbackAndAttendanceTrackerForm";
             this.Text = "Feedback and Attendance Tracker";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
     }
 }

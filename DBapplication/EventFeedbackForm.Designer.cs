@@ -1,126 +1,126 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace DBapplication
 {
-    partial class EventFeedbackForm
+    public partial class EventFeedbackForm : Form
     {
-        private System.ComponentModel.IContainer components = null;
-        private Label lblTitle;
-        private ComboBox cbEventFilter;
-        private Button btnFilter;
-        private DataGridView dgvFeedback;
-        private Button btnExportFeedback;
-        private Button btnViewResponse;
-        private TextBox txtResponse;
-        private Label lblResponse;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+      
 
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.cbEventFilter = new System.Windows.Forms.ComboBox();
-            this.btnFilter = new System.Windows.Forms.Button();
-            this.dgvFeedback = new System.Windows.Forms.DataGridView();
-            this.btnExportFeedback = new System.Windows.Forms.Button();
-            this.btnViewResponse = new System.Windows.Forms.Button();
-            this.txtResponse = new System.Windows.Forms.TextBox();
-            this.lblResponse = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFeedback)).BeginInit();
+            this.lblEventFeedback = new System.Windows.Forms.Label();
+            this.grpEventFeedback = new System.Windows.Forms.GroupBox();
+            this.cboEventSelection = new System.Windows.Forms.ComboBox();
+            this.lblRating = new System.Windows.Forms.Label();
+            this.numRating = new System.Windows.Forms.NumericUpDown();
+            this.lblComments = new System.Windows.Forms.Label();
+            this.txtComments = new System.Windows.Forms.RichTextBox();
+            this.btnSubmitFeedback = new System.Windows.Forms.Button();
+            this.grpEventFeedback.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRating)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblTitle
+            // lblEventFeedback
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(20, 20);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(159, 22);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Event Feedback Form";
+            this.lblEventFeedback.AutoSize = true;
+            this.lblEventFeedback.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.lblEventFeedback.Location = new System.Drawing.Point(20, 20);
+            this.lblEventFeedback.Name = "lblEventFeedback";
+            this.lblEventFeedback.Size = new System.Drawing.Size(155, 24);
+            this.lblEventFeedback.TabIndex = 0;
+            this.lblEventFeedback.Text = "Event Feedback";
             // 
-            // cbEventFilter
+            // grpEventFeedback
             // 
-            this.cbEventFilter.FormattingEnabled = true;
-            this.cbEventFilter.Location = new System.Drawing.Point(20, 60);
-            this.cbEventFilter.Name = "cbEventFilter";
-            this.cbEventFilter.Size = new System.Drawing.Size(200, 21);
-            this.cbEventFilter.TabIndex = 1;
+            this.grpEventFeedback.Controls.Add(this.cboEventSelection);
+            this.grpEventFeedback.Controls.Add(this.lblRating);
+            this.grpEventFeedback.Controls.Add(this.numRating);
+            this.grpEventFeedback.Controls.Add(this.lblComments);
+            this.grpEventFeedback.Controls.Add(this.txtComments);
+            this.grpEventFeedback.Controls.Add(this.btnSubmitFeedback);
+            this.grpEventFeedback.Location = new System.Drawing.Point(20, 60);
+            this.grpEventFeedback.Name = "grpEventFeedback";
+            this.grpEventFeedback.Size = new System.Drawing.Size(600, 350);
+            this.grpEventFeedback.TabIndex = 1;
+            this.grpEventFeedback.TabStop = false;
+            this.grpEventFeedback.Text = "Provide Feedback";
             // 
-            // btnFilter
+            // cboEventSelection
             // 
-            this.btnFilter.Location = new System.Drawing.Point(240, 60);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(100, 30);
-            this.btnFilter.TabIndex = 2;
-            this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = true;
+            this.cboEventSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEventSelection.FormattingEnabled = true;
+            this.cboEventSelection.Location = new System.Drawing.Point(150, 30);
+            this.cboEventSelection.Name = "cboEventSelection";
+            this.cboEventSelection.Size = new System.Drawing.Size(200, 24);
+            this.cboEventSelection.TabIndex = 0;
             // 
-            // dgvFeedback
+            // lblRating
             // 
-            this.dgvFeedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFeedback.Location = new System.Drawing.Point(20, 100);
-            this.dgvFeedback.Name = "dgvFeedback";
-            this.dgvFeedback.Size = new System.Drawing.Size(760, 300);
-            this.dgvFeedback.TabIndex = 3;
+            this.lblRating.AutoSize = true;
+            this.lblRating.Location = new System.Drawing.Point(30, 80);
+            this.lblRating.Name = "lblRating";
+            this.lblRating.Size = new System.Drawing.Size(52, 16);
+            this.lblRating.TabIndex = 1;
+            this.lblRating.Text = "Rating:";
             // 
-            // btnExportFeedback
+            // numRating
             // 
-            this.btnExportFeedback.Location = new System.Drawing.Point(600, 420);
-            this.btnExportFeedback.Name = "btnExportFeedback";
-            this.btnExportFeedback.Size = new System.Drawing.Size(180, 30);
-            this.btnExportFeedback.TabIndex = 4;
-            this.btnExportFeedback.Text = "Export Feedback";
-            this.btnExportFeedback.UseVisualStyleBackColor = true;
+            this.numRating.Location = new System.Drawing.Point(150, 80);
+            this.numRating.Name = "numRating";
+            this.numRating.Size = new System.Drawing.Size(120, 22);
+            this.numRating.TabIndex = 2;
+            this.numRating.Minimum = 1;
+            this.numRating.Maximum = 5;
             // 
-            // btnViewResponse
+            // lblComments
             // 
-            this.btnViewResponse.Location = new System.Drawing.Point(20, 420);
-            this.btnViewResponse.Name = "btnViewResponse";
-            this.btnViewResponse.Size = new System.Drawing.Size(180, 30);
-            this.btnViewResponse.TabIndex = 5;
-            this.btnViewResponse.Text = "View Response";
-            this.btnViewResponse.UseVisualStyleBackColor = true;
+            this.lblComments.AutoSize = true;
+            this.lblComments.Location = new System.Drawing.Point(30, 130);
+            this.lblComments.Name = "lblComments";
+            this.lblComments.Size = new System.Drawing.Size(74, 16);
+            this.lblComments.TabIndex = 3;
+            this.lblComments.Text = "Comments:";
             // 
-            // lblResponse
+            // txtComments
             // 
-            this.lblResponse.AutoSize = true;
-            this.lblResponse.Location = new System.Drawing.Point(20, 470);
-            this.lblResponse.Name = "lblResponse";
-            this.lblResponse.Size = new System.Drawing.Size(65, 13);
-            this.lblResponse.TabIndex = 6;
-            this.lblResponse.Text = "Response:";
+            this.txtComments.Location = new System.Drawing.Point(150, 130);
+            this.txtComments.Name = "txtComments";
+            this.txtComments.Size = new System.Drawing.Size(400, 150);
+            this.txtComments.TabIndex = 4;
+            this.txtComments.Text = "";
             // 
-            // txtResponse
+            // btnSubmitFeedback
             // 
-            this.txtResponse.Location = new System.Drawing.Point(100, 470);
-            this.txtResponse.Multiline = true;
-            this.txtResponse.Size = new System.Drawing.Size(680, 60);
-            this.txtResponse.TabIndex = 7;
+            this.btnSubmitFeedback.Location = new System.Drawing.Point(150, 300);
+            this.btnSubmitFeedback.Name = "btnSubmitFeedback";
+            this.btnSubmitFeedback.Size = new System.Drawing.Size(150, 30);
+            this.btnSubmitFeedback.TabIndex = 5;
+            this.btnSubmitFeedback.Text = "Submit Feedback";
+            this.btnSubmitFeedback.UseVisualStyleBackColor = true;
             // 
             // EventFeedbackForm
             // 
-            this.ClientSize = new System.Drawing.Size(800, 550);
-            this.Controls.Add(this.txtResponse);
-            this.Controls.Add(this.lblResponse);
-            this.Controls.Add(this.btnViewResponse);
-            this.Controls.Add(this.btnExportFeedback);
-            this.Controls.Add(this.dgvFeedback);
-            this.Controls.Add(this.btnFilter);
-            this.Controls.Add(this.cbEventFilter);
-            this.Controls.Add(this.lblTitle);
+            this.ClientSize = new System.Drawing.Size(640, 420);
+            this.Controls.Add(this.grpEventFeedback);
+            this.Controls.Add(this.lblEventFeedback);
             this.Name = "EventFeedbackForm";
-            this.Text = "Event Feedback Form";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFeedback)).EndInit();
+            this.Text = "Event Feedback";
+            this.grpEventFeedback.ResumeLayout(false);
+            this.grpEventFeedback.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRating)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        // Declare controls as private members
+        private Label lblEventFeedback;
+        private GroupBox grpEventFeedback;
+        private ComboBox cboEventSelection;
+        private Label lblRating;
+        private NumericUpDown numRating;
+        private Label lblComments;
+        private RichTextBox txtComments;
+        private Button btnSubmitFeedback;
     }
 }

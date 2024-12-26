@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class EventFeedbackForm : Form
+    public partial class PersonalScheduleForm : Form
     {
-        public EventFeedbackForm()
+        public PersonalScheduleForm()
         {
             InitializeComponent();
         }

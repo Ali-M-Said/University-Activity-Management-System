@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class EventFeedbackForm : Form
+    public partial class ReservationHistoryForm : Form
     {
-        public EventFeedbackForm()
+        public ReservationHistoryForm()
         {
             InitializeComponent();
         }

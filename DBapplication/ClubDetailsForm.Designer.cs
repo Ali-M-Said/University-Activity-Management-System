@@ -10,8 +10,6 @@ namespace DBapplication
         private TextBox txtClubName;
         private Label lblClubDescription;
         private TextBox txtClubDescription;
-        private Label lblFacultySupervisor;
-        private TextBox txtFacultySupervisor;
         private Label lblTotalMembers;
         private TextBox txtTotalMembers;
         private DataGridView dgvClubMembers;
@@ -34,8 +32,6 @@ namespace DBapplication
             this.txtClubName = new System.Windows.Forms.TextBox();
             this.lblClubDescription = new System.Windows.Forms.Label();
             this.txtClubDescription = new System.Windows.Forms.TextBox();
-            this.lblFacultySupervisor = new System.Windows.Forms.Label();
-            this.txtFacultySupervisor = new System.Windows.Forms.TextBox();
             this.lblTotalMembers = new System.Windows.Forms.Label();
             this.txtTotalMembers = new System.Windows.Forms.TextBox();
             this.dgvClubMembers = new System.Windows.Forms.DataGridView();
@@ -82,28 +78,12 @@ namespace DBapplication
             // 
             // txtClubDescription
             // 
-            this.txtClubDescription.Location = new System.Drawing.Point(120, 100);
+            this.txtClubDescription.Location = new System.Drawing.Point(134, 100);
             this.txtClubDescription.Multiline = true;
             this.txtClubDescription.Name = "txtClubDescription";
             this.txtClubDescription.ReadOnly = true;
             this.txtClubDescription.Size = new System.Drawing.Size(200, 60);
             this.txtClubDescription.TabIndex = 4;
-            // 
-            // lblFacultySupervisor
-            // 
-            this.lblFacultySupervisor.AutoSize = true;
-            this.lblFacultySupervisor.Location = new System.Drawing.Point(20, 180);
-            this.lblFacultySupervisor.Name = "lblFacultySupervisor";
-            this.lblFacultySupervisor.Size = new System.Drawing.Size(121, 16);
-            this.lblFacultySupervisor.TabIndex = 5;
-            this.lblFacultySupervisor.Text = "Faculty Supervisor:";
-            // 
-            // txtFacultySupervisor
-            // 
-            this.txtFacultySupervisor.Location = new System.Drawing.Point(147, 180);
-            this.txtFacultySupervisor.Name = "txtFacultySupervisor";
-            this.txtFacultySupervisor.Size = new System.Drawing.Size(200, 22);
-            this.txtFacultySupervisor.TabIndex = 6;
             // 
             // lblTotalMembers
             // 
@@ -157,8 +137,6 @@ namespace DBapplication
             this.Controls.Add(this.dgvClubMembers);
             this.Controls.Add(this.txtTotalMembers);
             this.Controls.Add(this.lblTotalMembers);
-            this.Controls.Add(this.txtFacultySupervisor);
-            this.Controls.Add(this.lblFacultySupervisor);
             this.Controls.Add(this.txtClubDescription);
             this.Controls.Add(this.lblClubDescription);
             this.Controls.Add(this.txtClubName);
