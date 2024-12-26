@@ -11,10 +11,18 @@ using System.Windows.Forms;
 namespace DBapplication
 {
     public partial class ReservationHistoryForm : Form
+
     {
-        public ReservationHistoryForm()
+        StudentController studentController=new StudentController();    
+        public ReservationHistoryForm(Form parentForm)
         {
+            int userid =1;
             InitializeComponent();
+            Form ParentForm = parentForm;
+            ParentForm.Hide();
+            this.FormClosed += (sender, e) => { ParentForm.Show(); };
+            dgvReservationHistory.DataSource = studentController.GetReservationHistoryForStudent(userid);
         }
+
     }
 }

@@ -14,8 +14,19 @@ namespace DBapplication
     {
         public StudentDashboardForm()
         {
+    
+            StudentController controller = new StudentController();
+
+    
             InitializeComponent();
+
+           
+            label1.Text = controller.ResCount(1).ToString();
+            label2.Text = controller.EventCount(1).ToString();
+            label3.Text=controller.ClubCount(1).ToString(); 
+
         }
+
 
         private void DashboardForm_Load(object sender, EventArgs e)
         {
@@ -24,47 +35,50 @@ namespace DBapplication
 
         private void btnViewAvailableSpaces_Click(object sender, EventArgs e)
         {
-
+            AvailableSpaces availableSpaces = new AvailableSpaces(this);
+            availableSpaces.Show();
         }
 
-        private void btnReserveSpace_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btnViewReservationHistory_Click(object sender, EventArgs e)
         {
-
+            ReservationHistoryForm reservationHistoryForm = new ReservationHistoryForm(this);
+            reservationHistoryForm.Show();
         }
 
         private void btnViewUpcomingEvents_Click(object sender, EventArgs e)
         {
-
+          UpcomingEventsForm upcomingEventsForm = new UpcomingEventsForm(this);
+            upcomingEventsForm.Show();
         }
 
-        private void btnRegisterForEvent_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnProvideFeedback_Click(object sender, EventArgs e)
         {
-
+            EventFeedbackForm eventFeedbackForm = new EventFeedbackForm(this);
+            eventFeedbackForm.Show();
         }
 
-        private void btnJoinClub_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnViewClubMembershipStatus_Click(object sender, EventArgs e)
         {
-
+            ClubMembershipStatusForm clubMembershipStatusForm = new ClubMembershipStatusForm(this);
+            clubMembershipStatusForm.Show();
         }
 
         private void btnViewPersonalSchedule_Click(object sender, EventArgs e)
         {
+            PersonalScheduleForm personalScheduleForm = new PersonalScheduleForm(this);
+            personalScheduleForm.Show();
+        }
 
+        private void btnViewClubs_Click(object sender, EventArgs e)
+        {
+            AvailableClubsForm availableClubsForm = new AvailableClubsForm(this);
+            availableClubsForm.Show();
         }
     }
 }

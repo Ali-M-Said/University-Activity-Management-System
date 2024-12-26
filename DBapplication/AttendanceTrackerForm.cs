@@ -3,16 +3,22 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class FeedbackAndAttendanceTrackerForm : Form
+    public partial class AttendanceTrackerForm : Form
     {
-        public FeedbackAndAttendanceTrackerForm()
+        public AttendanceTrackerForm(Form parentForm)
         {
             InitializeComponent();
+
+           
+            Form ParentForm = parentForm;
+
+          
+            ParentForm.Hide();
+
+            
+            this.FormClosed += (sender, e) => { ParentForm.Show(); };
         }
 
-        private void FeedbackAndAttendanceTrackerForm_Load(object sender, EventArgs e)
-        {
-            // Placeholder for any actions, currently no actions are implemented.
-        }
+
     }
 }

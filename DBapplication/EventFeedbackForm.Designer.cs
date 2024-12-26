@@ -27,7 +27,7 @@ namespace DBapplication
             this.lblEventFeedback.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblEventFeedback.Location = new System.Drawing.Point(20, 20);
             this.lblEventFeedback.Name = "lblEventFeedback";
-            this.lblEventFeedback.Size = new System.Drawing.Size(155, 24);
+            this.lblEventFeedback.Size = new System.Drawing.Size(161, 24);
             this.lblEventFeedback.TabIndex = 0;
             this.lblEventFeedback.Text = "Event Feedback";
             // 
@@ -60,18 +60,31 @@ namespace DBapplication
             this.lblRating.AutoSize = true;
             this.lblRating.Location = new System.Drawing.Point(30, 80);
             this.lblRating.Name = "lblRating";
-            this.lblRating.Size = new System.Drawing.Size(52, 16);
+            this.lblRating.Size = new System.Drawing.Size(49, 16);
             this.lblRating.TabIndex = 1;
             this.lblRating.Text = "Rating:";
             // 
             // numRating
             // 
             this.numRating.Location = new System.Drawing.Point(150, 80);
+            this.numRating.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numRating.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numRating.Name = "numRating";
             this.numRating.Size = new System.Drawing.Size(120, 22);
             this.numRating.TabIndex = 2;
-            this.numRating.Minimum = 1;
-            this.numRating.Maximum = 5;
+            this.numRating.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblComments
             // 
@@ -98,6 +111,7 @@ namespace DBapplication
             this.btnSubmitFeedback.TabIndex = 5;
             this.btnSubmitFeedback.Text = "Submit Feedback";
             this.btnSubmitFeedback.UseVisualStyleBackColor = true;
+            this.btnSubmitFeedback.Click += new System.EventHandler(this.btnSubmitFeedback_Click);
             // 
             // EventFeedbackForm
             // 
@@ -111,6 +125,7 @@ namespace DBapplication
             ((System.ComponentModel.ISupportInitialize)(this.numRating)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         // Declare controls as private members

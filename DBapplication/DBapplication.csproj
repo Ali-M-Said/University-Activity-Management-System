@@ -85,13 +85,19 @@
     <Compile Include="ClubMembershipStatusForm.Designer.cs">
       <DependentUpon>ClubMembershipStatusForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClubUpdateForm.cs">
+    <Compile Include="EventRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClubUpdateForm.Designer.cs">
-      <DependentUpon>ClubUpdateForm.cs</DependentUpon>
+    <Compile Include="EventRegister.Designer.cs">
+      <DependentUpon>EventRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller.cs" />
+    <Compile Include="ReserveLocationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReserveLocationForm.Designer.cs">
+      <DependentUpon>ReserveLocationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentController.cs" />
     <Compile Include="CreateAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
       <DependentUpon>CreateEventForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBManager.cs" />
+    <Compile Include="EditClubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditClubForm.Designer.cs">
+      <DependentUpon>EditClubForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditEventForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,9 +224,6 @@
     <EmbeddedResource Include="ClubDetailsForm.resx">
       <DependentUpon>ClubDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClubUpdateForm.resx">
-      <DependentUpon>ClubUpdateForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CreateAdminForm.resx">
       <DependentUpon>CreateAdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,8 +239,23 @@
     <EmbeddedResource Include="EditLocationsForm.resx">
       <DependentUpon>EditLocationsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EventFeedbackForm.resx">
+      <DependentUpon>EventFeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventRegister.resx">
+      <DependentUpon>EventRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonalScheduleForm.resx">
       <DependentUpon>PersonalScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReservationHistoryForm.resx">
+      <DependentUpon>ReservationHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReserveLocationForm.resx">
+      <DependentUpon>ReserveLocationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpcomingEventsForm.resx">
+      <DependentUpon>UpcomingEventsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewEventFeedbackForm.resx">
       <DependentUpon>ViewEventFeedbackForm.cs</DependentUpon>

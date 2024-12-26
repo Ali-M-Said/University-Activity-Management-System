@@ -12,9 +12,21 @@ namespace DBapplication
 {
     public partial class UpcomingEventsForm : Form
     {
-        public UpcomingEventsForm()
+        StudentController studentController=new StudentController();    
+        public UpcomingEventsForm(Form parentForm)
         {
             InitializeComponent();
+
+            Form ParentForm = parentForm;
+            ParentForm.Hide();
+            this.FormClosed += (sender, e) => { ParentForm.Show(); };
+            dgvUpcomingEvents.DataSource = studentController.GetUpcomingEvents();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EventRegister eventRegister = new EventRegister(this);
+            eventRegister.Show();
         }
     }
 }

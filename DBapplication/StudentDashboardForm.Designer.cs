@@ -20,10 +20,13 @@ namespace DBapplication
             this.btnViewUpcomingEvents = new System.Windows.Forms.Button();
             this.btnProvideFeedback = new System.Windows.Forms.Button();
             this.grpClubsAndSchedule = new System.Windows.Forms.GroupBox();
-            this.btnJoinClub = new System.Windows.Forms.Button();
+            this.btnViewClubs = new System.Windows.Forms.Button();
             this.btnViewClubMembershipStatus = new System.Windows.Forms.Button();
             this.btnViewPersonalSchedule = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.grpReservations.SuspendLayout();
             this.grpEvents.SuspendLayout();
             this.grpClubsAndSchedule.SuspendLayout();
@@ -123,7 +126,7 @@ namespace DBapplication
             // 
             // grpClubsAndSchedule
             // 
-            this.grpClubsAndSchedule.Controls.Add(this.btnJoinClub);
+            this.grpClubsAndSchedule.Controls.Add(this.btnViewClubs);
             this.grpClubsAndSchedule.Controls.Add(this.btnViewClubMembershipStatus);
             this.grpClubsAndSchedule.Controls.Add(this.btnViewPersonalSchedule);
             this.grpClubsAndSchedule.Location = new System.Drawing.Point(20, 280);
@@ -133,15 +136,15 @@ namespace DBapplication
             this.grpClubsAndSchedule.TabStop = false;
             this.grpClubsAndSchedule.Text = "Clubs and Schedule";
             // 
-            // btnJoinClub
+            // btnViewClubs
             // 
-            this.btnJoinClub.Location = new System.Drawing.Point(20, 30);
-            this.btnJoinClub.Name = "btnJoinClub";
-            this.btnJoinClub.Size = new System.Drawing.Size(200, 30);
-            this.btnJoinClub.TabIndex = 0;
-            this.btnJoinClub.Text = "View Available Clubs";
-            this.btnJoinClub.UseVisualStyleBackColor = true;
-            this.btnJoinClub.Click += new System.EventHandler(this.btnJoinClub_Click);
+            this.btnViewClubs.Location = new System.Drawing.Point(20, 30);
+            this.btnViewClubs.Name = "btnViewClubs";
+            this.btnViewClubs.Size = new System.Drawing.Size(200, 30);
+            this.btnViewClubs.TabIndex = 0;
+            this.btnViewClubs.Text = "View Available Clubs";
+            this.btnViewClubs.UseVisualStyleBackColor = true;
+            this.btnViewClubs.Click += new System.EventHandler(this.btnViewClubs_Click);
             // 
             // btnViewClubMembershipStatus
             // 
@@ -172,9 +175,39 @@ namespace DBapplication
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(186, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(178, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(186, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 16);
+            this.label3.TabIndex = 7;
+            // 
             // StudentDashboardForm
             // 
             this.ClientSize = new System.Drawing.Size(550, 500);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.grpClubsAndSchedule);
             this.Controls.Add(this.grpEvents);
@@ -203,9 +236,12 @@ namespace DBapplication
         private Button btnViewUpcomingEvents;
         private Button btnProvideFeedback;
         private GroupBox grpClubsAndSchedule;
-        private Button btnJoinClub;
+        private Button btnViewClubs;
         private Button btnViewClubMembershipStatus;
         private Button btnViewPersonalSchedule;
         private Button btnLogout;
+        private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }

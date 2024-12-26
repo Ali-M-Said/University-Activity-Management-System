@@ -12,10 +12,18 @@ namespace DBapplication
 {
     public partial class CreateEventForm : Form
     {
-        public CreateEventForm()
+        public CreateEventForm(Form parentForm)
         {
             InitializeComponent();
+
+            Form ParentForm=parentForm;
+
+            ParentForm.Hide();
+
+            // Add event handler to show the parent form when the sub-form is closed
+            this.FormClosed += (sender, e) => { ParentForm.Show(); };
         }
+
 
         private void CreateEventForm_Load(object sender, EventArgs e)
         {

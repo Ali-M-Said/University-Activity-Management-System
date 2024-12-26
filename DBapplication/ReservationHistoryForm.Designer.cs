@@ -11,10 +11,6 @@ namespace DBapplication
         {
             this.lblReservationHistory = new System.Windows.Forms.Label();
             this.dgvReservationHistory = new System.Windows.Forms.DataGridView();
-            this.ColLocName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColReservationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnFilterByDate = new System.Windows.Forms.Button();
             this.btnFilterByLocation = new System.Windows.Forms.Button();
             this.dtpFilterDate = new System.Windows.Forms.DateTimePicker();
@@ -28,46 +24,18 @@ namespace DBapplication
             this.lblReservationHistory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblReservationHistory.Location = new System.Drawing.Point(20, 20);
             this.lblReservationHistory.Name = "lblReservationHistory";
-            this.lblReservationHistory.Size = new System.Drawing.Size(176, 24);
+            this.lblReservationHistory.Size = new System.Drawing.Size(197, 24);
             this.lblReservationHistory.TabIndex = 0;
             this.lblReservationHistory.Text = "Reservation History";
             // 
             // dgvReservationHistory
             // 
             this.dgvReservationHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReservationHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColLocName,
-            this.ColStartTime,
-            this.ColEndTime,
-            this.ColReservationDate});
             this.dgvReservationHistory.Location = new System.Drawing.Point(20, 60);
             this.dgvReservationHistory.Name = "dgvReservationHistory";
+            this.dgvReservationHistory.RowHeadersWidth = 51;
             this.dgvReservationHistory.Size = new System.Drawing.Size(540, 200);
             this.dgvReservationHistory.TabIndex = 1;
-            // 
-            // ColLocName
-            // 
-            this.ColLocName.HeaderText = "Location Name";
-            this.ColLocName.Name = "ColLocName";
-            this.ColLocName.Width = 150;
-            // 
-            // ColStartTime
-            // 
-            this.ColStartTime.HeaderText = "Start Time";
-            this.ColStartTime.Name = "ColStartTime";
-            this.ColStartTime.Width = 100;
-            // 
-            // ColEndTime
-            // 
-            this.ColEndTime.HeaderText = "End Time";
-            this.ColEndTime.Name = "ColEndTime";
-            this.ColEndTime.Width = 100;
-            // 
-            // ColReservationDate
-            // 
-            this.ColReservationDate.HeaderText = "Reservation Date";
-            this.ColReservationDate.Name = "ColReservationDate";
-            this.ColReservationDate.Width = 150;
             // 
             // btnFilterByDate
             // 
@@ -117,15 +85,12 @@ namespace DBapplication
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservationHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         // Declare controls as private members
         private Label lblReservationHistory;
         private DataGridView dgvReservationHistory;
-        private DataGridViewTextBoxColumn ColLocName;
-        private DataGridViewTextBoxColumn ColStartTime;
-        private DataGridViewTextBoxColumn ColEndTime;
-        private DataGridViewTextBoxColumn ColReservationDate;
         private Button btnFilterByDate;
         private Button btnFilterByLocation;
         private DateTimePicker dtpFilterDate;

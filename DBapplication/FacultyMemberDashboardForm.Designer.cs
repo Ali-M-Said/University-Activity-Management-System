@@ -15,6 +15,7 @@ namespace DBapplication
             this.lblPendingMembershipRequests = new System.Windows.Forms.Label();
             this.lblFeedbackPendingResponse = new System.Windows.Forms.Label();
             this.grpEventManagement = new System.Windows.Forms.GroupBox();
+            this.ViewFeedback = new System.Windows.Forms.Button();
             this.btnCreateNewEvent = new System.Windows.Forms.Button();
             this.btnManageEvents = new System.Windows.Forms.Button();
             this.btnViewFeedbackAttendance = new System.Windows.Forms.Button();
@@ -25,7 +26,6 @@ namespace DBapplication
             this.grpReporting = new System.Windows.Forms.GroupBox();
             this.btnGenerateReports = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.grpEventManagement.SuspendLayout();
             this.grpClubManagement.SuspendLayout();
             this.grpReporting.SuspendLayout();
@@ -83,7 +83,7 @@ namespace DBapplication
             // 
             // grpEventManagement
             // 
-            this.grpEventManagement.Controls.Add(this.button1);
+            this.grpEventManagement.Controls.Add(this.ViewFeedback);
             this.grpEventManagement.Controls.Add(this.btnCreateNewEvent);
             this.grpEventManagement.Controls.Add(this.btnManageEvents);
             this.grpEventManagement.Controls.Add(this.btnViewFeedbackAttendance);
@@ -94,6 +94,16 @@ namespace DBapplication
             this.grpEventManagement.TabStop = false;
             this.grpEventManagement.Text = "Event Management";
             // 
+            // ViewFeedback
+            // 
+            this.ViewFeedback.Location = new System.Drawing.Point(20, 146);
+            this.ViewFeedback.Name = "ViewFeedback";
+            this.ViewFeedback.Size = new System.Drawing.Size(200, 30);
+            this.ViewFeedback.TabIndex = 3;
+            this.ViewFeedback.Text = "View Feedback";
+            this.ViewFeedback.UseVisualStyleBackColor = true;
+            this.ViewFeedback.Click += new System.EventHandler(this.ViewFeedback_Click);
+            // 
             // btnCreateNewEvent
             // 
             this.btnCreateNewEvent.Location = new System.Drawing.Point(20, 30);
@@ -102,6 +112,7 @@ namespace DBapplication
             this.btnCreateNewEvent.TabIndex = 0;
             this.btnCreateNewEvent.Text = "Create New Event";
             this.btnCreateNewEvent.UseVisualStyleBackColor = true;
+            this.btnCreateNewEvent.Click += new System.EventHandler(this.btnCreateNewEvent_Click);
             // 
             // btnManageEvents
             // 
@@ -111,6 +122,7 @@ namespace DBapplication
             this.btnManageEvents.TabIndex = 1;
             this.btnManageEvents.Text = "Manage Events";
             this.btnManageEvents.UseVisualStyleBackColor = true;
+            this.btnManageEvents.Click += new System.EventHandler(this.btnManageEvents_Click);
             // 
             // btnViewFeedbackAttendance
             // 
@@ -142,6 +154,7 @@ namespace DBapplication
             this.btnViewClubs.TabIndex = 0;
             this.btnViewClubs.Text = "View Clubs";
             this.btnViewClubs.UseVisualStyleBackColor = true;
+            this.btnViewClubs.Click += new System.EventHandler(this.btnViewClubs_Click);
             // 
             // btnApproveMembershipRequests
             // 
@@ -151,6 +164,7 @@ namespace DBapplication
             this.btnApproveMembershipRequests.TabIndex = 1;
             this.btnApproveMembershipRequests.Text = "Approve Membership Requests";
             this.btnApproveMembershipRequests.UseVisualStyleBackColor = true;
+            this.btnApproveMembershipRequests.Click += new System.EventHandler(this.btnApproveMembershipRequests_Click);
             // 
             // btnAddUpdateClubs
             // 
@@ -160,6 +174,7 @@ namespace DBapplication
             this.btnAddUpdateClubs.TabIndex = 2;
             this.btnAddUpdateClubs.Text = "Add Club";
             this.btnAddUpdateClubs.UseVisualStyleBackColor = true;
+            this.btnAddUpdateClubs.Click += new System.EventHandler(this.btnAddUpdateClubs_Click);
             // 
             // grpReporting
             // 
@@ -188,15 +203,6 @@ namespace DBapplication
             this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(20, 146);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 30);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "View Feedback";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // FacultyMemberDashboardForm
             // 
@@ -237,6 +243,6 @@ namespace DBapplication
         private Button btnManageEvents;
         private Button btnApproveMembershipRequests;
         private Button btnAddUpdateClubs;
-        private Button button1;
+        private Button ViewFeedback;
     }
 }

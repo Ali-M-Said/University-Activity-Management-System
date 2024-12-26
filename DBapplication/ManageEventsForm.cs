@@ -12,9 +12,19 @@ namespace DBapplication
 {
     public partial class ManageEventsForm : Form
     {
-        public ManageEventsForm()
+        public ManageEventsForm(Form parentForm)
         {
             InitializeComponent();
+
+            // Store the parent form
+            Form ParentForm = parentForm;
+
+            // Hide the parent form when the sub-form opens
+            ParentForm.Hide();
+
+            // Add event handler to show the parent form when the sub-form is closed
+            this.FormClosed += (sender, e) => { ParentForm.Show(); };
         }
+
     }
 }

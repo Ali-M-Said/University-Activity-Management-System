@@ -2,7 +2,7 @@
 
 namespace DBapplication
 {
-    partial class FeedbackAndAttendanceTrackerForm
+    partial class AttendanceTrackerForm
     {
         private System.ComponentModel.IContainer components = null;
         private Label lblTitle;
@@ -104,7 +104,7 @@ namespace DBapplication
             this.btnViewDetails.Text = "View Details";
             this.btnViewDetails.UseVisualStyleBackColor = true;
             // 
-            // FeedbackAndAttendanceTrackerForm
+            // AttendanceTrackerForm
             // 
             this.ClientSize = new System.Drawing.Size(800, 470);
             this.Controls.Add(this.btnViewDetails);
@@ -115,8 +115,8 @@ namespace DBapplication
             this.Controls.Add(this.dpFromDate);
             this.Controls.Add(this.cbEventFilter);
             this.Controls.Add(this.lblTitle);
-            this.Name = "FeedbackAndAttendanceTrackerForm";
-            this.Text = "Feedback and Attendance Tracker";
+            this.Name = "AttendanceTrackerForm";
+            this.Text = "Attendance Tracker";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
