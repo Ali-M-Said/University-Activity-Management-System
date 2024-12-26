@@ -46,6 +46,7 @@
             this.dgvEvents.RowTemplate.Height = 24;
             this.dgvEvents.Size = new System.Drawing.Size(658, 193);
             this.dgvEvents.TabIndex = 0;
+            this.dgvEvents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvents_CellContentClick);
             // 
             // label1
             // 
@@ -82,6 +83,7 @@
             this.buttDeleteEvent.TabIndex = 7;
             this.buttDeleteEvent.Text = "Delete Event";
             this.buttDeleteEvent.UseVisualStyleBackColor = true;
+            this.buttDeleteEvent.Click += new System.EventHandler(this.buttDeleteEvent_Click);
             // 
             // buttEditEvent
             // 
@@ -106,6 +108,7 @@
             this.Controls.Add(this.dgvEvents);
             this.Name = "ManageEventsForm";
             this.Text = "ManageEventsForm";
+            this.Load += new System.EventHandler(this.ManageEventsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

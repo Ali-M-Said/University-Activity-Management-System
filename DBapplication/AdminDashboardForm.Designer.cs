@@ -409,6 +409,7 @@
             this.Controls.Add(this.pnlQuickStats);
             this.Name = "AdminDashboardForm";
             this.Text = "AdminDashboardForm";
+            this.Load += new System.EventHandler(this.AdminDashboardForm_Load);
             this.pnlQuickStats.ResumeLayout(false);
             this.pnlQuickStats.PerformLayout();
             this.panel1.ResumeLayout(false);

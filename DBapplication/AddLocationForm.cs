@@ -13,11 +13,13 @@ namespace DBapplication
     public partial class AddLocationForm : Form
     {
         Form prevForm;
-        public AddLocationForm(Form pf)
+        int UserID;
+        public AddLocationForm(Form pf, int userID)
         {
             prevForm = pf;
             InitializeComponent();
             this.FormClosed += (s, e) => prevForm.Show();
+            UserID = userID;
         }
 
         private void StartdateTimePicker_ValueChanged(object sender, EventArgs e)

@@ -15,7 +15,7 @@ namespace DBapplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminDashboardForm());
+            Application.Run(new AdminDashboardForm(1));
         }
     }
 }

@@ -33,7 +33,7 @@
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttResetPass = new System.Windows.Forms.Button();
-            this.buttDeact = new System.Windows.Forms.Button();
+            this.buttDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,8 +44,9 @@
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
-            this.dgvUsers.Size = new System.Drawing.Size(549, 193);
+            this.dgvUsers.Size = new System.Drawing.Size(652, 193);
             this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
             // label1
             // 
@@ -62,6 +63,7 @@
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(208, 22);
             this.txtUserID.TabIndex = 2;
+            this.txtUserID.TextChanged += new System.EventHandler(this.txtUserID_TextChanged);
             // 
             // label2
             // 
@@ -80,22 +82,24 @@
             this.buttResetPass.TabIndex = 4;
             this.buttResetPass.Text = "Reset Password";
             this.buttResetPass.UseVisualStyleBackColor = true;
+            this.buttResetPass.Click += new System.EventHandler(this.buttResetPass_Click);
             // 
-            // buttDeact
+            // buttDelete
             // 
-            this.buttDeact.Location = new System.Drawing.Point(551, 356);
-            this.buttDeact.Name = "buttDeact";
-            this.buttDeact.Size = new System.Drawing.Size(138, 27);
-            this.buttDeact.TabIndex = 5;
-            this.buttDeact.Text = "Deactivate";
-            this.buttDeact.UseVisualStyleBackColor = true;
+            this.buttDelete.Location = new System.Drawing.Point(551, 356);
+            this.buttDelete.Name = "buttDelete";
+            this.buttDelete.Size = new System.Drawing.Size(138, 27);
+            this.buttDelete.TabIndex = 5;
+            this.buttDelete.Text = "Delete";
+            this.buttDelete.UseVisualStyleBackColor = true;
+            this.buttDelete.Click += new System.EventHandler(this.buttDelete_Click);
             // 
             // ViewUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 450);
-            this.Controls.Add(this.buttDeact);
+            this.Controls.Add(this.buttDelete);
             this.Controls.Add(this.buttResetPass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUserID);
@@ -117,6 +121,6 @@
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttResetPass;
-        private System.Windows.Forms.Button buttDeact;
+        private System.Windows.Forms.Button buttDelete;
     }
 }

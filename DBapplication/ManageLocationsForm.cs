@@ -13,11 +13,13 @@ namespace DBapplication
     public partial class ManageLocationsForm : Form
     {
         Form prevForm;
-        public ManageLocationsForm(Form pf)
+        int UserID;
+        public ManageLocationsForm(Form pf, int userID)
         {
             prevForm = pf;
             InitializeComponent();
             this.FormClosed += (s, e) => prevForm.Show();
+            UserID = userID;
         }
 
         private void buttEditLoc_Click(object sender, EventArgs e)

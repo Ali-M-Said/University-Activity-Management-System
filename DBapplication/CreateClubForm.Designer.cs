@@ -33,8 +33,8 @@
             this.txtClubTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
-            this.txtSupervisor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtClubDescription
@@ -44,6 +44,7 @@
             this.txtClubDescription.Name = "txtClubDescription";
             this.txtClubDescription.Size = new System.Drawing.Size(317, 74);
             this.txtClubDescription.TabIndex = 21;
+            this.txtClubDescription.TextChanged += new System.EventHandler(this.txtClubDescription_TextChanged);
             // 
             // label2
             // 
@@ -60,6 +61,7 @@
             this.txtClubTitle.Name = "txtClubTitle";
             this.txtClubTitle.Size = new System.Drawing.Size(183, 22);
             this.txtClubTitle.TabIndex = 19;
+            this.txtClubTitle.TextChanged += new System.EventHandler(this.txtClubTitle_TextChanged);
             // 
             // label1
             // 
@@ -78,13 +80,7 @@
             this.btnCreate.TabIndex = 29;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
-            // 
-            // txtSupervisor
-            // 
-            this.txtSupervisor.Location = new System.Drawing.Point(188, 215);
-            this.txtSupervisor.Name = "txtSupervisor";
-            this.txtSupervisor.Size = new System.Drawing.Size(183, 22);
-            this.txtSupervisor.TabIndex = 31;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // label3
             // 
@@ -95,12 +91,21 @@
             this.label3.TabIndex = 30;
             this.label3.Text = "Faculty Supervisor";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(188, 214);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(182, 24);
+            this.comboBox1.TabIndex = 31;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // CreateClubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 326);
-            this.Controls.Add(this.txtSupervisor);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtClubDescription);
@@ -109,6 +114,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateClubForm";
             this.Text = "CreateClubForm";
+            this.Load += new System.EventHandler(this.CreateClubForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,7 +127,7 @@
         private System.Windows.Forms.TextBox txtClubTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.TextBox txtSupervisor;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
