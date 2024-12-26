@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEvents = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             this.buttDeleteEvent.TabIndex = 13;
             this.buttDeleteEvent.Text = "Delete Club";
             this.buttDeleteEvent.UseVisualStyleBackColor = true;
+            this.buttDeleteEvent.Click += new System.EventHandler(this.buttDeleteEvent_Click);
             // 
             // buttEditEvent
             // 
@@ -92,12 +94,24 @@
             this.dgvEvents.RowTemplate.Height = 24;
             this.dgvEvents.Size = new System.Drawing.Size(658, 193);
             this.dgvEvents.TabIndex = 8;
+            this.dgvEvents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvents_CellContentClick);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(659, 238);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(70, 37);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Refresh";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // ManageClubsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.buttDeleteEvent);
             this.Controls.Add(this.buttEditEvent);
             this.Controls.Add(this.txtClubID);
@@ -120,5 +134,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvEvents;
+        private System.Windows.Forms.Button button3;
     }
 }

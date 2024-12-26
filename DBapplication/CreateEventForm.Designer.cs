@@ -58,6 +58,7 @@
             this.txtEventTitle.Name = "txtEventTitle";
             this.txtEventTitle.Size = new System.Drawing.Size(183, 22);
             this.txtEventTitle.TabIndex = 1;
+            this.txtEventTitle.TextChanged += new System.EventHandler(this.txtEventTitle_TextChanged);
             // 
             // txtEventDescription
             // 
@@ -66,6 +67,7 @@
             this.txtEventDescription.Name = "txtEventDescription";
             this.txtEventDescription.Size = new System.Drawing.Size(317, 74);
             this.txtEventDescription.TabIndex = 3;
+            this.txtEventDescription.TextChanged += new System.EventHandler(this.txtEventDescription_TextChanged);
             // 
             // label2
             // 
@@ -100,6 +102,7 @@
             this.StartdateTimePicker.Name = "StartdateTimePicker";
             this.StartdateTimePicker.Size = new System.Drawing.Size(226, 22);
             this.StartdateTimePicker.TabIndex = 6;
+            this.StartdateTimePicker.ValueChanged += new System.EventHandler(this.StartdateTimePicker_ValueChanged);
             // 
             // EnddateTimePicker2
             // 
@@ -107,6 +110,7 @@
             this.EnddateTimePicker2.Name = "EnddateTimePicker2";
             this.EnddateTimePicker2.Size = new System.Drawing.Size(226, 22);
             this.EnddateTimePicker2.TabIndex = 7;
+            this.EnddateTimePicker2.ValueChanged += new System.EventHandler(this.EnddateTimePicker2_ValueChanged);
             // 
             // label5
             // 
@@ -124,6 +128,7 @@
             this.comboBoxEventCat.Name = "comboBoxEventCat";
             this.comboBoxEventCat.Size = new System.Drawing.Size(176, 24);
             this.comboBoxEventCat.TabIndex = 9;
+            this.comboBoxEventCat.SelectedIndexChanged += new System.EventHandler(this.comboBoxEventCat_SelectedIndexChanged);
             // 
             // comboBoxLocation
             // 
@@ -132,6 +137,7 @@
             this.comboBoxLocation.Name = "comboBoxLocation";
             this.comboBoxLocation.Size = new System.Drawing.Size(176, 24);
             this.comboBoxLocation.TabIndex = 11;
+            this.comboBoxLocation.SelectedIndexChanged += new System.EventHandler(this.comboBoxLocation_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -150,6 +156,7 @@
             this.btnCreate.TabIndex = 13;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // CreateEventForm
             // 

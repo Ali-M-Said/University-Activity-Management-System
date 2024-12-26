@@ -13,23 +13,66 @@ namespace DBapplication
     public partial class ManageClubsForm : Form
     {
         Form prevForm;
-        public ManageClubsForm(Form pf)
+        int UserID;
+        ControllerAdmin controller = new ControllerAdmin();
+        public ManageClubsForm(Form pf, int userID)
         {
             prevForm = pf;
             InitializeComponent();
             this.FormClosed += (s, e) => prevForm.Show();
+            UserID = userID;
+            dgvEvents.DataSource = controller.Clubs();
         }
 
         private void buttEditEvent_Click(object sender, EventArgs e)
         {
-            EditClubForm EditClub = new EditClubForm(this, int.Parse(txtClubID.Text));
-            EditClub.Show();
-            this.Hide();
+            if (txtClubID.Text == "")
+            {
+                MessageBox.Show("Enter A Club ID", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!controller.DoesClubExist(Convert.ToInt32(txtClubID.Text)))
+            {
+                MessageBox.Show("Club does not exist.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                EditClubForm EditClub = new EditClubForm(this, int.Parse(txtClubID.Text));
+                EditClub.Show();
+                this.Hide();
+            }
         }
 
         private void txtEventID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvEvents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttDeleteEvent_Click(object sender, EventArgs e)
+        {
+            if (txtClubID.Text == "")
+            {
+                MessageBox.Show("Enter A Club ID", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!controller.DoesClubExist(Convert.ToInt32(txtClubID.Text)))
+            {
+                MessageBox.Show("Club does not exist.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                controller.DeleteClub(Convert.ToInt32(txtClubID.Text));
+                MessageBox.Show("User Deleted Successfully");
+                dgvEvents.DataSource = controller.Clubs();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dgvEvents.DataSource = controller.Clubs();
         }
     }
 }
