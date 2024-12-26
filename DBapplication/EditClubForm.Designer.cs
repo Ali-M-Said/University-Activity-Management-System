@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtSupervisor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.txtClubDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtClubTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // txtSupervisor
-            // 
-            this.txtSupervisor.Location = new System.Drawing.Point(186, 224);
-            this.txtSupervisor.Name = "txtSupervisor";
-            this.txtSupervisor.Size = new System.Drawing.Size(183, 22);
-            this.txtSupervisor.TabIndex = 38;
             // 
             // label3
             // 
@@ -61,6 +54,7 @@
             this.btnEdit.TabIndex = 36;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // txtClubDescription
             // 
@@ -95,12 +89,20 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Club Title";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(186, 224);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(183, 24);
+            this.comboBox1.TabIndex = 38;
+            // 
             // EditClubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 360);
-            this.Controls.Add(this.txtSupervisor);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtClubDescription);
@@ -109,19 +111,19 @@
             this.Controls.Add(this.label1);
             this.Name = "EditClubForm";
             this.Text = "EditClubForm";
+            this.Load += new System.EventHandler(this.EditClubForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtSupervisor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtClubDescription;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtClubTitle;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
