@@ -51,6 +51,7 @@
             this.btnSave.TabIndex = 27;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // comboBoxLocation
             // 
@@ -171,6 +172,7 @@
             this.Controls.Add(this.label1);
             this.Name = "EditEventForm";
             this.Text = "EditEventForm";
+            this.Load += new System.EventHandler(this.EditEventForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
