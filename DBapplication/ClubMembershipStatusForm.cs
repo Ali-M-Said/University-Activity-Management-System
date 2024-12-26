@@ -12,19 +12,43 @@ namespace DBapplication
 {
     public partial class ClubMembershipStatusForm : Form
     {
+        StudentController studentController=new  StudentController();
         public ClubMembershipStatusForm(Form parentForm)
         {
+            int userid = 1;
             InitializeComponent();
-
-            // Store the parent form
             Form ParentForm = parentForm;
-
-            // Hide the parent form when the sub-form opens
             ParentForm.Hide();
-
-            // Add event handler to show the parent form when the sub-form is closed
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
+            dgvClubMemberships.DataSource = studentController.GetMemberships(userid);
         }
 
+        private void btnLeaveClub_Click(object sender, EventArgs e)
+        {
+            int memId = Convert.ToInt32(tbMemId.Text);
+            try
+            {
+                bool success = studentController.LeaveClub(memId);
+                if (success)
+                {
+                    MessageBox.Show("Successfully Leaved the club!",
+                                  "Success",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("Membership ID Not Found!",
+                                  "Operation failed",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Leaving Club: " + ex.Message);
+            }
+        }
     }
 }

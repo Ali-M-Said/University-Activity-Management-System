@@ -12,10 +12,10 @@ namespace DBapplication
 {
     public partial class StudentDashboardForm : Form
     {
+        StudentController controller = new StudentController();
         public StudentDashboardForm()
         {
     
-            StudentController controller = new StudentController();
 
     
             InitializeComponent();
@@ -69,16 +69,25 @@ namespace DBapplication
             clubMembershipStatusForm.Show();
         }
 
-        private void btnViewPersonalSchedule_Click(object sender, EventArgs e)
-        {
-            PersonalScheduleForm personalScheduleForm = new PersonalScheduleForm(this);
-            personalScheduleForm.Show();
-        }
+       
 
         private void btnViewClubs_Click(object sender, EventArgs e)
         {
             AvailableClubsForm availableClubsForm = new AvailableClubsForm(this);
             availableClubsForm.Show();
+        }
+
+        private void btRefresh_Click(object sender, EventArgs e)
+        {
+            label1.Text = controller.ResCount(1).ToString();
+            label2.Text = controller.EventCount(1).ToString();
+            label3.Text = controller.ClubCount(1).ToString();
+        }
+
+        private void btRegEv_Click(object sender, EventArgs e)
+        {
+            RegisteredEventsForm registeredEventsForm=new RegisteredEventsForm(this);
+            registeredEventsForm.Show();
         }
     }
 }

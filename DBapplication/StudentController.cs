@@ -15,35 +15,47 @@ namespace DBapplication
         {
             dbMan = new DBManager();
         }
-         public int ResCount(int userid)
-        {
-            string query = $@"SELECT Count(*) FROM Reservation WHERE USERID = '{userid}'";
-            return Convert.ToInt32(dbMan.ExecuteScalar(query));
 
+        public int ResCount(int userid)
+        {
+            string query = $@"SELECT Count(*) FROM Reservation WHERE UserID = '{userid}'";
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
+
         public int EventCount(int userid)
         {
             string query = $@"SELECT COUNT(*) FROM Event e JOIN Attendance a ON e.EventID = a.EventID WHERE a.UserID = '{userid}' AND e.StartDate > GETDATE();";
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
-
         }
+
         public int ClubCount(int userid)
         {
-            string query = $@"SELECT COUNT(*) FROM Club_Membership cm WHERE cm.userid = '{userid}';";
+            string query = $@"SELECT COUNT(*) FROM Club_Membership cm WHERE cm.UserID = '{userid}';";
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
-
         }
+
         public DataTable GetAvailableSpacesForReservation()
         {
-         
             DataTable availableSpaces = new DataTable();
-            string query = @" SELECT LocationId, LocName, Capacity, LocType, StartTime, EndTime FROM Location "; 
-            availableSpaces=dbMan.ExecuteReader(query);
+            string query = @"
+        SELECT 
+            l.LocationID, 
+            l.LocName, 
+            l.Capacity, 
+            lt.LocationType AS LocType, 
+            l.StartTime, 
+            l.EndTime 
+        FROM 
+            Location l
+        INNER JOIN 
+            LocationTypes lt ON l.TypeID = lt.TypeID
+    ";
+            availableSpaces = dbMan.ExecuteReader(query);
             return availableSpaces;
         }
+
         public bool ReserveLocation(int userId, int locationId, string startTime, string endTime)
         {
-            // First check if the location is already reserved for this time period
             string checkQuery = $@"
         SELECT COUNT(*) 
         FROM Reservation 
@@ -60,12 +72,9 @@ namespace DBapplication
 
             if (existingReservations > 0)
             {
-                // Location is already reserved during this time
                 return false;
             }
 
-
-            // If not reserved, check location hours and make reservation
             string insertQuery = $@"
         INSERT INTO Reservation (UserID, LocationID, StartTime, EndTime)
         SELECT '{userId}', '{locationId}', '{startTime}', '{endTime}'
@@ -80,6 +89,27 @@ namespace DBapplication
             int rowsAffected = dbMan.ExecuteNonQuery(insertQuery);
             return rowsAffected > 0;
         }
+
+        public bool CancelReservation(int Resid)
+        {
+            string checkQuery = $@"
+        SELECT COUNT(*) 
+        FROM Reservation 
+        WHERE ReservationID = '{Resid}' ";
+
+            int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            if (existingRegistrations < 0)
+            {
+                return false;
+            }
+
+            string deleteQuery = $@" DELETE FROM Reservation WHERE ReservationID = '{Resid}';";
+
+            int rowsAffected = dbMan.ExecuteNonQuery(deleteQuery);
+            return rowsAffected > 0;
+        }
+
         public DataTable LoadAttendedEvents(int userId)
         {
             string query = $@"
@@ -91,23 +121,16 @@ namespace DBapplication
 
             DataTable dt = dbMan.ExecuteReader(query);
             return dt;
-            
         }
 
-        public bool ProvideFeedback(int userId,int eventId,int rating,string comment)
+        public bool ProvideFeedback(int userId, int eventId, int rating, string comment)
         {
-           
-
-           
             string query = $@"
         INSERT INTO Feedback (UserID, EventID, Ratings, Comments)
         VALUES ('{userId}', '{eventId}', '{rating}', '{comment}')
     ";
 
-            // Execute the query and check if a row was inserted
             int rowsAffected = dbMan.ExecuteNonQuery(query);
-
-            // Return true if the feedback was successfully inserted
             return rowsAffected > 0;
         }
 
@@ -129,10 +152,10 @@ namespace DBapplication
         ORDER BY r.ReservationID DESC;
     ";
 
-            // Assuming ExecuteReader executes the query and maps it to the DataTable
             reservationHistory = dbMan.ExecuteReader(query);
             return reservationHistory;
         }
+
         public DataTable GetUpcomingEvents()
         {
             DataTable upcomingEvents = new DataTable();
@@ -153,17 +176,73 @@ namespace DBapplication
         ORDER BY e.StartDate ASC;
     ";
 
-            // Assuming ExecuteReader executes the query and maps it to the DataTable
             upcomingEvents = dbMan.ExecuteReader(query);
             return upcomingEvents;
         }
+
         public bool RegisterStudentInEvent(int userID, int eventID)
+        {
+            string locationQuery = $@"
+    SELECT LocationID
+    FROM Event
+    WHERE EventID = {eventID}
+    ";
+
+            object locationResult = dbMan.ExecuteScalar(locationQuery);
+            if (locationResult == null)
+            {
+                return false;
+            }
+
+            int locationID = Convert.ToInt32(locationResult);
+
+            string checkQuery = $@"
+    SELECT COUNT(*) 
+    FROM RegisteredEvents 
+    WHERE UserID = {userID} 
+    AND EventID = {eventID}
+    ";
+
+            int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            if (existingRegistrations > 0)
+            {
+                // If the user is already registered for this event, return false
+                return false;
+            }
+
+            // Insert the registration into the RegisteredEvents table
+            string insertQuery = $@"
+    INSERT INTO RegisteredEvents (UserID, EventID, RegistrationDate)
+    VALUES ({userID}, {eventID}, '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}')
+    ";
+
+            int rowsAffected = dbMan.ExecuteNonQuery(insertQuery);
+
+            // Return true if the registration was successfully added
+            return rowsAffected > 0;
+        }
+
+
+        public DataTable GetAllClubs()
+        {
+            string query = @"
+        SELECT c.ClubID, c.Name, c.Description,
+               u.FName + ' ' + u.LName AS SupervisorName
+        FROM Club c
+        LEFT JOIN Users u ON c.SupervisorID = u.UserID
+        ORDER BY c.ClubID";
+
+            return dbMan.ExecuteReader(query);
+        }
+
+        public bool JoinClub(int userID, int clubID)
         {
             string checkQuery = $@"
         SELECT COUNT(*) 
-        FROM Attendance 
+        FROM Club_Membership 
         WHERE UserID = '{userID}' 
-        AND EventID = '{eventID}'";
+        AND ClubID = '{clubID}'";
 
             int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
 
@@ -172,19 +251,79 @@ namespace DBapplication
                 return false;
             }
 
-            string currentTime = DateTime.Now.ToString("HH:mm:ss");
-            string insertQuery = $@" INSERT INTO Attendance (UserID, EventID, CheckInTime, Status) VALUES ('{userID}', '{eventID}', '{currentTime}', 'Checked In')";
+            string currentTime = DateTime.Now.ToString("yyyy/MM/dd");
+            string insertQuery = $@" 
+            INSERT INTO Club_Membership (UserID, ClubID, JoinDate, Mem_Status) 
+            VALUES ('{userID}', '{clubID}', '{currentTime}', 'Pending')";
 
             int rowsAffected = dbMan.ExecuteNonQuery(insertQuery);
             return rowsAffected > 0;
         }
 
+        public bool LeaveClub(int memID)
+        {
+            string checkQuery = $@"
+        SELECT COUNT(*) 
+        FROM Club_Membership 
+        WHERE MembershipID = '{memID}' ";
 
+            int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            if (existingRegistrations < 0)
+            {
+                return false;
+            }
+
+            string deleteQuery = $@" DELETE FROM Club_Membership WHERE MembershipID = '{memID}';";
+
+            int rowsAffected = dbMan.ExecuteNonQuery(deleteQuery);
+            return rowsAffected > 0;
+        }
+
+        public DataTable GetMemberships(int userid)
+        {
+            string query = $@"Select * From Club_Membership c Where c.UserID='{userid}'";
+            DataTable dt = dbMan.ExecuteReader(query);
+            return dt;
+        }
+
+        public DataTable GetRegisteredEvents(int userid)
+        {
+            string query = $@"SELECT e.EventID,r.RegistrationID,e.Title,e.Description,e.StartDate,e.EndDate,e.CreatedBy,r.RegistrationDate,r.Status
+FROM Event e
+INNER JOIN RegisteredEvents r ON e.EventId = r.EventId
+WHERE r.UserId = '{userid}';";
+            DataTable dt = dbMan.ExecuteReader(query);
+            return dt;
+        }
+
+        public DataTable GetReservedLocations(int studentId)
+        {
+            string query = $@"
+    SELECT 
+        l.LocationID, 
+        l.LocName AS Location, 
+        r.StartTime AS ReservationStart, 
+        r.EndTime AS ReservationEnd
+    FROM 
+        Location l
+    INNER JOIN 
+        Reservation r ON r.LocationID = l.LocationID
+    WHERE 
+        r.UserID = {studentId} 
+        AND r.StartTime >= CAST(GETDATE() AS DATE) 
+    ORDER BY 
+        r.StartTime
+";
+
+            DataTable dt = dbMan.ExecuteReader(query);
+            return dt;
+
+        }
 
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
         }
-      
     }
 }

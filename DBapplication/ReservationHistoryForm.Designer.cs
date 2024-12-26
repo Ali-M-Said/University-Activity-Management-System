@@ -11,10 +11,9 @@ namespace DBapplication
         {
             this.lblReservationHistory = new System.Windows.Forms.Label();
             this.dgvReservationHistory = new System.Windows.Forms.DataGridView();
-            this.btnFilterByDate = new System.Windows.Forms.Button();
-            this.btnFilterByLocation = new System.Windows.Forms.Button();
-            this.dtpFilterDate = new System.Windows.Forms.DateTimePicker();
-            this.cmbFilterLocation = new System.Windows.Forms.ComboBox();
+            this.tbResID = new System.Windows.Forms.TextBox();
+            this.btCancelRes = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservationHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,47 +36,38 @@ namespace DBapplication
             this.dgvReservationHistory.Size = new System.Drawing.Size(540, 200);
             this.dgvReservationHistory.TabIndex = 1;
             // 
-            // btnFilterByDate
+            // tbResID
             // 
-            this.btnFilterByDate.Location = new System.Drawing.Point(20, 280);
-            this.btnFilterByDate.Name = "btnFilterByDate";
-            this.btnFilterByDate.Size = new System.Drawing.Size(200, 30);
-            this.btnFilterByDate.TabIndex = 2;
-            this.btnFilterByDate.Text = "Filter by Date";
-            this.btnFilterByDate.UseVisualStyleBackColor = true;
+            this.tbResID.Location = new System.Drawing.Point(91, 311);
+            this.tbResID.Name = "tbResID";
+            this.tbResID.Size = new System.Drawing.Size(145, 22);
+            this.tbResID.TabIndex = 2;
             // 
-            // btnFilterByLocation
+            // btCancelRes
             // 
-            this.btnFilterByLocation.Location = new System.Drawing.Point(280, 280);
-            this.btnFilterByLocation.Name = "btnFilterByLocation";
-            this.btnFilterByLocation.Size = new System.Drawing.Size(200, 30);
-            this.btnFilterByLocation.TabIndex = 3;
-            this.btnFilterByLocation.Text = "Filter by Location";
-            this.btnFilterByLocation.UseVisualStyleBackColor = true;
+            this.btCancelRes.Location = new System.Drawing.Point(317, 304);
+            this.btCancelRes.Name = "btCancelRes";
+            this.btCancelRes.Size = new System.Drawing.Size(148, 36);
+            this.btCancelRes.TabIndex = 3;
+            this.btCancelRes.Text = "Cancel Reservation";
+            this.btCancelRes.UseVisualStyleBackColor = true;
+            this.btCancelRes.Click += new System.EventHandler(this.btCancelRes_Click);
             // 
-            // dtpFilterDate
+            // label1
             // 
-            this.dtpFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFilterDate.Location = new System.Drawing.Point(20, 320);
-            this.dtpFilterDate.Name = "dtpFilterDate";
-            this.dtpFilterDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpFilterDate.TabIndex = 4;
-            // 
-            // cmbFilterLocation
-            // 
-            this.cmbFilterLocation.FormattingEnabled = true;
-            this.cmbFilterLocation.Location = new System.Drawing.Point(280, 320);
-            this.cmbFilterLocation.Name = "cmbFilterLocation";
-            this.cmbFilterLocation.Size = new System.Drawing.Size(200, 24);
-            this.cmbFilterLocation.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(88, 292);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Reservation ID";
             // 
             // ReservationHistoryForm
             // 
             this.ClientSize = new System.Drawing.Size(600, 400);
-            this.Controls.Add(this.cmbFilterLocation);
-            this.Controls.Add(this.dtpFilterDate);
-            this.Controls.Add(this.btnFilterByLocation);
-            this.Controls.Add(this.btnFilterByDate);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btCancelRes);
+            this.Controls.Add(this.tbResID);
             this.Controls.Add(this.dgvReservationHistory);
             this.Controls.Add(this.lblReservationHistory);
             this.Name = "ReservationHistoryForm";
@@ -91,9 +81,8 @@ namespace DBapplication
         // Declare controls as private members
         private Label lblReservationHistory;
         private DataGridView dgvReservationHistory;
-        private Button btnFilterByDate;
-        private Button btnFilterByLocation;
-        private DateTimePicker dtpFilterDate;
-        private ComboBox cmbFilterLocation;
+        private TextBox tbResID;
+        private Button btCancelRes;
+        private Label label1;
     }
 }
