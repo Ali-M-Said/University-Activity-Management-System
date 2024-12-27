@@ -12,18 +12,20 @@ namespace DBapplication
 {
     public partial class StudentDashboardForm : Form
     {
+        StudentController controller = new StudentController();
         public StudentDashboardForm()
         {
     
-            StudentController controller = new StudentController();
 
     
             InitializeComponent();
 
-           
+
             label1.Text = controller.ResCount(1).ToString();
             label2.Text = controller.EventCount(1).ToString();
-            label3.Text=controller.ClubCount(1).ToString(); 
+            label3.Text = controller.ClubCount(1).ToString();
+            label6.Text = controller.FeedbackCount(1).ToString();
+            label7.Text = controller.RegEventCount(1).ToString();
 
         }
 
@@ -57,7 +59,7 @@ namespace DBapplication
 
         private void btnProvideFeedback_Click(object sender, EventArgs e)
         {
-            EventFeedbackForm eventFeedbackForm = new EventFeedbackForm(this);
+            GiveFeedbackForm eventFeedbackForm = new GiveFeedbackForm(this);
             eventFeedbackForm.Show();
         }
 
@@ -69,16 +71,33 @@ namespace DBapplication
             clubMembershipStatusForm.Show();
         }
 
-        private void btnViewPersonalSchedule_Click(object sender, EventArgs e)
-        {
-            PersonalScheduleForm personalScheduleForm = new PersonalScheduleForm(this);
-            personalScheduleForm.Show();
-        }
+       
 
         private void btnViewClubs_Click(object sender, EventArgs e)
         {
             AvailableClubsForm availableClubsForm = new AvailableClubsForm(this);
             availableClubsForm.Show();
+        }
+
+        private void btRefresh_Click(object sender, EventArgs e)
+        {
+            label1.Text = controller.ResCount(1).ToString();
+            label2.Text = controller.EventCount(1).ToString();
+            label3.Text = controller.ClubCount(1).ToString();
+            label6.Text = controller.FeedbackCount(1).ToString();
+            label7.Text=controller.RegEventCount(1).ToString();
+        }
+
+        private void btRegEv_Click(object sender, EventArgs e)
+        {
+            RegisteredEventsForm registeredEventsForm=new RegisteredEventsForm(this);
+            registeredEventsForm.Show();
+        }
+
+        private void btViewFeed_Click(object sender, EventArgs e)
+        {
+            ViewFeedbackForm viewFeedbackForm = new ViewFeedbackForm(this);
+            viewFeedbackForm.Show();
         }
     }
 }

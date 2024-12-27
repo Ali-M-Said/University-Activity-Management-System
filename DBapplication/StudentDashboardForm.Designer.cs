@@ -17,16 +17,22 @@ namespace DBapplication
             this.btnViewAvailableSpaces = new System.Windows.Forms.Button();
             this.btnViewReservationHistory = new System.Windows.Forms.Button();
             this.grpEvents = new System.Windows.Forms.GroupBox();
+            this.btRegEv = new System.Windows.Forms.Button();
             this.btnViewUpcomingEvents = new System.Windows.Forms.Button();
             this.btnProvideFeedback = new System.Windows.Forms.Button();
             this.grpClubsAndSchedule = new System.Windows.Forms.GroupBox();
             this.btnViewClubs = new System.Windows.Forms.Button();
             this.btnViewClubMembershipStatus = new System.Windows.Forms.Button();
-            this.btnViewPersonalSchedule = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btRefresh = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btViewFeed = new System.Windows.Forms.Button();
             this.grpReservations.SuspendLayout();
             this.grpEvents.SuspendLayout();
             this.grpClubsAndSchedule.SuspendLayout();
@@ -77,48 +83,60 @@ namespace DBapplication
             // 
             this.btnViewAvailableSpaces.Location = new System.Drawing.Point(20, 30);
             this.btnViewAvailableSpaces.Name = "btnViewAvailableSpaces";
-            this.btnViewAvailableSpaces.Size = new System.Drawing.Size(200, 30);
+            this.btnViewAvailableSpaces.Size = new System.Drawing.Size(214, 51);
             this.btnViewAvailableSpaces.TabIndex = 0;
-            this.btnViewAvailableSpaces.Text = "View Available Spaces";
+            this.btnViewAvailableSpaces.Text = "View / Reserve Available Spaces";
             this.btnViewAvailableSpaces.UseVisualStyleBackColor = true;
             this.btnViewAvailableSpaces.Click += new System.EventHandler(this.btnViewAvailableSpaces_Click);
             // 
             // btnViewReservationHistory
             // 
-            this.btnViewReservationHistory.Location = new System.Drawing.Point(20, 70);
+            this.btnViewReservationHistory.Location = new System.Drawing.Point(20, 87);
             this.btnViewReservationHistory.Name = "btnViewReservationHistory";
-            this.btnViewReservationHistory.Size = new System.Drawing.Size(200, 30);
+            this.btnViewReservationHistory.Size = new System.Drawing.Size(214, 57);
             this.btnViewReservationHistory.TabIndex = 2;
-            this.btnViewReservationHistory.Text = "View Reservation History";
+            this.btnViewReservationHistory.Text = "View Reservation History / Cancel";
             this.btnViewReservationHistory.UseVisualStyleBackColor = true;
             this.btnViewReservationHistory.Click += new System.EventHandler(this.btnViewReservationHistory_Click);
             // 
             // grpEvents
             // 
+            this.grpEvents.Controls.Add(this.btViewFeed);
+            this.grpEvents.Controls.Add(this.btRegEv);
             this.grpEvents.Controls.Add(this.btnViewUpcomingEvents);
             this.grpEvents.Controls.Add(this.btnProvideFeedback);
-            this.grpEvents.Location = new System.Drawing.Point(280, 120);
+            this.grpEvents.Location = new System.Drawing.Point(286, 120);
             this.grpEvents.Name = "grpEvents";
-            this.grpEvents.Size = new System.Drawing.Size(250, 150);
+            this.grpEvents.Size = new System.Drawing.Size(244, 285);
             this.grpEvents.TabIndex = 4;
             this.grpEvents.TabStop = false;
             this.grpEvents.Text = "Events";
+            // 
+            // btRegEv
+            // 
+            this.btRegEv.Location = new System.Drawing.Point(20, 98);
+            this.btRegEv.Name = "btRegEv";
+            this.btRegEv.Size = new System.Drawing.Size(200, 52);
+            this.btRegEv.TabIndex = 3;
+            this.btRegEv.Text = "View Registered Events / Cancel";
+            this.btRegEv.UseVisualStyleBackColor = true;
+            this.btRegEv.Click += new System.EventHandler(this.btRegEv_Click);
             // 
             // btnViewUpcomingEvents
             // 
             this.btnViewUpcomingEvents.Location = new System.Drawing.Point(20, 30);
             this.btnViewUpcomingEvents.Name = "btnViewUpcomingEvents";
-            this.btnViewUpcomingEvents.Size = new System.Drawing.Size(200, 30);
+            this.btnViewUpcomingEvents.Size = new System.Drawing.Size(200, 51);
             this.btnViewUpcomingEvents.TabIndex = 0;
-            this.btnViewUpcomingEvents.Text = "View Upcoming Events";
+            this.btnViewUpcomingEvents.Text = "View Upcoming Events/ Register";
             this.btnViewUpcomingEvents.UseVisualStyleBackColor = true;
             this.btnViewUpcomingEvents.Click += new System.EventHandler(this.btnViewUpcomingEvents_Click);
             // 
             // btnProvideFeedback
             // 
-            this.btnProvideFeedback.Location = new System.Drawing.Point(20, 70);
+            this.btnProvideFeedback.Location = new System.Drawing.Point(20, 160);
             this.btnProvideFeedback.Name = "btnProvideFeedback";
-            this.btnProvideFeedback.Size = new System.Drawing.Size(200, 30);
+            this.btnProvideFeedback.Size = new System.Drawing.Size(200, 44);
             this.btnProvideFeedback.TabIndex = 2;
             this.btnProvideFeedback.Text = "Provide Feedback";
             this.btnProvideFeedback.UseVisualStyleBackColor = true;
@@ -128,10 +146,9 @@ namespace DBapplication
             // 
             this.grpClubsAndSchedule.Controls.Add(this.btnViewClubs);
             this.grpClubsAndSchedule.Controls.Add(this.btnViewClubMembershipStatus);
-            this.grpClubsAndSchedule.Controls.Add(this.btnViewPersonalSchedule);
             this.grpClubsAndSchedule.Location = new System.Drawing.Point(20, 280);
             this.grpClubsAndSchedule.Name = "grpClubsAndSchedule";
-            this.grpClubsAndSchedule.Size = new System.Drawing.Size(250, 150);
+            this.grpClubsAndSchedule.Size = new System.Drawing.Size(260, 164);
             this.grpClubsAndSchedule.TabIndex = 5;
             this.grpClubsAndSchedule.TabStop = false;
             this.grpClubsAndSchedule.Text = "Clubs and Schedule";
@@ -140,37 +157,27 @@ namespace DBapplication
             // 
             this.btnViewClubs.Location = new System.Drawing.Point(20, 30);
             this.btnViewClubs.Name = "btnViewClubs";
-            this.btnViewClubs.Size = new System.Drawing.Size(200, 30);
+            this.btnViewClubs.Size = new System.Drawing.Size(200, 47);
             this.btnViewClubs.TabIndex = 0;
-            this.btnViewClubs.Text = "View Available Clubs";
+            this.btnViewClubs.Text = "View / Join Available Clubs";
             this.btnViewClubs.UseVisualStyleBackColor = true;
             this.btnViewClubs.Click += new System.EventHandler(this.btnViewClubs_Click);
             // 
             // btnViewClubMembershipStatus
             // 
-            this.btnViewClubMembershipStatus.Location = new System.Drawing.Point(20, 70);
+            this.btnViewClubMembershipStatus.Location = new System.Drawing.Point(20, 94);
             this.btnViewClubMembershipStatus.Name = "btnViewClubMembershipStatus";
-            this.btnViewClubMembershipStatus.Size = new System.Drawing.Size(200, 30);
+            this.btnViewClubMembershipStatus.Size = new System.Drawing.Size(200, 49);
             this.btnViewClubMembershipStatus.TabIndex = 1;
-            this.btnViewClubMembershipStatus.Text = "View Club Membership Status";
+            this.btnViewClubMembershipStatus.Text = "View Club Membership Status / Leave Club\r\n";
             this.btnViewClubMembershipStatus.UseVisualStyleBackColor = true;
             this.btnViewClubMembershipStatus.Click += new System.EventHandler(this.btnViewClubMembershipStatus_Click);
             // 
-            // btnViewPersonalSchedule
-            // 
-            this.btnViewPersonalSchedule.Location = new System.Drawing.Point(20, 110);
-            this.btnViewPersonalSchedule.Name = "btnViewPersonalSchedule";
-            this.btnViewPersonalSchedule.Size = new System.Drawing.Size(200, 30);
-            this.btnViewPersonalSchedule.TabIndex = 2;
-            this.btnViewPersonalSchedule.Text = "View Personal Schedule";
-            this.btnViewPersonalSchedule.UseVisualStyleBackColor = true;
-            this.btnViewPersonalSchedule.Click += new System.EventHandler(this.btnViewPersonalSchedule_Click);
-            // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(20, 450);
+            this.btnLogout.Location = new System.Drawing.Point(348, 458);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(510, 30);
+            this.btnLogout.Size = new System.Drawing.Size(182, 30);
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -179,7 +186,7 @@ namespace DBapplication
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(186, 20);
+            this.label1.Location = new System.Drawing.Point(185, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 7;
@@ -202,9 +209,70 @@ namespace DBapplication
             this.label3.Size = new System.Drawing.Size(0, 16);
             this.label3.TabIndex = 7;
             // 
+            // btRefresh
+            // 
+            this.btRefresh.Location = new System.Drawing.Point(435, 80);
+            this.btRefresh.Name = "btRefresh";
+            this.btRefresh.Size = new System.Drawing.Size(95, 28);
+            this.btRefresh.TabIndex = 8;
+            this.btRefresh.Text = "Refresh";
+            this.btRefresh.UseVisualStyleBackColor = true;
+            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(211, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(196, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Total Registered Events";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(211, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 19);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Total Feedback Given:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(400, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 16);
+            this.label6.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(413, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 16);
+            this.label7.TabIndex = 9;
+            // 
+            // btViewFeed
+            // 
+            this.btViewFeed.Location = new System.Drawing.Point(20, 226);
+            this.btViewFeed.Name = "btViewFeed";
+            this.btViewFeed.Size = new System.Drawing.Size(200, 43);
+            this.btViewFeed.TabIndex = 4;
+            this.btViewFeed.Text = "View / Delete Feedback";
+            this.btViewFeed.UseVisualStyleBackColor = true;
+            this.btViewFeed.Click += new System.EventHandler(this.btViewFeed_Click);
+            // 
             // StudentDashboardForm
             // 
             this.ClientSize = new System.Drawing.Size(550, 500);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -213,7 +281,9 @@ namespace DBapplication
             this.Controls.Add(this.grpEvents);
             this.Controls.Add(this.grpReservations);
             this.Controls.Add(this.lblClubMemberships);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblUpcomingEvents);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblTotalReservations);
             this.Name = "StudentDashboardForm";
             this.Text = "Dashboard";
@@ -238,10 +308,16 @@ namespace DBapplication
         private GroupBox grpClubsAndSchedule;
         private Button btnViewClubs;
         private Button btnViewClubMembershipStatus;
-        private Button btnViewPersonalSchedule;
         private Button btnLogout;
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button btRefresh;
+        private Button btRegEv;
+        private Label label5;
+        private Label label4;
+        private Label label6;
+        private Label label7;
+        private Button btViewFeed;
     }
 }

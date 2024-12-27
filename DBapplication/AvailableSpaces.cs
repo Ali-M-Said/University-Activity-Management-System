@@ -20,11 +20,7 @@ namespace DBapplication
             dgvAvailableSpaces.Rows.Clear();
             dgvAvailableSpaces.DataSource = dt;
             Form ParentForm = parentForm;
-
-            // Hide the parent form when the sub-form opens
             ParentForm.Hide();
-
-            // Add event handler to show the parent form when the sub-form is closed
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
         }
 

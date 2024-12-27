@@ -9,9 +9,9 @@ namespace DBapplication
         {
             this.lblClubMembershipStatus = new System.Windows.Forms.Label();
             this.dgvClubMemberships = new System.Windows.Forms.DataGridView();
-            this.ClubName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JoinDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MemStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbMemId = new System.Windows.Forms.TextBox();
+            this.btnLeaveClub = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubMemberships)).BeginInit();
             this.SuspendLayout();
             // 
@@ -21,7 +21,7 @@ namespace DBapplication
             this.lblClubMembershipStatus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblClubMembershipStatus.Location = new System.Drawing.Point(20, 20);
             this.lblClubMembershipStatus.Name = "lblClubMembershipStatus";
-            this.lblClubMembershipStatus.Size = new System.Drawing.Size(232, 24);
+            this.lblClubMembershipStatus.Size = new System.Drawing.Size(264, 24);
             this.lblClubMembershipStatus.TabIndex = 0;
             this.lblClubMembershipStatus.Text = "Current Club Memberships";
             // 
@@ -30,10 +30,6 @@ namespace DBapplication
             this.dgvClubMemberships.AllowUserToAddRows = false;
             this.dgvClubMemberships.AllowUserToDeleteRows = false;
             this.dgvClubMemberships.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClubMemberships.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ClubName,
-            this.JoinDate,
-            this.MemStatus});
             this.dgvClubMemberships.Location = new System.Drawing.Point(20, 60);
             this.dgvClubMemberships.Name = "dgvClubMemberships";
             this.dgvClubMemberships.ReadOnly = true;
@@ -42,33 +38,38 @@ namespace DBapplication
             this.dgvClubMemberships.Size = new System.Drawing.Size(540, 300);
             this.dgvClubMemberships.TabIndex = 1;
             // 
-            // ClubName
+            // label1
             // 
-            this.ClubName.HeaderText = "Club Name";
-            this.ClubName.MinimumWidth = 6;
-            this.ClubName.Name = "ClubName";
-            this.ClubName.ReadOnly = true;
-            this.ClubName.Width = 150;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(692, 204);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Membership ID";
             // 
-            // JoinDate
+            // tbMemId
             // 
-            this.JoinDate.HeaderText = "Join Date";
-            this.JoinDate.MinimumWidth = 6;
-            this.JoinDate.Name = "JoinDate";
-            this.JoinDate.ReadOnly = true;
-            this.JoinDate.Width = 150;
+            this.tbMemId.Location = new System.Drawing.Point(695, 223);
+            this.tbMemId.Name = "tbMemId";
+            this.tbMemId.Size = new System.Drawing.Size(100, 22);
+            this.tbMemId.TabIndex = 3;
             // 
-            // MemStatus
+            // btnLeaveClub
             // 
-            this.MemStatus.HeaderText = "Membership Status";
-            this.MemStatus.MinimumWidth = 6;
-            this.MemStatus.Name = "MemStatus";
-            this.MemStatus.ReadOnly = true;
-            this.MemStatus.Width = 200;
+            this.btnLeaveClub.Location = new System.Drawing.Point(695, 251);
+            this.btnLeaveClub.Name = "btnLeaveClub";
+            this.btnLeaveClub.Size = new System.Drawing.Size(155, 38);
+            this.btnLeaveClub.TabIndex = 4;
+            this.btnLeaveClub.Text = "Leave Club";
+            this.btnLeaveClub.UseVisualStyleBackColor = true;
+            this.btnLeaveClub.Click += new System.EventHandler(this.btnLeaveClub_Click);
             // 
             // ClubMembershipStatusForm
             // 
-            this.ClientSize = new System.Drawing.Size(600, 400);
+            this.ClientSize = new System.Drawing.Size(931, 394);
+            this.Controls.Add(this.btnLeaveClub);
+            this.Controls.Add(this.tbMemId);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvClubMemberships);
             this.Controls.Add(this.lblClubMembershipStatus);
             this.Name = "ClubMembershipStatusForm";
@@ -76,13 +77,14 @@ namespace DBapplication
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubMemberships)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         // Declare controls as private members
         private Label lblClubMembershipStatus;
         private DataGridView dgvClubMemberships;
-        private DataGridViewTextBoxColumn ClubName;
-        private DataGridViewTextBoxColumn JoinDate;
-        private DataGridViewTextBoxColumn MemStatus;
+        private Label label1;
+        private TextBox tbMemId;
+        private Button btnLeaveClub;
     }
 }
