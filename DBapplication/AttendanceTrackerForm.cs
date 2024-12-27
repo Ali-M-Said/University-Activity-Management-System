@@ -23,7 +23,7 @@ namespace DBapplication
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
 
             facultyController = new FacultyMemberControler(); // Initialize the controller
-            facultyController.PopulateEventNames(cbEventFilter);
+            facultyController.PopulateEventNames(cbEventFilter,UserID);
             btnExport.Visible = false;
             label2.Visible = false;
             textBox1.Visible = false;

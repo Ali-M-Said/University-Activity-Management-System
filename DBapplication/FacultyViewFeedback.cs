@@ -1,21 +1,34 @@
 ﻿using System;
 using System.Data;
+using System.Reflection.Emit;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DBapplication
 {
     public partial class FacultyViewFeedback : Form
     {
         private FacultyMemberControler facultyController; // Declare the controller
-
-        public FacultyViewFeedback(Form parentForm)
+        private Controller c = new Controller();
+        int userId;
+        public FacultyViewFeedback(Form parentForm,int uid)
         {
+            userId= uid;
             InitializeComponent(); // Initialize the form's components
             facultyController = new FacultyMemberControler(); // Initialize the controller
-            facultyController.PopulateEventNames(cbEventFilter);
+            facultyController.PopulateEventNames(cbEventFilter,userId);
             string selectedEventName = cbEventFilter.SelectedItem.ToString();
             DataTable feedbacks = facultyController.GetFeedBacks(selectedEventName);
             dgvFeedback.DataSource = feedbacks;
+            btnExportFeedback.Visible = false;
+            label1.Visible = false;
+            txtResponse.Visible = false;
+            if (c.GetType(userId) == "Admin")
+            {
+                btnExportFeedback.Visible = true;
+                label1.Visible = true;
+                txtResponse.Visible = true;
+            }
         }
 
      
@@ -57,6 +70,16 @@ namespace DBapplication
                     MessageBox.Show("Please select a feedback to delete.");
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResponse_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
