@@ -44,7 +44,7 @@ namespace DBapplication
             // cbEventFilter
             // 
             this.cbEventFilter.FormattingEnabled = true;
-            this.cbEventFilter.Location = new System.Drawing.Point(20, 60);
+            this.cbEventFilter.Location = new System.Drawing.Point(127, 65);
             this.cbEventFilter.Name = "cbEventFilter";
             this.cbEventFilter.Size = new System.Drawing.Size(200, 24);
             this.cbEventFilter.TabIndex = 1;
@@ -81,7 +81,7 @@ namespace DBapplication
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(272, 63);
+            this.label1.Location = new System.Drawing.Point(22, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 8;

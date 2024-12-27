@@ -70,6 +70,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.pnlQuickStats.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -95,13 +96,13 @@
             this.pnlQuickStats.Controls.Add(this.lblOverview);
             this.pnlQuickStats.Location = new System.Drawing.Point(18, 24);
             this.pnlQuickStats.Name = "pnlQuickStats";
-            this.pnlQuickStats.Size = new System.Drawing.Size(699, 137);
+            this.pnlQuickStats.Size = new System.Drawing.Size(766, 137);
             this.pnlQuickStats.TabIndex = 1;
             this.pnlQuickStats.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlQuickStats_Paint);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(603, 97);
+            this.button3.Location = new System.Drawing.Point(681, 97);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(82, 37);
             this.button3.TabIndex = 6;
@@ -257,6 +258,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.button1);
@@ -277,12 +279,12 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(18, 178);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(880, 277);
+            this.panel1.Size = new System.Drawing.Size(968, 277);
             this.panel1.TabIndex = 4;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(603, 230);
+            this.button2.Location = new System.Drawing.Point(760, 230);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(163, 36);
             this.button2.TabIndex = 17;
@@ -292,7 +294,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(573, 197);
+            this.label14.Location = new System.Drawing.Point(713, 197);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(137, 16);
             this.label14.TabIndex = 16;
@@ -306,6 +308,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "Manage Feedback";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label13
             // 
@@ -318,12 +321,13 @@
             // 
             // buttGenerateReports
             // 
-            this.buttGenerateReports.Location = new System.Drawing.Point(351, 230);
+            this.buttGenerateReports.Location = new System.Drawing.Point(323, 230);
             this.buttGenerateReports.Name = "buttGenerateReports";
             this.buttGenerateReports.Size = new System.Drawing.Size(163, 36);
             this.buttGenerateReports.TabIndex = 13;
-            this.buttGenerateReports.Text = "Manage Attendance";
+            this.buttGenerateReports.Text = "Add Attendance";
             this.buttGenerateReports.UseVisualStyleBackColor = true;
+            this.buttGenerateReports.Click += new System.EventHandler(this.buttGenerateReports_Click);
             // 
             // label12
             // 
@@ -452,7 +456,7 @@
             // 
             // ButtLogout
             // 
-            this.ButtLogout.Location = new System.Drawing.Point(762, 461);
+            this.ButtLogout.Location = new System.Drawing.Point(865, 477);
             this.ButtLogout.Name = "ButtLogout";
             this.ButtLogout.Size = new System.Drawing.Size(144, 39);
             this.ButtLogout.TabIndex = 5;
@@ -465,10 +469,11 @@
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button4);
-            this.panel2.Location = new System.Drawing.Point(730, 24);
+            this.panel2.Location = new System.Drawing.Point(819, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(167, 134);
             this.panel2.TabIndex = 6;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label15
             // 
@@ -499,11 +504,21 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(511, 230);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(163, 36);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Manage Attendance";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // AdminDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 520);
+            this.ClientSize = new System.Drawing.Size(1021, 558);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ButtLogout);
             this.Controls.Add(this.panel1);
@@ -565,5 +580,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
     }
 }

@@ -30,7 +30,45 @@ namespace DBapplication
 
             return pendingMemberships;
         }
-        public DataTable GetFeedBacks(string EventName)
+        public int GetUpcomingEventCount(int userId)
+        {
+            // SQL query to count upcoming events for clubs where the supervisor is the given user
+            string query = $@"
+    SELECT COUNT(*) 
+    FROM Event e
+    INNER JOIN Club c ON e.CreatedBy = c.SupervisorID
+    WHERE c.SupervisorID = {userId} AND e.StartDate > GETDATE();
+";
+
+            // Execute the query and return the result as a count
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
+        public int GetTotalEventCount(int userId)
+        {
+            // SQL query to count total events created by clubs where the supervisor is the given user
+            string query = $@"
+        SELECT COUNT(*) 
+        FROM Event e
+        INNER JOIN Club c ON e.CreatedBy = c.SupervisorID
+        WHERE c.SupervisorID = {userId};
+    ";
+
+            // Execute the query and return the result as a count
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
+        public int PendingCount(int userid)
+        {
+            string query = $@"
+SELECT COUNT(*) 
+FROM Club_Membership cm
+INNER JOIN Club c ON cm.ClubID = c.ClubID
+WHERE cm.Mem_Status = 'Pending'
+AND c.SupervisorID = {userid};";
+
+            // Execute the query and return the result
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
+        public DataTable GetFeedBacks(int id)
         {
        
                 DataTable feedbacks = new DataTable();
@@ -44,7 +82,7 @@ namespace DBapplication
         FROM Feedback f
         INNER JOIN Event e ON f.EventID = e.EventID
         INNER JOIN Users u ON f.UserID = u.UserID
-        WHERE e.Title = '{EventName}'
+        WHERE e.EventID = '{id}'
         ORDER BY f.FeedbackID DESC;
     ";
 
@@ -84,49 +122,80 @@ namespace DBapplication
             // Return true if the attendance was successfully recorded
             return rowsAffected > 0;
         }
-        public void PopulateEventNames(ComboBox comboBox,int uid)
+        public DataTable GetEventData(int uid, string userType)
         {
-            // SQL query to get all event names
-            string query = $@"SELECT Title FROM Event Where Createdby='{uid}'";
+            string query = "";
+
+            // Determine the SQL query based on the user type
+            switch (userType)
+            {
+                case "Admin":
+                    // Admin: Get all events
+                    query = @"SELECT EventID, Title FROM Event";
+                    break;
+
+                case "Faculty Member":
+                    // Faculty: Get events created by this faculty member
+                    query = $@"SELECT EventID, Title FROM Event WHERE CreatedBy = {uid}";
+                    break;
+
+                case "Student":
+                    // Student: Get events attended by this student
+                    query = $@"SELECT e.EventID, e.Title 
+                       FROM Event e 
+                       INNER JOIN Attendance a ON e.EventID = a.EventID 
+                       WHERE a.StudentID = {uid}";
+                    break;
+
+                default:
+                    throw new ArgumentException("Invalid user type provided.");
+            }
 
             try
             {
-                // Execute the query and get the data in a DataTable
-                DataTable events = dbMan.ExecuteReader(query);
-
-                // Clear existing items in the ComboBox
-                comboBox.Items.Clear();
-
-                // Loop through the DataTable and add event names to the ComboBox
-                foreach (DataRow row in events.Rows)
-                {
-                    string eventName = row["Title"].ToString();
-                    comboBox.Items.Add(eventName);
-                }
-
-                // Optionally, you can set the first item as the default selected item
-                if (comboBox.Items.Count > 0)
-                {
-                    comboBox.SelectedIndex = 0;
-                }
+                // Execute the query and return the resulting DataTable
+                return dbMan.ExecuteReader(query);
             }
             catch (Exception ex)
             {
                 // Handle any errors that might occur
-                MessageBox.Show("Error: " + ex.Message);
+                throw new Exception("Error retrieving event data: " + ex.Message);
             }
         }
-        public void DeleteFeedBack(int FeedBackId)
+        public bool DeleteFeedback(int feedbackId)
         {
-            string query = $@"DELETE FROM FeedBack WHERE FeedbackID = {FeedBackId}";
-            dbMan.ExecuteNonQuery(query);
+            // Check if the feedback with the given FeedbackID exists
+            string checkQuery = $@"
+ SELECT COUNT(*) 
+ FROM Feedback
+ WHERE FeedbackID = {feedbackId}";
+
+            // Execute the query to check if the FeedbackID exists
+            int count = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            // If the FeedbackID exists, proceed with the deletion
+            if (count > 0)
+            {
+                string deleteQuery = $@"
+     DELETE FROM Feedback
+     WHERE FeedbackID = {feedbackId}";
+
+                // Execute the delete query and check if the deletion was successful
+                int rowsAffected = dbMan.ExecuteNonQuery(deleteQuery);
+                return rowsAffected > 0; // Return true if at least one row was affected
+            }
+            else
+            {
+                // If the FeedbackID doesn't exist, return false
+                return false;
+            }
         }
-        public int GetEventIDByName(string eventName)
+        public int GetEventIDByName(int id)
         {
             string query = $@"
         SELECT EventID
         FROM Event
-        WHERE Title = '{eventName}'
+        WHERE EventID = '{id}'
     ";
 
             // Execute the query and retrieve the first result (EventID) directly
@@ -142,7 +211,7 @@ namespace DBapplication
             return -1;
 
         }
-        public DataTable TrackAttendance(string EventName)
+        public DataTable TrackAttendance(int id)
         {
 
             DataTable Attendance = new DataTable();
@@ -156,7 +225,7 @@ namespace DBapplication
         FROM Attendance a
         INNER JOIN Event e ON a.EventID = e.EventID
         INNER JOIN Users u ON a.UserID = u.UserID
-        WHERE e.Title = '{EventName}'
+        WHERE e.EventID = '{id}'
         ORDER BY a.AttendanceID DESC;
     ";
 
@@ -201,11 +270,6 @@ namespace DBapplication
             // Execute the query and check if the update was successful
             int rowsAffected = dbMan.ExecuteNonQuery(query);
             return rowsAffected > 0; // Return true if at least one row was affected
-        }
-        public int PendingCount()
-        {
-            string query = $@"SELECT COUNT(*) FROM Club_MemberShip c WHERE c.mem_status = 'Pending'";
-            return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
         public void DeleteAttendance(int AttendanceID)
         {

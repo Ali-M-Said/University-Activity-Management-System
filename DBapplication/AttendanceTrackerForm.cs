@@ -6,33 +6,39 @@ namespace DBapplication
 {
     public partial class AttendanceTrackerForm : Form
     {
-        private FacultyMemberControler facultyController;
+        private FacultyMemberControler facultyController = new FacultyMemberControler();
         private Controller c = new Controller();
+        Form prevForm;
         int UserID;
-        public AttendanceTrackerForm(Form parentForm,int id)
+        string userType;
+        public AttendanceTrackerForm(Form pf, int id)
         {
-            InitializeComponent();
             UserID = id;
-           
-            Form ParentForm = parentForm;
+            prevForm = pf;
+            InitializeComponent();
 
-          
-            ParentForm.Hide();
+            this.FormClosed += (s, e) => prevForm.Show();            
 
-            
-            this.FormClosed += (sender, e) => { ParentForm.Show(); };
-
-            facultyController = new FacultyMemberControler(); // Initialize the controller
-            facultyController.PopulateEventNames(cbEventFilter,UserID);
             btnExport.Visible = false;
             label2.Visible = false;
             textBox1.Visible = false;
             if (c.GetType(UserID) == "Admin")
             {
+                userType = "Admin";
                 btnExport.Visible = true;
                 label2.Visible = true;
                 textBox1.Visible = true;
+            }else if(c.GetType(UserID) == "Faculty Member")
+            {
+                userType = "Faculty Member";
+            }else if(userType =="Student")
+            {
+                userType = "Student";
             }
+            cbEventFilter.DisplayMember = "Title";
+            cbEventFilter.ValueMember = "EventID";
+            cbEventFilter.DataSource = facultyController.GetEventData(UserID, userType);
+            dgvEventDetails.DataSource = facultyController.TrackAttendance(Convert.ToInt32(cbEventFilter.SelectedValue));
         }
 
         private void dgvEventDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -42,9 +48,7 @@ namespace DBapplication
 
         private void cbEventFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedEventName = cbEventFilter.SelectedItem.ToString();
-            DataTable Attendance = facultyController.TrackAttendance(selectedEventName);
-            dgvEventDetails.DataSource = Attendance;
+            dgvEventDetails.DataSource = facultyController.TrackAttendance(Convert.ToInt32(cbEventFilter.SelectedValue));
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -62,9 +66,7 @@ namespace DBapplication
 
                 // Optionally, display a message to confirm deletion
                 MessageBox.Show("Attendance is  deleted successfully.");
-                string selectedEventName = cbEventFilter.SelectedItem.ToString();
-                DataTable Attendance = facultyController.TrackAttendance(selectedEventName);
-                dgvEventDetails.DataSource = Attendance;
+                dgvEventDetails.DataSource = facultyController.TrackAttendance(Convert.ToInt32(cbEventFilter.SelectedValue));
             }
             else
             {

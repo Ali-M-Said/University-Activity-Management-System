@@ -29,6 +29,8 @@ namespace DBapplication
             this.button4 = new System.Windows.Forms.Button();
             this.btRefresh = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.grpEventManagement.SuspendLayout();
             this.grpClubManagement.SuspendLayout();
             this.grpReporting.SuspendLayout();
@@ -230,16 +232,38 @@ namespace DBapplication
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(314, 108);
+            this.label1.Location = new System.Drawing.Point(330, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(184, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "label2";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(143, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "label3";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // FacultyMemberDashboardForm
             // 
             this.ClientSize = new System.Drawing.Size(577, 500);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.panel2);
@@ -284,5 +308,7 @@ namespace DBapplication
         private Button button4;
         private Button btRefresh;
         private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }

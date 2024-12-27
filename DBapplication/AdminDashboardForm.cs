@@ -133,5 +133,31 @@ namespace DBapplication
             cpass.Show();
             this.Hide();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FacultyViewFeedback FviewFeedback = new FacultyViewFeedback(this, UserID);
+            FviewFeedback.Show();
+            this.Hide();
+        }
+
+        private void buttGenerateReports_Click(object sender, EventArgs e)
+        {
+            Taking_Attendance AddAtt = new Taking_Attendance(this, UserID);
+            AddAtt.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AttendanceTrackerForm TrackAtt = new AttendanceTrackerForm(this, UserID);
+            TrackAtt.Show();
+            this.Hide();
+        }
     }
 }

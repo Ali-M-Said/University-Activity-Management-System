@@ -111,6 +111,7 @@ namespace DBapplication
             this.Controls.Add(this.lblTitle);
             this.Name = "FacultyViewFeedback";
             this.Text = "Event Feedback Form";
+            this.Load += new System.EventHandler(this.FacultyViewFeedback_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFeedback)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

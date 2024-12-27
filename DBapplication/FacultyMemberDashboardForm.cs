@@ -20,7 +20,10 @@ namespace DBapplication
             Login Log = new Login();
             this.FormClosed += (s, e) => Log.Show();
             UserID = userID;
-            label1.Text = memberControler.PendingCount().ToString();
+            label1.Text = memberControler.PendingCount(UserID).ToString();
+            label2.Text = memberControler.GetUpcomingEventCount(UserID).ToString();
+            label3.Text = memberControler.GetTotalEventCount(UserID).ToString();
+
         }
 
         private void FacultyDashboardForm_Load(object sender, EventArgs e)
@@ -104,10 +107,22 @@ namespace DBapplication
 
         private void btRefresh_Click(object sender, EventArgs e)
         {
-            label1.Text = memberControler.PendingCount().ToString();
+            label1.Text = memberControler.PendingCount(UserID).ToString();
+            label2.Text = memberControler.GetUpcomingEventCount(UserID).ToString();
+            label3.Text = memberControler.GetTotalEventCount(UserID).ToString();
         }
 
         private void FacultyMemberDashboardForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

@@ -12,15 +12,34 @@ namespace DBapplication
 {
     public partial class Taking_Attendance : Form
     {
-        private FacultyMemberControler facultyController;
+        private FacultyMemberControler facultyController = new FacultyMemberControler();
+        private Controller c = new Controller();
+        Form prevForm;
         int userid;
-        public Taking_Attendance(Form parentform,int usid)
+        string UserType;
+        public Taking_Attendance(Form pf, int usid)
         {
-            facultyController = new FacultyMemberControler(); // Initialize the controller
             userid=usid;
-            facultyController = new FacultyMemberControler(); 
+            prevForm = pf;
             InitializeComponent();
-            facultyController.PopulateEventNames(eventnamebox,userid);
+
+            this.FormClosed += (s, e) => prevForm.Show();
+
+            if (c.GetType(userid) == "Admin")
+            {
+                UserType = "Admin";
+            }
+            else if (c.GetType(userid) == "Faculty Member")
+            {
+                UserType = "Faculty Member";
+            }
+            else if (UserType == "Student")
+            {
+                UserType = "Student";
+            }
+            eventnamebox.DisplayMember = "Title";
+            eventnamebox.ValueMember = "EventID";
+            eventnamebox.DataSource = facultyController.GetEventData(userid, UserType);
         }
 
         private void eventnamebox_SelectedIndexChanged(object sender, EventArgs e)
@@ -30,12 +49,10 @@ namespace DBapplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FacultyMemberControler controller = new FacultyMemberControler();
             int studentId;
             if (int.TryParse(studentidbox.Text, out studentId))
             {
-                string eventName = eventnamebox.SelectedItem.ToString();
-                int eventId = controller.GetEventIDByName(eventName);
+                int eventId = facultyController.GetEventIDByName(Convert.ToInt32(eventnamebox.SelectedValue));
 
                 if (eventId != -1)
                 {
@@ -46,7 +63,7 @@ namespace DBapplication
                     if (DateTime.TryParse(checkInTime, out parsedTime))
                     {
 
-                        bool isSuccess = controller.RecordAttendance(studentId, eventId, checkInTime);
+                        bool isSuccess = facultyController.RecordAttendance(studentId, eventId, checkInTime);
 
                         if (isSuccess)
                         {
