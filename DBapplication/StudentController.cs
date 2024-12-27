@@ -166,7 +166,7 @@ namespace DBapplication
         public DataTable LoadAttendedEvents(int userId)
         {
             string query = $@"
-        SELECT e.EventID, e.Title 
+        SELECT DISTINCT e.EventID, e.Title 
         FROM Event e
         INNER JOIN Attendance a ON e.EventID = a.EventID
         WHERE a.UserID = {userId}

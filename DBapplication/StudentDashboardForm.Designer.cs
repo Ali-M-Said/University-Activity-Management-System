@@ -17,6 +17,7 @@ namespace DBapplication
             this.btnViewAvailableSpaces = new System.Windows.Forms.Button();
             this.btnViewReservationHistory = new System.Windows.Forms.Button();
             this.grpEvents = new System.Windows.Forms.GroupBox();
+            this.btViewFeed = new System.Windows.Forms.Button();
             this.btRegEv = new System.Windows.Forms.Button();
             this.btnViewUpcomingEvents = new System.Windows.Forms.Button();
             this.btnProvideFeedback = new System.Windows.Forms.Button();
@@ -32,7 +33,8 @@ namespace DBapplication
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btViewFeed = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.grpReservations.SuspendLayout();
             this.grpEvents.SuspendLayout();
             this.grpClubsAndSchedule.SuspendLayout();
@@ -62,17 +64,17 @@ namespace DBapplication
             // 
             this.lblClubMemberships.AutoSize = true;
             this.lblClubMemberships.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.lblClubMemberships.Location = new System.Drawing.Point(20, 80);
+            this.lblClubMemberships.Location = new System.Drawing.Point(253, 52);
             this.lblClubMemberships.Name = "lblClubMemberships";
-            this.lblClubMemberships.Size = new System.Drawing.Size(165, 19);
+            this.lblClubMemberships.Size = new System.Drawing.Size(234, 19);
             this.lblClubMemberships.TabIndex = 2;
-            this.lblClubMemberships.Text = "Club Memberships: ";
+            this.lblClubMemberships.Text = "Pending Club Memberships: ";
             // 
             // grpReservations
             // 
             this.grpReservations.Controls.Add(this.btnViewAvailableSpaces);
             this.grpReservations.Controls.Add(this.btnViewReservationHistory);
-            this.grpReservations.Location = new System.Drawing.Point(20, 120);
+            this.grpReservations.Location = new System.Drawing.Point(20, 157);
             this.grpReservations.Name = "grpReservations";
             this.grpReservations.Size = new System.Drawing.Size(250, 150);
             this.grpReservations.TabIndex = 3;
@@ -105,12 +107,22 @@ namespace DBapplication
             this.grpEvents.Controls.Add(this.btRegEv);
             this.grpEvents.Controls.Add(this.btnViewUpcomingEvents);
             this.grpEvents.Controls.Add(this.btnProvideFeedback);
-            this.grpEvents.Location = new System.Drawing.Point(286, 120);
+            this.grpEvents.Location = new System.Drawing.Point(286, 167);
             this.grpEvents.Name = "grpEvents";
             this.grpEvents.Size = new System.Drawing.Size(244, 285);
             this.grpEvents.TabIndex = 4;
             this.grpEvents.TabStop = false;
             this.grpEvents.Text = "Events";
+            // 
+            // btViewFeed
+            // 
+            this.btViewFeed.Location = new System.Drawing.Point(20, 226);
+            this.btViewFeed.Name = "btViewFeed";
+            this.btViewFeed.Size = new System.Drawing.Size(200, 43);
+            this.btViewFeed.TabIndex = 4;
+            this.btViewFeed.Text = "View / Delete Feedback";
+            this.btViewFeed.UseVisualStyleBackColor = true;
+            this.btViewFeed.Click += new System.EventHandler(this.btViewFeed_Click);
             // 
             // btRegEv
             // 
@@ -146,7 +158,7 @@ namespace DBapplication
             // 
             this.grpClubsAndSchedule.Controls.Add(this.btnViewClubs);
             this.grpClubsAndSchedule.Controls.Add(this.btnViewClubMembershipStatus);
-            this.grpClubsAndSchedule.Location = new System.Drawing.Point(20, 280);
+            this.grpClubsAndSchedule.Location = new System.Drawing.Point(20, 313);
             this.grpClubsAndSchedule.Name = "grpClubsAndSchedule";
             this.grpClubsAndSchedule.Size = new System.Drawing.Size(260, 164);
             this.grpClubsAndSchedule.TabIndex = 5;
@@ -211,7 +223,7 @@ namespace DBapplication
             // 
             // btRefresh
             // 
-            this.btRefresh.Location = new System.Drawing.Point(435, 80);
+            this.btRefresh.Location = new System.Drawing.Point(443, 133);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(95, 28);
             this.btRefresh.TabIndex = 8;
@@ -223,17 +235,17 @@ namespace DBapplication
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(211, 20);
+            this.label5.Location = new System.Drawing.Point(20, 80);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 19);
+            this.label5.Size = new System.Drawing.Size(202, 19);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Total Registered Events";
+            this.label5.Text = "Total Registered Events:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(211, 50);
+            this.label4.Location = new System.Drawing.Point(20, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(183, 19);
             this.label4.TabIndex = 1;
@@ -257,15 +269,26 @@ namespace DBapplication
             this.label7.Size = new System.Drawing.Size(0, 16);
             this.label7.TabIndex = 9;
             // 
-            // btViewFeed
+            // label8
             // 
-            this.btViewFeed.Location = new System.Drawing.Point(20, 226);
-            this.btViewFeed.Name = "btViewFeed";
-            this.btViewFeed.Size = new System.Drawing.Size(200, 43);
-            this.btViewFeed.TabIndex = 4;
-            this.btViewFeed.Text = "View / Delete Feedback";
-            this.btViewFeed.UseVisualStyleBackColor = true;
-            this.btViewFeed.Click += new System.EventHandler(this.btViewFeed_Click);
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(253, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(238, 19);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Rejected Club Memberships: ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(253, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(246, 19);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Approved Club Memberships: ";
+         //   this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // StudentDashboardForm
             // 
@@ -280,6 +303,8 @@ namespace DBapplication
             this.Controls.Add(this.grpClubsAndSchedule);
             this.Controls.Add(this.grpEvents);
             this.Controls.Add(this.grpReservations);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.lblClubMemberships);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblUpcomingEvents);
@@ -319,5 +344,7 @@ namespace DBapplication
         private Label label6;
         private Label label7;
         private Button btViewFeed;
+        private Label label8;
+        private Label label9;
     }
 }
