@@ -217,28 +217,45 @@ AND c.SupervisorID = {userid};";
         }
         public DataTable TrackAttendance(int eid)
         {
-
             DataTable Attendance = new DataTable();
-            string query = $@"
-        SELECT 
-            a.AttendanceID,
-            e.Title AS EventName,
-            u.FName + ' ' + u.LName AS UserName,
-            a.CheckInTime,
-            a.Status
-        FROM Attendance a
-        INNER JOIN Event e ON a.EventID = e.EventID
-        INNER JOIN Users u ON a.UserID = u.UserID
-        WHERE e.Eventid = '{eid}'
-        ORDER BY a.AttendanceID DESC;
-    ";
 
-            // Assuming ExecuteReader executes the query and maps it to the DataTable
-            Attendance = dbMan.ExecuteReader(query);
+            // Open connection
+            using (SqlConnection conn = new SqlConnection("Data Source=administrator;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
+            {
+                conn.Open();
+
+                // Create command with parameterized query to prevent SQL injection
+                using (SqlCommand cmd = new SqlCommand(@"
+            SELECT 
+                a.AttendanceID,
+                e.Title AS EventName,
+                u.FName + ' ' + u.LName AS UserName,
+                a.CheckInTime,
+                a.Status
+            FROM Attendance a
+            INNER JOIN Event e ON a.EventID = e.EventID
+            INNER JOIN Users u ON a.UserID = u.UserID
+            WHERE e.Eventid = @EventID
+            ORDER BY a.AttendanceID DESC;
+        ", conn))
+                {
+                    // Add parameter to the command
+                    cmd.Parameters.AddWithValue("@EventID", eid);
+
+                    // Execute reader inside a using statement to ensure it gets disposed of
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Load data directly into the DataTable
+                        Attendance.Load(reader);
+                    }  // The reader is closed here automatically
+                }  // The command is disposed of here
+            }  // The connection is closed here
+
             return Attendance;
-
         }
-        
+
+
+
         public DataTable GetPendingMemberships()
         {
             // SQL query to fetch membership IDs with "Pending" status
@@ -276,10 +293,34 @@ AND c.SupervisorID = {userid};";
             int rowsAffected = dbMan.ExecuteNonQuery(query);
             return rowsAffected > 0; // Return true if at least one row was affected
         }
-        public void DeleteAttendance(int AttendanceID)
+        public bool DeleteAttendance(int studentId)
         {
-            string query = $@"DELETE FROM Attendance WHERE AttendanceID = {AttendanceID}";
-            dbMan.ExecuteNonQuery(query);
+            // First, check if the attendance exists for this student
+            string checkQuery = $@"
+        SELECT COUNT(*) 
+        FROM Attendance 
+        WHERE AttendanceId = {studentId}";
+
+            // Execute the check query to see if the attendance exists
+            int count = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            if (count > 0)
+            {
+                // If attendance exists, delete it
+                string deleteQuery = $@"
+            DELETE FROM Attendance 
+            WHERE AttendanceId = {studentId}";
+
+                int rowsAffected = dbMan.ExecuteNonQuery(deleteQuery);
+
+                // Return true if at least one row was affected (meaning the deletion was successful)
+                return rowsAffected > 0;
+            }
+            else
+            {
+                // If attendance doesn't exist, return false
+                return false;
+            }
         }
         public void TerminateConnection()
         {
