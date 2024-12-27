@@ -62,15 +62,15 @@ namespace DBapplication
                 }
                 else if (UserType == "Student")
                 {
-                    //StudentDashboardForm Studentdashboard = new StudentDashboardForm(userID);
-                    //Studentdashboard.Show();
-                    //this.Hide();
+                    StudentDashboardForm Studentdashboard = new StudentDashboardForm(currentid);
+                    Studentdashboard.Show();
+                    this.Hide();
                 }
                 else if (UserType == "Faculty Member")
                 {
-                    //FacultyDashboardForm Facultydashboard = new FacultyDashboardForm(userID);
-                    //Facultydashboard.Show();
-                    //this.Hide();
+                    FacultyMemberDashboardForm Facultydashboard = new FacultyMemberDashboardForm(currentid);
+                    Facultydashboard.Show();
+                    this.Hide();
                 }
                 else
                 {

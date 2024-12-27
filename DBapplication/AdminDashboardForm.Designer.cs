@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlQuickStats = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.lblTotalLocations = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblTotalClubs = new System.Windows.Forms.Label();
@@ -65,11 +66,10 @@
             this.buttNewAdmin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ButtLogout = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.pnlQuickStats.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -98,6 +98,16 @@
             this.pnlQuickStats.Size = new System.Drawing.Size(699, 137);
             this.pnlQuickStats.TabIndex = 1;
             this.pnlQuickStats.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlQuickStats_Paint);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(603, 97);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(82, 37);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Refresh";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // lblTotalLocations
             // 
@@ -450,16 +460,6 @@
             this.ButtLogout.UseVisualStyleBackColor = true;
             this.ButtLogout.Click += new System.EventHandler(this.ButtLogout_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(617, 97);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(68, 37);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Refresh";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label15);
@@ -470,15 +470,14 @@
             this.panel2.Size = new System.Drawing.Size(167, 134);
             this.panel2.TabIndex = 6;
             // 
-            // button4
+            // label15
             // 
-            this.button4.Location = new System.Drawing.Point(18, 44);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(139, 35);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Profile";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(38, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(86, 16);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Your Account";
             // 
             // button5
             // 
@@ -490,14 +489,15 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // label15
+            // button4
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(38, 22);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(86, 16);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Your Account";
+            this.button4.Location = new System.Drawing.Point(18, 44);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(139, 35);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Profile";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // AdminDashboardForm
             // 

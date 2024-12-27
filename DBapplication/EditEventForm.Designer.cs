@@ -41,8 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtEventTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ComboboxCreatedBy = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
@@ -155,31 +153,11 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Event Title";
             // 
-            // ComboboxCreatedBy
-            // 
-            this.ComboboxCreatedBy.FormattingEnabled = true;
-            this.ComboboxCreatedBy.Location = new System.Drawing.Point(189, 378);
-            this.ComboboxCreatedBy.Name = "ComboboxCreatedBy";
-            this.ComboboxCreatedBy.Size = new System.Drawing.Size(176, 24);
-            this.ComboboxCreatedBy.TabIndex = 29;
-            this.ComboboxCreatedBy.SelectedIndexChanged += new System.EventHandler(this.ComboboxCreatedBy_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(57, 381);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 16);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Created By";
-            // 
             // EditEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 488);
-            this.Controls.Add(this.ComboboxCreatedBy);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.comboBoxLocation);
             this.Controls.Add(this.label6);
@@ -216,7 +194,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEventTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox ComboboxCreatedBy;
-        private System.Windows.Forms.Label label7;
     }
 }

@@ -18,6 +18,8 @@ namespace DBapplication
         {
             InitializeComponent();
             UserID = userID;
+            Login Log = new Login();
+            this.FormClosed += (s, e) => Log.Show();
             lblTotalUsers.Text = controller.GetTotalUsers();
             lblTotalAdmins.Text = controller.GetTotalAdmins();
             lblTotalFaculty.Text = controller.GetTotalFacultyMembers();
@@ -115,8 +117,6 @@ namespace DBapplication
 
         private void ButtLogout_Click(object sender, EventArgs e)
         {
-            Login Log = new Login();
-            Log.Show();
             this.Close();
         }
 

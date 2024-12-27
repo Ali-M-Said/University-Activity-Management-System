@@ -12,22 +12,29 @@ namespace DBapplication
 {
     public partial class ManageMembershipRequestsForm : Form
     {
-        private FacultyMemberControler facultyController;
-        public ManageMembershipRequestsForm(Form parentForm)
+        private FacultyMemberControler facultyController= new FacultyMemberControler();
+        private Controller c = new Controller();
+        int UserID;
+        public ManageMembershipRequestsForm(Form parentForm, int id)
         {
             InitializeComponent();
 
             // Store the parent form
             Form ParentForm = parentForm;
-
+            UserID = id;
             // Hide the parent form when the sub-form opens
             ParentForm.Hide();
 
             // Add event handler to show the parent form when the sub-form is closed
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
-            facultyController = new FacultyMemberControler();
-            DataTable PendingRequests = facultyController.GetPendingMemberships();
-            dgvEvents.DataSource = PendingRequests;
+            if (c.GetType(UserID) == "Admin")
+            {
+                dgvEvents.DataSource = facultyController.GetPendingMemberships();
+            }
+            else if (c.GetType(UserID) == "Faculty Member")
+            {
+                dgvEvents.DataSource = facultyController.GetPendingMembershipsSupervised(UserID);
+            }
         }
 
         private void txtEventID_TextChanged(object sender, EventArgs e)
@@ -51,8 +58,14 @@ namespace DBapplication
                     MessageBox.Show("Membership status updated to Rejected.");
 
                     // Refresh the DataGridView to show the updated pending list
-                    DataTable pendingMemberships = controller.GetPendingMemberships();
-                    dgvEvents.DataSource = pendingMemberships;
+                    if (c.GetType(UserID) == "Admin")
+                    {
+                        dgvEvents.DataSource = facultyController.GetPendingMemberships();
+                    }
+                    else if (c.GetType(UserID) == "Faculty Member")
+                    {
+                        dgvEvents.DataSource = facultyController.GetPendingMembershipsSupervised(UserID);
+                    }
                 }
                 else
                 {
@@ -81,8 +94,14 @@ namespace DBapplication
                     MessageBox.Show("Membership status updated to Accepted.");
 
                     // Refresh the DataGridView to show the updated pending list
-                    DataTable pendingMemberships = controller.GetPendingMemberships();
-                    dgvEvents.DataSource = pendingMemberships;
+                    if (c.GetType(UserID) == "Admin")
+                    {
+                        dgvEvents.DataSource = facultyController.GetPendingMemberships();
+                    }
+                    else if (c.GetType(UserID) == "Faculty Member")
+                    {
+                        dgvEvents.DataSource = facultyController.GetPendingMembershipsSupervised(UserID);
+                    }
                 }
                 else
                 {

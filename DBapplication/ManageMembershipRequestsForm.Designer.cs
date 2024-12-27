@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEvents = new System.Windows.Forms.DataGridView();
-            this.buttBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,22 +99,11 @@
             this.dgvEvents.TabIndex = 8;
             this.dgvEvents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvents_CellContentClick);
             // 
-            // buttBack
-            // 
-            this.buttBack.Location = new System.Drawing.Point(347, 384);
-            this.buttBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttBack.Name = "buttBack";
-            this.buttBack.Size = new System.Drawing.Size(125, 26);
-            this.buttBack.TabIndex = 14;
-            this.buttBack.Text = "Back";
-            this.buttBack.UseVisualStyleBackColor = true;
-            // 
             // ManageMembershipRequestsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 489);
-            this.Controls.Add(this.buttBack);
             this.Controls.Add(this.buttAcceptReq);
             this.Controls.Add(this.buttRejectReq);
             this.Controls.Add(this.txtEventID);
@@ -140,6 +128,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvEvents;
-        private System.Windows.Forms.Button buttBack;
     }
 }
