@@ -13,7 +13,6 @@ namespace DBapplication
     public partial class Taking_Attendance : Form
     {
         private FacultyMemberControler facultyController;
-        public Taking_Attendance()
         int userid;
         public Taking_Attendance(Form parentform,int usid)
         {
@@ -21,7 +20,6 @@ namespace DBapplication
             userid=usid;
             facultyController = new FacultyMemberControler(); 
             InitializeComponent();
-            facultyController.PopulateEventNames(eventnamebox);
             facultyController.PopulateEventNames(eventnamebox,userid);
         }
 
