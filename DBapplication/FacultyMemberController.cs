@@ -68,35 +68,38 @@ AND c.SupervisorID = {userid};";
             // Execute the query and return the result
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
-        public DataTable GetFeedBacks(int id)
+        public DataTable GetFeedBacks(int eventId)
         {
+            DataTable feedbackTable = new DataTable();
 
-            DataTable feedbacks = new DataTable();
-            string query = $@"
-        SELECT 
-            f.FeedbackID,
-            e.Title AS EventName,
-            u.FName + ' ' + u.LName AS UserName,
-            f.Ratings,
-            f.Comments
-        FROM Feedback f
-        INNER JOIN Event e ON f.EventID = e.EventID
-        INNER JOIN Users u ON f.UserID = u.UserID
-        WHERE e.EventID = '{id}'
-        ORDER BY f.FeedbackID DESC;
-    ";
+            // Open connection
+            using (SqlConnection conn = new SqlConnection("Data Source=administrator;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
+            {
+                conn.Open();
 
-            // Assuming ExecuteReader executes the query and maps it to the DataTable
-            feedbacks = dbMan.ExecuteReader(query);
-            return feedbacks;
+                // Create command
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Feedback WHERE EventID = @EventID", conn))
+                {
+                    cmd.Parameters.AddWithValue("@EventID", eventId);
 
+                    // Execute reader inside a using statement to ensure it gets disposed of
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Ensure we completely read all the results before moving on
+                        feedbackTable.Load(reader);  // Load data directly into DataTable
+                    }  // The reader is closed here automatically
+                }  // The command is disposed of here
+            }  // The connection is closed here
+
+            return feedbackTable;
         }
-        public DataTable GetFeedbacks()
-        {
-            string query = "SELECT FeedbackID FROM Feedback";  // Get only the Feedback IDs or other relevant columns
-            DataTable feedbacks = dbMan.ExecuteReader(query);  // Use your dbMan.ExecuteReader or other database methods
-            return feedbacks;
-        }
+
+        //public DataTable GetFeedbacks()
+        //{
+        //    string query = "SELECT FeedbackID FROM Feedback";  // Get only the Feedback IDs or other relevant columns
+        //    DataTable feedbacks = dbMan.ExecuteReader(query);  // Use your dbMan.ExecuteReader or other database methods
+        //    return feedbacks;
+        //}
 
         public bool RecordAttendance(int studentId, int eventId, string checkInTime)
         {
@@ -126,7 +129,6 @@ AND c.SupervisorID = {userid};";
         {
             string query = "";
 
-            // Determine the SQL query based on the user type
             switch (userType)
             {
                 case "Admin":
@@ -141,10 +143,11 @@ AND c.SupervisorID = {userid};";
 
                 case "Student":
                     // Student: Get events attended by this student
-                    query = $@"SELECT e.EventID, e.Title 
-                       FROM Event e 
-                       INNER JOIN Attendance a ON e.EventID = a.EventID 
-                       WHERE a.StudentID = {uid}";
+                    query = $@"
+                SELECT e.EventID, e.Title 
+                FROM Event e 
+                INNER JOIN Attendance a ON e.EventID = a.EventID 
+                WHERE a.StudentID = {uid}";
                     break;
 
                 default:
@@ -153,15 +156,14 @@ AND c.SupervisorID = {userid};";
 
             try
             {
-                // Execute the query and return the resulting DataTable
                 return dbMan.ExecuteReader(query);
             }
             catch (Exception ex)
             {
-                // Handle any errors that might occur
                 throw new Exception("Error retrieving event data: " + ex.Message);
             }
         }
+
 
 
         public bool DeleteFeedback(int feedbackId)
