@@ -48,7 +48,8 @@ namespace DBapplication
                 MessageBox.Show(errorMessages, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            currentid = C.CheckEmailAndPassword(usernametxt.Text, passwordtxt.Text);
+            string hashedPassword = C.HashPassword(passwordtxt.Text);
+            currentid = C.CheckEmailAndPassword(usernametxt.Text, hashedPassword);
 
             if (currentid !=-1)
             {

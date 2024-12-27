@@ -120,13 +120,13 @@ namespace DBapplication
                 MessageBox.Show(errorMessages, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            string hashedPassword =c.HashPassword(passwordbox.Text);
             string result = c.AddUser(
                 firstnamebox.Text,
                 lastnamebox.Text,
                 emailbox.Text,
                 departmentcombo.Text,
-                passwordbox.Text,
+                hashedPassword,
                 usertypebox.Text
             );
 
