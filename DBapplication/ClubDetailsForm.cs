@@ -5,10 +5,11 @@ namespace DBapplication
 {
     public partial class ClubDetailsForm : Form
     {
-        public ClubDetailsForm(Form parentForm)
+        int ClubID;
+        public ClubDetailsForm(Form parentForm, int id)
         {
             InitializeComponent();
-
+            ClubID = id;
             // Store the parent form
             Form ParentForm = parentForm;
 
@@ -26,6 +27,13 @@ namespace DBapplication
         }
 
         private void btnEditClubDetails_Click(object sender, EventArgs e)
+        {
+            EditClubForm EditClub = new EditClubForm(this, ClubID);
+            EditClub.Show();
+            this.Hide();
+        }
+
+        private void ClubDetailsForm_Load_1(object sender, EventArgs e)
         {
 
         }

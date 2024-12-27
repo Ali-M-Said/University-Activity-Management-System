@@ -54,7 +54,7 @@
             this.buttEditEvent.Name = "buttEditEvent";
             this.buttEditEvent.Size = new System.Drawing.Size(138, 27);
             this.buttEditEvent.TabIndex = 12;
-            this.buttEditEvent.Text = "Edit Club";
+            this.buttEditEvent.Text = "Club Details";
             this.buttEditEvent.UseVisualStyleBackColor = true;
             this.buttEditEvent.Click += new System.EventHandler(this.buttEditEvent_Click);
             // 

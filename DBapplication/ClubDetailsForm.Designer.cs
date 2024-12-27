@@ -7,11 +7,8 @@ namespace DBapplication
         private System.ComponentModel.IContainer components = null;
         private Label lblTitle;
         private Label lblClubName;
-        private TextBox txtClubName;
         private Label lblClubDescription;
-        private TextBox txtClubDescription;
         private Label lblTotalMembers;
-        private TextBox txtTotalMembers;
         private DataGridView dgvClubMembers;
         private Button btnEditClubDetails;
         private Button btnRemoveMember;
@@ -29,14 +26,14 @@ namespace DBapplication
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblClubName = new System.Windows.Forms.Label();
-            this.txtClubName = new System.Windows.Forms.TextBox();
             this.lblClubDescription = new System.Windows.Forms.Label();
-            this.txtClubDescription = new System.Windows.Forms.TextBox();
             this.lblTotalMembers = new System.Windows.Forms.Label();
-            this.txtTotalMembers = new System.Windows.Forms.TextBox();
             this.dgvClubMembers = new System.Windows.Forms.DataGridView();
             this.btnEditClubDetails = new System.Windows.Forms.Button();
             this.btnRemoveMember = new System.Windows.Forms.Button();
+            this.txtTotalMembers = new System.Windows.Forms.TextBox();
+            this.txtClubDescription = new System.Windows.Forms.TextBox();
+            this.txtClubName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubMembers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,14 +56,6 @@ namespace DBapplication
             this.lblClubName.TabIndex = 1;
             this.lblClubName.Text = "Club Name:";
             // 
-            // txtClubName
-            // 
-            this.txtClubName.Location = new System.Drawing.Point(100, 60);
-            this.txtClubName.Name = "txtClubName";
-            this.txtClubName.ReadOnly = true;
-            this.txtClubName.Size = new System.Drawing.Size(200, 22);
-            this.txtClubName.TabIndex = 2;
-            // 
             // lblClubDescription
             // 
             this.lblClubDescription.AutoSize = true;
@@ -76,15 +65,6 @@ namespace DBapplication
             this.lblClubDescription.TabIndex = 3;
             this.lblClubDescription.Text = "Club Description:";
             // 
-            // txtClubDescription
-            // 
-            this.txtClubDescription.Location = new System.Drawing.Point(134, 100);
-            this.txtClubDescription.Multiline = true;
-            this.txtClubDescription.Name = "txtClubDescription";
-            this.txtClubDescription.ReadOnly = true;
-            this.txtClubDescription.Size = new System.Drawing.Size(200, 60);
-            this.txtClubDescription.TabIndex = 4;
-            // 
             // lblTotalMembers
             // 
             this.lblTotalMembers.AutoSize = true;
@@ -93,14 +73,6 @@ namespace DBapplication
             this.lblTotalMembers.Size = new System.Drawing.Size(101, 16);
             this.lblTotalMembers.TabIndex = 7;
             this.lblTotalMembers.Text = "Total Members:";
-            // 
-            // txtTotalMembers
-            // 
-            this.txtTotalMembers.Location = new System.Drawing.Point(120, 220);
-            this.txtTotalMembers.Name = "txtTotalMembers";
-            this.txtTotalMembers.ReadOnly = true;
-            this.txtTotalMembers.Size = new System.Drawing.Size(200, 22);
-            this.txtTotalMembers.TabIndex = 8;
             // 
             // dgvClubMembers
             // 
@@ -130,6 +102,32 @@ namespace DBapplication
             this.btnRemoveMember.Text = "Remove Member";
             this.btnRemoveMember.UseVisualStyleBackColor = true;
             // 
+            // txtTotalMembers
+            // 
+            this.txtTotalMembers.Location = new System.Drawing.Point(120, 220);
+            this.txtTotalMembers.Name = "txtTotalMembers";
+            this.txtTotalMembers.ReadOnly = true;
+            this.txtTotalMembers.Size = new System.Drawing.Size(200, 22);
+            this.txtTotalMembers.TabIndex = 8;
+            // 
+            // txtClubDescription
+            // 
+            this.txtClubDescription.Location = new System.Drawing.Point(134, 100);
+            this.txtClubDescription.Multiline = true;
+            this.txtClubDescription.Name = "txtClubDescription";
+            this.txtClubDescription.ReadOnly = true;
+            this.txtClubDescription.Size = new System.Drawing.Size(200, 60);
+            this.txtClubDescription.TabIndex = 4;
+            // 
+            // txtClubName
+            // 
+            this.txtClubName.HideSelection = false;
+            this.txtClubName.Location = new System.Drawing.Point(100, 60);
+            this.txtClubName.Name = "txtClubName";
+            this.txtClubName.ReadOnly = true;
+            this.txtClubName.Size = new System.Drawing.Size(200, 22);
+            this.txtClubName.TabIndex = 2;
+            // 
             // ClubDetailsForm
             // 
             this.ClientSize = new System.Drawing.Size(400, 520);
@@ -145,10 +143,15 @@ namespace DBapplication
             this.Controls.Add(this.lblTitle);
             this.Name = "ClubDetailsForm";
             this.Text = "Club Details";
+            this.Load += new System.EventHandler(this.ClubDetailsForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubMembers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
+        private TextBox txtTotalMembers;
+        private TextBox txtClubDescription;
+        private TextBox txtClubName;
     }
 }

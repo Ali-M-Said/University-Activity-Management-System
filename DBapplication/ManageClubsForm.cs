@@ -36,8 +36,8 @@ namespace DBapplication
             }
             else
             {
-                EditClubForm EditClub = new EditClubForm(this, int.Parse(txtClubID.Text));
-                EditClub.Show();
+                ClubDetailsForm ClubDetails = new ClubDetailsForm(this, int.Parse(txtClubID.Text));
+                ClubDetails.Show();
                 this.Hide();
             }
         }

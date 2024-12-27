@@ -57,23 +57,12 @@ namespace DBapplication
             viewEventFeedbackForm.Show();
         }
 
-        private void btnViewClubs_Click(object sender, EventArgs e)
-        {
-            ClubDetailsForm clubDetailsForm = new ClubDetailsForm(this);
-            clubDetailsForm.Show();
-        }
-
         private void btnApproveMembershipRequests_Click(object sender, EventArgs e)
         {
             ManageMembershipRequestsForm manageMembershipRequestsForm = new ManageMembershipRequestsForm(this,UserID);
             manageMembershipRequestsForm.Show();
         }
 
-        private void btnAddUpdateClubs_Click(object sender, EventArgs e)
-        {
-            CreateClubForm createClubForm = new CreateClubForm(this, UserID);
-            createClubForm.Show();
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {

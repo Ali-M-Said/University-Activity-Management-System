@@ -146,6 +146,18 @@ AND c.SupervisorID = {userid};";
                        INNER JOIN Attendance a ON e.EventID = a.EventID 
                        WHERE a.StudentID = {uid}";
                     break;
+                case "Faculty Member":
+                    // Faculty: Get events created by this faculty member
+                    query = $@"SELECT EventID, Title FROM Event WHERE CreatedBy = {uid}";
+                    break;
+
+                case "Student":
+                    // Student: Get events attended by this student
+                    query = $@"SELECT e.EventID, e.Title 
+                       FROM Event e 
+                       INNER JOIN Attendance a ON e.EventID = a.EventID 
+                       WHERE a.UserID = {uid}";
+                    break;
 
                 default:
                     throw new ArgumentException("Invalid user type provided.");
@@ -191,6 +203,14 @@ AND c.SupervisorID = {userid};";
                 // If the FeedbackID doesn't exist, return false
                 return false;
             }
+                throw new Exception("Error retrieving event data: " + ex.Message);
+            }
+        }
+
+        public void DeleteFeedBack(int FeedBackId)
+        {
+            string query = $@"DELETE FROM FeedBack WHERE FeedbackID = {FeedBackId}";
+            dbMan.ExecuteNonQuery(query);
         }
         public int GetEventIDByName(int id)
         {
