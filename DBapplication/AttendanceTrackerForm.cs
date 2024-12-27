@@ -15,16 +15,18 @@ namespace DBapplication
             UserID = id;
            
             Form ParentForm = parentForm;
-
-          
             ParentForm.Hide();
 
             
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
 
-            facultyController = new FacultyMemberControler(); // Initialize the controller
-            facultyController.PopulateEventNames(cbEventFilter,UserID);
-            btnExport.Visible = false;
+            facultyController = new FacultyMemberControler(); 
+                                                             
+            cbEventFilter.DataSource = facultyController.GetEventData(UserID,c.GetType(UserID));
+            cbEventFilter.DisplayMember = "Title";
+            cbEventFilter.ValueMember = "EventID";
+            DataTable Attendance = facultyController.TrackAttendance((int)cbEventFilter.SelectedValue);
+            dgvEventDetails.DataSource = Attendance; btnExport.Visible = false;
             label2.Visible = false;
             textBox1.Visible = false;
             if (c.GetType(UserID) == "Admin")
@@ -42,8 +44,7 @@ namespace DBapplication
 
         private void cbEventFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedEventName = cbEventFilter.SelectedItem.ToString();
-            DataTable Attendance = facultyController.TrackAttendance(selectedEventName);
+            DataTable Attendance = facultyController.TrackAttendance(Convert.ToInt32(cbEventFilter.SelectedValue));
             dgvEventDetails.DataSource = Attendance;
         }
 
@@ -62,9 +63,8 @@ namespace DBapplication
 
                 // Optionally, display a message to confirm deletion
                 MessageBox.Show("Attendance is  deleted successfully.");
-                string selectedEventName = cbEventFilter.SelectedItem.ToString();
-                DataTable Attendance = facultyController.TrackAttendance(selectedEventName);
-                dgvEventDetails.DataSource = Attendance;
+                DataTable Attendance = facultyController.TrackAttendance((int)cbEventFilter.SelectedValue);
+                dgvEventDetails.DataSource = Attendance; btnExport.Visible = false;
             }
             else
             {

@@ -20,7 +20,7 @@ namespace DBapplication
             userid=usid;
             facultyController = new FacultyMemberControler(); 
             InitializeComponent();
-            facultyController.PopulateEventNames(eventnamebox,userid);
+          //  facultyController.PopulateEventNames(eventnamebox,userid);
         }
 
         private void eventnamebox_SelectedIndexChanged(object sender, EventArgs e)

@@ -230,6 +230,12 @@
     <Compile Include="Student Dashboard\StudentViewFeedback.Designer.cs">
       <DependentUpon>StudentViewFeedback.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentViewAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentViewAttendance.Designer.cs">
+      <DependentUpon>StudentViewAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Taking Attendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student Dashboard\StudentViewFeedback.resx">
       <DependentUpon>StudentViewFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentViewAttendance.resx">
+      <DependentUpon>StudentViewAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Taking Attendance.resx">
       <DependentUpon>Taking Attendance.cs</DependentUpon>

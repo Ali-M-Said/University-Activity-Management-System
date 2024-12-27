@@ -84,38 +84,47 @@ namespace DBapplication
             // Return true if the attendance was successfully recorded
             return rowsAffected > 0;
         }
-        public void PopulateEventNames(ComboBox comboBox,int uid)
+        public DataTable GetEventData(int uid, string userType)
         {
-            // SQL query to get all event names
-            string query = $@"SELECT Title FROM Event Where Createdby='{uid}'";
+            string query = "";
+
+            // Determine the SQL query based on the user type
+            switch (userType)
+            {
+                case "Admin":
+                    // Admin: Get all events
+                    query = @"SELECT EventID, Title FROM Event";
+                    break;
+
+                case "Faculty Member":
+                    // Faculty: Get events created by this faculty member
+                    query = $@"SELECT EventID, Title FROM Event WHERE CreatedBy = {uid}";
+                    break;
+
+                case "Student":
+                    // Student: Get events attended by this student
+                    query = $@"SELECT e.EventID, e.Title 
+                       FROM Event e 
+                       INNER JOIN Attendance a ON e.EventID = a.EventID 
+                       WHERE a.UserID = {uid}";
+                    break;
+
+                default:
+                    throw new ArgumentException("Invalid user type provided.");
+            }
 
             try
             {
-                // Execute the query and get the data in a DataTable
-                DataTable events = dbMan.ExecuteReader(query);
-
-                // Clear existing items in the ComboBox
-                comboBox.Items.Clear();
-
-                // Loop through the DataTable and add event names to the ComboBox
-                foreach (DataRow row in events.Rows)
-                {
-                    string eventName = row["Title"].ToString();
-                    comboBox.Items.Add(eventName);
-                }
-
-                // Optionally, you can set the first item as the default selected item
-                if (comboBox.Items.Count > 0)
-                {
-                    comboBox.SelectedIndex = 0;
-                }
+                // Execute the query and return the resulting DataTable
+                return dbMan.ExecuteReader(query);
             }
             catch (Exception ex)
             {
                 // Handle any errors that might occur
-                MessageBox.Show("Error: " + ex.Message);
+                throw new Exception("Error retrieving event data: " + ex.Message);
             }
         }
+
         public void DeleteFeedBack(int FeedBackId)
         {
             string query = $@"DELETE FROM FeedBack WHERE FeedbackID = {FeedBackId}";
@@ -142,7 +151,7 @@ namespace DBapplication
             return -1;
 
         }
-        public DataTable TrackAttendance(string EventName)
+        public DataTable TrackAttendance(int eid)
         {
 
             DataTable Attendance = new DataTable();
@@ -156,7 +165,7 @@ namespace DBapplication
         FROM Attendance a
         INNER JOIN Event e ON a.EventID = e.EventID
         INNER JOIN Users u ON a.UserID = u.UserID
-        WHERE e.Title = '{EventName}'
+        WHERE e.Eventid = '{eid}'
         ORDER BY a.AttendanceID DESC;
     ";
 
@@ -165,6 +174,7 @@ namespace DBapplication
             return Attendance;
 
         }
+        
         public DataTable GetPendingMemberships()
         {
             // SQL query to fetch membership IDs with "Pending" status

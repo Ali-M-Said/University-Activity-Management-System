@@ -16,7 +16,7 @@ namespace DBapplication
             userId= uid;
             InitializeComponent(); // Initialize the form's components
             facultyController = new FacultyMemberControler(); // Initialize the controller
-            facultyController.PopulateEventNames(cbEventFilter,userId);
+          //  facultyController.PopulateEventNames(cbEventFilter,userId);
             string selectedEventName = cbEventFilter.SelectedItem.ToString();
             DataTable feedbacks = facultyController.GetFeedBacks(selectedEventName);
             dgvFeedback.DataSource = feedbacks;
