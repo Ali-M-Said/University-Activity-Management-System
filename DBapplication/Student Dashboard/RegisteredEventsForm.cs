@@ -13,9 +13,10 @@ namespace DBapplication
     public partial class RegisteredEventsForm : Form
     {
         StudentController studentController = new StudentController();
-        int userid = 1;
-        public RegisteredEventsForm(Form parentForm)
+        int userid ;
+        public RegisteredEventsForm(Form parentForm, int uid)
         {
+            userid = uid;
             InitializeComponent();
 
             Form ParentForm = parentForm;

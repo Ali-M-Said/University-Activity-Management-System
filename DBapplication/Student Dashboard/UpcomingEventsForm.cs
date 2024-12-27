@@ -10,27 +10,26 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class AvailableSpaces : Form
+    public partial class UpcomingEventsForm : Form
     {
-        StudentController studentController = new StudentController();
-        int userid = 1;
+        StudentController studentController=new StudentController();
 
-        public AvailableSpaces(Form parentForm)
+        int userid;
+        public UpcomingEventsForm(Form parentForm,int uid)
         {
+            userid=uid;
             InitializeComponent();
-            DataTable dt = studentController.GetAvailableSpacesForReservation();
-            dgvAvailableSpaces.Rows.Clear();
-            dgvAvailableSpaces.DataSource = dt;
+
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
+            dgvUpcomingEvents.DataSource = studentController.GetUpcomingEvents();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            ReserveLocationForm frm = new ReserveLocationForm(this);
-            frm.Show();
+            EventRegister eventRegister = new EventRegister(this, userid);
+            eventRegister.Show();
         }
     }
 }

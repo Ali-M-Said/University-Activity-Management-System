@@ -10,48 +10,48 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class AvailableClubsForm : Form
+    public partial class ClubMembershipStatusForm : Form
     {
-        StudentController studentController  = new StudentController();
-        int userid = 1;
-        public AvailableClubsForm(Form parentForm)
+        StudentController studentController=new  StudentController();
+        int userid ;
+
+        public ClubMembershipStatusForm(Form parentForm, int uid)
         {
+            userid = uid;      
             InitializeComponent();
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
-            dgvClubsList.DataSource = studentController.GetAllClubs();
+            dgvClubMemberships.DataSource = studentController.GetMemberships(userid);
         }
 
-        private void btnJoinClub_Click(object sender, EventArgs e)
+        private void btnLeaveClub_Click(object sender, EventArgs e)
         {
-            int userid = 1;
-            int clubid = Convert.ToInt32(tbClubID.Text);
+            int memId = Convert.ToInt32(tbMemId.Text);
             try
             {
-                bool success = studentController.JoinClub(userid, clubid);
+                bool success = studentController.LeaveClub(memId, userid);
                 if (success)
                 {
-                    MessageBox.Show("Successfully registered for the club!",
+                    MessageBox.Show("Successfully Leaved the club!",
                                   "Success",
                                   MessageBoxButtons.OK,
                                   MessageBoxIcon.Information);
+                    dgvClubMemberships.DataSource = studentController.GetMemberships(userid);
 
                 }
                 else
                 {
-                    MessageBox.Show("You are already registered for this club!",
-                                  "Registration Failed",
+                    MessageBox.Show("Membership ID Not Found!",
+                                  "Operation failed",
                                   MessageBoxButtons.OK,
                                   MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error registering for club: " + ex.Message);
+                MessageBox.Show("Error Leaving Club: " + ex.Message);
             }
         }
-
-       
     }
 }

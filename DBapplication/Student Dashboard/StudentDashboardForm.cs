@@ -43,7 +43,7 @@ namespace DBapplication
 
         private void btnViewAvailableSpaces_Click(object sender, EventArgs e)
         {
-            AvailableSpaces availableSpaces = new AvailableSpaces(this);
+            AvailableSpaces availableSpaces = new AvailableSpaces(this,userid);
             availableSpaces.Show();
         }
 
@@ -51,13 +51,13 @@ namespace DBapplication
 
         private void btnViewReservationHistory_Click(object sender, EventArgs e)
         {
-            ReservationHistoryForm reservationHistoryForm = new ReservationHistoryForm(this);
+            ReservationHistoryForm reservationHistoryForm = new ReservationHistoryForm(this,userid);
             reservationHistoryForm.Show();
         }
 
         private void btnViewUpcomingEvents_Click(object sender, EventArgs e)
         {
-          UpcomingEventsForm upcomingEventsForm = new UpcomingEventsForm(this);
+          UpcomingEventsForm upcomingEventsForm = new UpcomingEventsForm(this, userid);
             upcomingEventsForm.Show();
         }
 
@@ -65,7 +65,7 @@ namespace DBapplication
 
         private void btnProvideFeedback_Click(object sender, EventArgs e)
         {
-            GiveFeedbackForm eventFeedbackForm = new GiveFeedbackForm(this);
+            GiveFeedbackForm eventFeedbackForm = new GiveFeedbackForm(this, userid);
             eventFeedbackForm.Show();
         }
 
@@ -73,7 +73,7 @@ namespace DBapplication
 
         private void btnViewClubMembershipStatus_Click(object sender, EventArgs e)
         {
-            ClubMembershipStatusForm clubMembershipStatusForm = new ClubMembershipStatusForm(this);
+            ClubMembershipStatusForm clubMembershipStatusForm = new ClubMembershipStatusForm(this, userid);
             clubMembershipStatusForm.Show();
         }
 
@@ -81,7 +81,7 @@ namespace DBapplication
 
         private void btnViewClubs_Click(object sender, EventArgs e)
         {
-            AvailableClubsForm availableClubsForm = new AvailableClubsForm(this);
+            AvailableClubsForm availableClubsForm = new AvailableClubsForm(this, userid);
             availableClubsForm.Show();
         }
 
@@ -99,13 +99,13 @@ namespace DBapplication
 
         private void btRegEv_Click(object sender, EventArgs e)
         {
-          RegisteredEventsForm registeredEventsForm=new RegisteredEventsForm(this);
+          RegisteredEventsForm registeredEventsForm=new RegisteredEventsForm(this, userid);
             registeredEventsForm.Show();
         }
 
         private void btViewFeed_Click(object sender, EventArgs e)
         {
-            StudentViewFeedback viewFeedbackForm = new StudentViewFeedback(this);
+            StudentViewFeedback viewFeedbackForm = new StudentViewFeedback(this, userid);
             viewFeedbackForm.Show();
         }
 
