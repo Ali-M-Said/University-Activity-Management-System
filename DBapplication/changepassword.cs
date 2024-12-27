@@ -73,9 +73,11 @@ namespace DBapplication
                 MessageBox.Show(errorMessages, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            string hashedNewPassword = c.HashPassword(newPassword);
+            string hashedOldPassword = c.HashPassword(oldPassword);
 
             // Call the method to change the password
-            string result = c.ChangePassword(currentid, oldPassword, newPassword);
+            string result = c.ChangePassword(currentid, hashedOldPassword, hashedNewPassword);
 
             // Show the result of the password change operation
             MessageBox.Show(result);

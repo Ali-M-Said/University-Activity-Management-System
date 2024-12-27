@@ -14,6 +14,7 @@ namespace DBapplication
     public partial class CreateAdminForm : Form
     {
         ControllerAdmin controller = new ControllerAdmin();
+        Controller c = new Controller();
         Form prevForm;
         int UserID;
         public CreateAdminForm(Form pf, int userID)
@@ -92,8 +93,9 @@ namespace DBapplication
                 MessageBox.Show(errorMessages, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            string hashedPassword = c.HashPassword(txtPass.Text);
 
-            controller.AddAdmin(txtFName.Text,txtLName.Text ,txtPass.Text ,txtEmail.Text );
+            controller.AddAdmin(txtFName.Text,txtLName.Text ,hashedPassword ,txtEmail.Text );
             MessageBox.Show("Admin created successfully!");
             this.Close();
         }
