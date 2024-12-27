@@ -37,8 +37,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +50,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddLocationForm.cs">
@@ -91,6 +95,7 @@
     <Compile Include="EventRegister.Designer.cs">
       <DependentUpon>EventRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="FacultyMemberController.cs" />
     <Compile Include="ReserveLocationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +151,12 @@
     </Compile>
     <Compile Include="PersonalScheduleForm.Designer.cs">
       <DependentUpon>PersonalScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Taking Attendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Taking Attendance.Designer.cs">
+      <DependentUpon>Taking Attendance.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewEventFeedbackForm.cs">
       <SubType>Form</SubType>
@@ -253,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReserveLocationForm.resx">
       <DependentUpon>ReserveLocationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Taking Attendance.resx">
+      <DependentUpon>Taking Attendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpcomingEventsForm.resx">
       <DependentUpon>UpcomingEventsForm.cs</DependentUpon>

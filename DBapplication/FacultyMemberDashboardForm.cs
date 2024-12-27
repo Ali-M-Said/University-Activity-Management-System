@@ -65,5 +65,11 @@ namespace DBapplication
             CreateClubForm createClubForm = new CreateClubForm(this);
             createClubForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Taking_Attendance taking_Attendance = new Taking_Attendance();
+          taking_Attendance.Show();
+        }
     }
 }

@@ -40,44 +40,52 @@
             // 
             // buttAcceptReq
             // 
-            this.buttAcceptReq.Location = new System.Drawing.Point(667, 383);
+            this.buttAcceptReq.Location = new System.Drawing.Point(500, 311);
+            this.buttAcceptReq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttAcceptReq.Name = "buttAcceptReq";
-            this.buttAcceptReq.Size = new System.Drawing.Size(138, 27);
+            this.buttAcceptReq.Size = new System.Drawing.Size(104, 22);
             this.buttAcceptReq.TabIndex = 13;
             this.buttAcceptReq.Text = "Accept Request";
             this.buttAcceptReq.UseVisualStyleBackColor = true;
+            this.buttAcceptReq.Click += new System.EventHandler(this.buttAcceptReq_Click);
             // 
             // buttRejectReq
             // 
-            this.buttRejectReq.Location = new System.Drawing.Point(493, 383);
+            this.buttRejectReq.Location = new System.Drawing.Point(370, 311);
+            this.buttRejectReq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttRejectReq.Name = "buttRejectReq";
-            this.buttRejectReq.Size = new System.Drawing.Size(138, 27);
+            this.buttRejectReq.Size = new System.Drawing.Size(104, 22);
             this.buttRejectReq.TabIndex = 12;
             this.buttRejectReq.Text = "Reject Request";
             this.buttRejectReq.UseVisualStyleBackColor = true;
+            this.buttRejectReq.Click += new System.EventHandler(this.buttRejectReq_Click);
             // 
             // txtEventID
             // 
-            this.txtEventID.Location = new System.Drawing.Point(189, 320);
+            this.txtEventID.Location = new System.Drawing.Point(142, 260);
+            this.txtEventID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEventID.Name = "txtEventID";
-            this.txtEventID.Size = new System.Drawing.Size(179, 22);
+            this.txtEventID.Size = new System.Drawing.Size(135, 20);
             this.txtEventID.TabIndex = 11;
+            this.txtEventID.TextChanged += new System.EventHandler(this.txtEventID_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(95, 323);
+            this.label2.Location = new System.Drawing.Point(71, 262);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 16);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Request ID";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 279);
+            this.label1.Location = new System.Drawing.Point(60, 227);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 16);
+            this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Select An Request";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -85,27 +93,30 @@
             // dgvEvents
             // 
             this.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEvents.Location = new System.Drawing.Point(73, 39);
+            this.dgvEvents.Location = new System.Drawing.Point(55, 32);
+            this.dgvEvents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvEvents.Name = "dgvEvents";
             this.dgvEvents.RowHeadersWidth = 51;
             this.dgvEvents.RowTemplate.Height = 24;
-            this.dgvEvents.Size = new System.Drawing.Size(732, 193);
+            this.dgvEvents.Size = new System.Drawing.Size(549, 157);
             this.dgvEvents.TabIndex = 8;
+            this.dgvEvents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvents_CellContentClick);
             // 
             // buttBack
             // 
-            this.buttBack.Location = new System.Drawing.Point(347, 384);
+            this.buttBack.Location = new System.Drawing.Point(260, 312);
+            this.buttBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttBack.Name = "buttBack";
-            this.buttBack.Size = new System.Drawing.Size(125, 26);
+            this.buttBack.Size = new System.Drawing.Size(94, 21);
             this.buttBack.TabIndex = 14;
             this.buttBack.Text = "Back";
             this.buttBack.UseVisualStyleBackColor = true;
             // 
             // ManageMembershipRequestsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 489);
+            this.ClientSize = new System.Drawing.Size(698, 397);
             this.Controls.Add(this.buttBack);
             this.Controls.Add(this.buttAcceptReq);
             this.Controls.Add(this.buttRejectReq);
@@ -113,6 +124,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvEvents);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManageMembershipRequestsForm";
             this.Text = "ManageMembershipRequestsForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).EndInit();

@@ -7,12 +7,8 @@ namespace DBapplication
         private System.ComponentModel.IContainer components = null;
         private Label lblTitle;
         private ComboBox cbEventFilter;
-        private DateTimePicker dpFromDate;
-        private DateTimePicker dpToDate;
-        private Button btnFilter;
         private DataGridView dgvEventDetails;
         private Button btnExport;
-        private Button btnViewDetails;
 
         protected override void Dispose(bool disposing)
         {
@@ -27,12 +23,11 @@ namespace DBapplication
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.cbEventFilter = new System.Windows.Forms.ComboBox();
-            this.dpFromDate = new System.Windows.Forms.DateTimePicker();
-            this.dpToDate = new System.Windows.Forms.DateTimePicker();
-            this.btnFilter = new System.Windows.Forms.Button();
             this.dgvEventDetails = new System.Windows.Forms.DataGridView();
             this.btnExport = new System.Windows.Forms.Button();
-            this.btnViewDetails = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventDetails)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +37,7 @@ namespace DBapplication
             this.lblTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(234, 29);
+            this.lblTitle.Size = new System.Drawing.Size(192, 22);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Attendance Tracker";
             // 
@@ -51,31 +46,9 @@ namespace DBapplication
             this.cbEventFilter.FormattingEnabled = true;
             this.cbEventFilter.Location = new System.Drawing.Point(20, 60);
             this.cbEventFilter.Name = "cbEventFilter";
-            this.cbEventFilter.Size = new System.Drawing.Size(200, 24);
+            this.cbEventFilter.Size = new System.Drawing.Size(200, 21);
             this.cbEventFilter.TabIndex = 1;
-            // 
-            // dpFromDate
-            // 
-            this.dpFromDate.Location = new System.Drawing.Point(240, 60);
-            this.dpFromDate.Name = "dpFromDate";
-            this.dpFromDate.Size = new System.Drawing.Size(200, 22);
-            this.dpFromDate.TabIndex = 2;
-            // 
-            // dpToDate
-            // 
-            this.dpToDate.Location = new System.Drawing.Point(460, 60);
-            this.dpToDate.Name = "dpToDate";
-            this.dpToDate.Size = new System.Drawing.Size(200, 22);
-            this.dpToDate.TabIndex = 3;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.Location = new System.Drawing.Point(680, 60);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(100, 30);
-            this.btnFilter.TabIndex = 4;
-            this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = true;
+            this.cbEventFilter.SelectedIndexChanged += new System.EventHandler(this.cbEventFilter_SelectedIndexChanged);
             // 
             // dgvEventDetails
             // 
@@ -85,6 +58,7 @@ namespace DBapplication
             this.dgvEventDetails.RowHeadersWidth = 51;
             this.dgvEventDetails.Size = new System.Drawing.Size(760, 300);
             this.dgvEventDetails.TabIndex = 5;
+            this.dgvEventDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEventDetails_CellContentClick);
             // 
             // btnExport
             // 
@@ -92,27 +66,43 @@ namespace DBapplication
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(180, 30);
             this.btnExport.TabIndex = 6;
-            this.btnExport.Text = "Export to Excel/PDF";
+            this.btnExport.Text = "Delete attendance";
             this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // btnViewDetails
+            // textBox1
             // 
-            this.btnViewDetails.Location = new System.Drawing.Point(20, 420);
-            this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(180, 30);
-            this.btnViewDetails.TabIndex = 7;
-            this.btnViewDetails.Text = "View Details";
-            this.btnViewDetails.UseVisualStyleBackColor = true;
+            this.textBox1.Location = new System.Drawing.Point(417, 426);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(161, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(272, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Event Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(332, 429);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Attendance ID";
             // 
             // AttendanceTrackerForm
             // 
             this.ClientSize = new System.Drawing.Size(800, 470);
-            this.Controls.Add(this.btnViewDetails);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.dgvEventDetails);
-            this.Controls.Add(this.btnFilter);
-            this.Controls.Add(this.dpToDate);
-            this.Controls.Add(this.dpFromDate);
             this.Controls.Add(this.cbEventFilter);
             this.Controls.Add(this.lblTitle);
             this.Name = "AttendanceTrackerForm";
@@ -122,5 +112,9 @@ namespace DBapplication
             this.PerformLayout();
 
         }
+
+        private TextBox textBox1;
+        private Label label1;
+        private Label label2;
     }
 }

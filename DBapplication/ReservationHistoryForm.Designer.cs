@@ -24,7 +24,7 @@ namespace DBapplication
             this.lblReservationHistory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblReservationHistory.Location = new System.Drawing.Point(20, 20);
             this.lblReservationHistory.Name = "lblReservationHistory";
-            this.lblReservationHistory.Size = new System.Drawing.Size(197, 24);
+            this.lblReservationHistory.Size = new System.Drawing.Size(160, 19);
             this.lblReservationHistory.TabIndex = 0;
             this.lblReservationHistory.Text = "Reservation History";
             // 
@@ -36,6 +36,7 @@ namespace DBapplication
             this.dgvReservationHistory.RowHeadersWidth = 51;
             this.dgvReservationHistory.Size = new System.Drawing.Size(540, 200);
             this.dgvReservationHistory.TabIndex = 1;
+            this.dgvReservationHistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReservationHistory_CellContentClick);
             // 
             // btnFilterByDate
             // 
@@ -60,7 +61,7 @@ namespace DBapplication
             this.dtpFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFilterDate.Location = new System.Drawing.Point(20, 320);
             this.dtpFilterDate.Name = "dtpFilterDate";
-            this.dtpFilterDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpFilterDate.Size = new System.Drawing.Size(200, 20);
             this.dtpFilterDate.TabIndex = 4;
             // 
             // cmbFilterLocation
@@ -68,7 +69,7 @@ namespace DBapplication
             this.cmbFilterLocation.FormattingEnabled = true;
             this.cmbFilterLocation.Location = new System.Drawing.Point(280, 320);
             this.cmbFilterLocation.Name = "cmbFilterLocation";
-            this.cmbFilterLocation.Size = new System.Drawing.Size(200, 24);
+            this.cmbFilterLocation.Size = new System.Drawing.Size(200, 21);
             this.cmbFilterLocation.TabIndex = 5;
             // 
             // ReservationHistoryForm

@@ -24,5 +24,9 @@ namespace DBapplication
             dgvReservationHistory.DataSource = studentController.GetReservationHistoryForStudent(userid);
         }
 
+        private void dgvReservationHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

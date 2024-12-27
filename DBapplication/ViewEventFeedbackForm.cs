@@ -1,27 +1,58 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace DBapplication
 {
     public partial class ViewEventFeedbackForm : Form
     {
+        private FacultyMemberControler facultyController; // Declare the controller
+
         public ViewEventFeedbackForm(Form parentForm)
         {
-            InitializeComponent();
-
-            // Store the parent form
-            Form ParentForm = parentForm;
-
-            // Hide the parent form when the sub-form opens
-            ParentForm.Hide();
-
-            // Add event handler to show the parent form when the sub-form is closed
-            this.FormClosed += (sender, e) => { ParentForm.Show(); };
+            InitializeComponent(); // Initialize the form's components
+            facultyController = new FacultyMemberControler(); // Initialize the controller
+            facultyController.PopulateEventNames(cbEventFilter);
         }
 
-        private void EventFeedbackForm_Load(object sender, EventArgs e)
+     
+        private void dgvFeedback_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Placeholder for any actions, no actions implemented yet.
+            // Optional: Handle cell clicks if additional actions are needed
+        }
+
+        private void cbEventFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedEventName = cbEventFilter.SelectedItem.ToString(); 
+            DataTable feedbacks = facultyController.GetFeedBacks(selectedEventName);
+            dgvFeedback.DataSource = feedbacks;
+        }
+
+     
+        private void btnExportFeedback_Click(object sender, EventArgs e)
+        {
+            {
+                // Assuming you're using a ComboBox to display the feedback IDs
+                if (txtResponse.Text != null)
+                {
+                    // Get the selected Feedback ID from the ComboBox (or TextBox, depending on your design)
+                    int feedbackId = Convert.ToInt32(txtResponse.Text.ToString());
+
+                    // Call the DeleteFeedBack method in your controller
+                    FacultyMemberControler controller = new FacultyMemberControler();
+                    controller.DeleteFeedBack(feedbackId);
+
+                    // Optionally, display a message to confirm deletion
+                    MessageBox.Show("Feedback is  deleted successfully.");
+                    string selectedEventName = cbEventFilter.SelectedItem.ToString();
+                    DataTable feedbacks = facultyController.GetFeedBacks(selectedEventName);
+                    dgvFeedback.DataSource = feedbacks;
+                }
+                else
+                {
+                    MessageBox.Show("Please select a feedback to delete.");
+                }
+            }
         }
     }
 }

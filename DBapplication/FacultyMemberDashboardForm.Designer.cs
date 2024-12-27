@@ -26,6 +26,7 @@ namespace DBapplication
             this.grpReporting = new System.Windows.Forms.GroupBox();
             this.btnGenerateReports = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.grpEventManagement.SuspendLayout();
             this.grpClubManagement.SuspendLayout();
             this.grpReporting.SuspendLayout();
@@ -37,7 +38,7 @@ namespace DBapplication
             this.lblTotalEvents.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblTotalEvents.Location = new System.Drawing.Point(20, 20);
             this.lblTotalEvents.Name = "lblTotalEvents";
-            this.lblTotalEvents.Size = new System.Drawing.Size(117, 19);
+            this.lblTotalEvents.Size = new System.Drawing.Size(101, 16);
             this.lblTotalEvents.TabIndex = 0;
             this.lblTotalEvents.Text = "Total Events: ";
             // 
@@ -47,7 +48,7 @@ namespace DBapplication
             this.lblUpcomingEvents.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblUpcomingEvents.Location = new System.Drawing.Point(20, 50);
             this.lblUpcomingEvents.Name = "lblUpcomingEvents";
-            this.lblUpcomingEvents.Size = new System.Drawing.Size(158, 19);
+            this.lblUpcomingEvents.Size = new System.Drawing.Size(138, 16);
             this.lblUpcomingEvents.TabIndex = 1;
             this.lblUpcomingEvents.Text = "Upcoming Events: ";
             // 
@@ -57,7 +58,7 @@ namespace DBapplication
             this.lblTotalClubs.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblTotalClubs.Location = new System.Drawing.Point(20, 80);
             this.lblTotalClubs.Name = "lblTotalClubs";
-            this.lblTotalClubs.Size = new System.Drawing.Size(108, 19);
+            this.lblTotalClubs.Size = new System.Drawing.Size(92, 16);
             this.lblTotalClubs.TabIndex = 2;
             this.lblTotalClubs.Text = "Total Clubs: ";
             // 
@@ -67,7 +68,7 @@ namespace DBapplication
             this.lblPendingMembershipRequests.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblPendingMembershipRequests.Location = new System.Drawing.Point(20, 110);
             this.lblPendingMembershipRequests.Name = "lblPendingMembershipRequests";
-            this.lblPendingMembershipRequests.Size = new System.Drawing.Size(263, 19);
+            this.lblPendingMembershipRequests.Size = new System.Drawing.Size(236, 16);
             this.lblPendingMembershipRequests.TabIndex = 3;
             this.lblPendingMembershipRequests.Text = "Pending Membership Requests: ";
             // 
@@ -77,26 +78,27 @@ namespace DBapplication
             this.lblFeedbackPendingResponse.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.lblFeedbackPendingResponse.Location = new System.Drawing.Point(20, 140);
             this.lblFeedbackPendingResponse.Name = "lblFeedbackPendingResponse";
-            this.lblFeedbackPendingResponse.Size = new System.Drawing.Size(247, 19);
+            this.lblFeedbackPendingResponse.Size = new System.Drawing.Size(221, 16);
             this.lblFeedbackPendingResponse.TabIndex = 4;
             this.lblFeedbackPendingResponse.Text = "Feedback Pending Response: ";
             // 
             // grpEventManagement
             // 
+            this.grpEventManagement.Controls.Add(this.button1);
             this.grpEventManagement.Controls.Add(this.ViewFeedback);
             this.grpEventManagement.Controls.Add(this.btnCreateNewEvent);
             this.grpEventManagement.Controls.Add(this.btnManageEvents);
             this.grpEventManagement.Controls.Add(this.btnViewFeedbackAttendance);
             this.grpEventManagement.Location = new System.Drawing.Point(20, 180);
             this.grpEventManagement.Name = "grpEventManagement";
-            this.grpEventManagement.Size = new System.Drawing.Size(250, 193);
+            this.grpEventManagement.Size = new System.Drawing.Size(254, 221);
             this.grpEventManagement.TabIndex = 5;
             this.grpEventManagement.TabStop = false;
             this.grpEventManagement.Text = "Event Management";
             // 
             // ViewFeedback
             // 
-            this.ViewFeedback.Location = new System.Drawing.Point(20, 146);
+            this.ViewFeedback.Location = new System.Drawing.Point(20, 185);
             this.ViewFeedback.Name = "ViewFeedback";
             this.ViewFeedback.Size = new System.Drawing.Size(200, 30);
             this.ViewFeedback.TabIndex = 3;
@@ -126,7 +128,7 @@ namespace DBapplication
             // 
             // btnViewFeedbackAttendance
             // 
-            this.btnViewFeedbackAttendance.Location = new System.Drawing.Point(20, 110);
+            this.btnViewFeedbackAttendance.Location = new System.Drawing.Point(20, 149);
             this.btnViewFeedbackAttendance.Name = "btnViewFeedbackAttendance";
             this.btnViewFeedbackAttendance.Size = new System.Drawing.Size(200, 30);
             this.btnViewFeedbackAttendance.TabIndex = 2;
@@ -179,9 +181,9 @@ namespace DBapplication
             // grpReporting
             // 
             this.grpReporting.Controls.Add(this.btnGenerateReports);
-            this.grpReporting.Location = new System.Drawing.Point(24, 379);
+            this.grpReporting.Location = new System.Drawing.Point(23, 407);
             this.grpReporting.Name = "grpReporting";
-            this.grpReporting.Size = new System.Drawing.Size(250, 70);
+            this.grpReporting.Size = new System.Drawing.Size(244, 73);
             this.grpReporting.TabIndex = 8;
             this.grpReporting.TabStop = false;
             this.grpReporting.Text = "Reporting";
@@ -203,6 +205,16 @@ namespace DBapplication
             this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(20, 114);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(201, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Take Attendance";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FacultyMemberDashboardForm
             // 
@@ -244,5 +256,6 @@ namespace DBapplication
         private Button btnApproveMembershipRequests;
         private Button btnAddUpdateClubs;
         private Button ViewFeedback;
+        private Button button1;
     }
 }
