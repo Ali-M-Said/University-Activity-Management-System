@@ -51,6 +51,7 @@ namespace DBapplication
         private void ViewFeedback_Click(object sender, EventArgs e)
         {
             FacultyViewFeedback viewEventFeedbackForm = new FacultyViewFeedback(this);
+            FacultyViewFeedback viewEventFeedbackForm = new FacultyViewFeedback(this,UserID);
             viewEventFeedbackForm.Show();
         }
 
@@ -63,6 +64,7 @@ namespace DBapplication
         private void btnApproveMembershipRequests_Click(object sender, EventArgs e)
         {
             ManageMembershipRequestsForm manageMembershipRequestsForm = new ManageMembershipRequestsForm(this,UserID);
+            ManageMembershipRequestsForm manageMembershipRequestsForm = new ManageMembershipRequestsForm(this);
             manageMembershipRequestsForm.Show();
         }
 
@@ -75,6 +77,7 @@ namespace DBapplication
         private void button1_Click(object sender, EventArgs e)
         {
             Taking_Attendance taking_Attendance = new Taking_Attendance();
+            Taking_Attendance taking_Attendance = new Taking_Attendance(this,UserID);
           taking_Attendance.Show();
         }
 

@@ -41,8 +41,10 @@
             // 
             this.button1.Location = new System.Drawing.Point(285, 257);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(214, 209);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 28);
+            this.button1.Size = new System.Drawing.Size(151, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Record Attendance";
             this.button1.UseVisualStyleBackColor = true;
@@ -53,8 +55,10 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(440, 86);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(330, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 16);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "EVENT NAME";
             // 
@@ -63,8 +67,10 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(440, 140);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(330, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 16);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "StudentID";
             // 
@@ -73,8 +79,10 @@
             this.eventnamebox.FormattingEnabled = true;
             this.eventnamebox.Location = new System.Drawing.Point(85, 82);
             this.eventnamebox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eventnamebox.Location = new System.Drawing.Point(64, 67);
             this.eventnamebox.Name = "eventnamebox";
             this.eventnamebox.Size = new System.Drawing.Size(160, 24);
+            this.eventnamebox.Size = new System.Drawing.Size(121, 21);
             this.eventnamebox.TabIndex = 3;
             this.eventnamebox.SelectedIndexChanged += new System.EventHandler(this.eventnamebox_SelectedIndexChanged);
             // 
@@ -82,16 +90,20 @@
             // 
             this.studentidbox.Location = new System.Drawing.Point(85, 137);
             this.studentidbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.studentidbox.Location = new System.Drawing.Point(64, 111);
             this.studentidbox.Name = "studentidbox";
             this.studentidbox.Size = new System.Drawing.Size(160, 22);
+            this.studentidbox.Size = new System.Drawing.Size(121, 20);
             this.studentidbox.TabIndex = 4;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(85, 197);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(64, 160);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(160, 22);
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 5;
             // 
             // label3
@@ -99,16 +111,20 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(437, 197);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(328, 160);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 16);
+            this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "CheckIn Time";
             // 
             // Taking_Attendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 517);
+            this.ClientSize = new System.Drawing.Size(421, 420);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.studentidbox);

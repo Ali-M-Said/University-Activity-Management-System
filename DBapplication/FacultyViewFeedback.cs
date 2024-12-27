@@ -9,10 +9,14 @@ namespace DBapplication
         private FacultyMemberControler facultyController; // Declare the controller
 
         public FacultyViewFeedback(Form parentForm)
+        int userId;
+        public FacultyViewFeedback(Form parentForm,int uid)
         {
+            userId= uid;
             InitializeComponent(); // Initialize the form's components
             facultyController = new FacultyMemberControler(); // Initialize the controller
             facultyController.PopulateEventNames(cbEventFilter);
+            facultyController.PopulateEventNames(cbEventFilter,userId);
             string selectedEventName = cbEventFilter.SelectedItem.ToString();
             DataTable feedbacks = facultyController.GetFeedBacks(selectedEventName);
             dgvFeedback.DataSource = feedbacks;
