@@ -42,11 +42,6 @@ namespace DBapplication
             comboBoxLocation.ValueMember = "LocationID";
             comboBoxLocation.DataSource = controller.Locations();
             comboBoxLocation.SelectedValue = Convert.ToInt32(row["LocationID"]);
-
-            ComboboxCreatedBy.DataSource = controller.FacultyMembers();
-            ComboboxCreatedBy.DisplayMember = "Name";
-            ComboboxCreatedBy.ValueMember = "UserID";
-            ComboboxCreatedBy.SelectedValue = row["CreatedBy"];
         }
 
         private void EditEventForm_Load(object sender, EventArgs e)
@@ -80,7 +75,7 @@ namespace DBapplication
             }
             else if (errorMessage == "")
             {
-                controller.EditEvent(EventID,txtEventTitle.Text, txtEventDescription.Text, Convert.ToDateTime(StartdateTimePicker.Text), Convert.ToDateTime(EnddateTimePicker2.Text), Convert.ToInt32(comboBoxEventCat.SelectedValue), Convert.ToInt32(comboBoxLocation.SelectedValue), Convert.ToInt32(ComboboxCreatedBy.SelectedValue));
+                controller.EditEvent(EventID,txtEventTitle.Text, txtEventDescription.Text, Convert.ToDateTime(StartdateTimePicker.Text), Convert.ToDateTime(EnddateTimePicker2.Text), Convert.ToInt32(comboBoxEventCat.SelectedValue), Convert.ToInt32(comboBoxLocation.SelectedValue));
                 MessageBox.Show("Event Edited Successfully");
                 this.Close();
             }

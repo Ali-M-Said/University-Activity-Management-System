@@ -20,6 +20,27 @@ namespace DBapplication
             string query = "SELECT COUNT(*) FROM Users";
             return Convert.ToString(dbMan.ExecuteScalar(query));
         }
+        public bool CheckEvent(int eventid, int userid)
+        {
+
+
+            string checkQuery = $@"
+SELECT COUNT(*) 
+FROM Event 
+WHERE CreatedBy = '{userid}' AND EventId='{eventid}'   ";
+
+            int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            if (existingRegistrations > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
         public string GetTotalAdmins()
         {
             string query = "SELECT COUNT(*) FROM Users WHERE Type = 'Admin'";
@@ -97,6 +118,11 @@ namespace DBapplication
         public DataTable AllUsers()
         {
             string query= "SELECT* FROM Users";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable EventsCreatedby(int userId)
+        {
+            string query = $@"SELECT e.Title, e.EventID, e.EventCategory, e.StartDate, e.EndDate  ,e.Description, e.LocationID, e.CreatedBy FROM event e INNER JOIN users u ON e.CreatedBy = u.UserID WHERE e.CreatedBy = '{userId}';";
             return dbMan.ExecuteReader(query);
         }
         public bool DoesUserExist(int userId)
@@ -189,11 +215,11 @@ namespace DBapplication
 
             dbMan.ExecuteNonQuery(query);
         }
-        public void EditEvent(int eventId, string title, string description, DateTime startDate, DateTime endDate, int eventCategory, int locationId, int createdby)
+        public void EditEvent(int eventId, string title, string description, DateTime startDate, DateTime endDate, int eventCategory, int locationId)
         {
             string query = $@"
         UPDATE Event
-        SET Title='{title}', Description='{description}',StartDate= '{startDate}',EndDate= '{endDate}', EventCategory={eventCategory}, LocationID={locationId},CreatedBy={createdby}
+        SET Title='{title}', Description='{description}',StartDate= '{startDate}',EndDate= '{endDate}', EventCategory={eventCategory}, LocationID={locationId}
         WHERE EventID = {eventId}";
             dbMan.ExecuteNonQuery(query);
         }
