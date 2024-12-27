@@ -141,11 +141,11 @@
     <Compile Include="EditLocationsForm.Designer.cs">
       <DependentUpon>EditLocationsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EventFeedbackForm.cs">
+    <Compile Include="GiveFeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EventFeedbackForm.Designer.cs">
-      <DependentUpon>EventFeedbackForm.cs</DependentUpon>
+    <Compile Include="GiveFeedbackForm.Designer.cs">
+      <DependentUpon>GiveFeedbackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewEventFeedbackForm.cs">
       <SubType>Form</SubType>
@@ -203,6 +203,12 @@
     <Compile Include="UpcomingEventsForm.Designer.cs">
       <DependentUpon>UpcomingEventsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewFeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewFeedbackForm.Designer.cs">
+      <DependentUpon>ViewFeedbackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,11 +248,14 @@
     <EmbeddedResource Include="EditLocationsForm.resx">
       <DependentUpon>EditLocationsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EventFeedbackForm.resx">
-      <DependentUpon>EventFeedbackForm.cs</DependentUpon>
+    <EmbeddedResource Include="GiveFeedbackForm.resx">
+      <DependentUpon>GiveFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventRegister.resx">
       <DependentUpon>EventRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisteredEventsForm.resx">
+      <DependentUpon>RegisteredEventsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReservationHistoryForm.resx">
       <DependentUpon>ReservationHistoryForm.cs</DependentUpon>
@@ -287,6 +296,9 @@
     </Compile>
     <EmbeddedResource Include="StudentDashboardForm.resx">
       <DependentUpon>StudentDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewFeedbackForm.resx">
+      <DependentUpon>ViewFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewUsersForm.resx">
       <DependentUpon>ViewUsersForm.cs</DependentUpon>

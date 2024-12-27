@@ -13,6 +13,7 @@ namespace DBapplication
     public partial class ClubMembershipStatusForm : Form
     {
         StudentController studentController=new  StudentController();
+        int userid = 1;
         public ClubMembershipStatusForm(Form parentForm)
         {
             int userid = 1;
@@ -35,6 +36,7 @@ namespace DBapplication
                                   "Success",
                                   MessageBoxButtons.OK,
                                   MessageBoxIcon.Information);
+                    dgvClubMemberships.DataSource = studentController.GetMemberships(userid);
 
                 }
                 else

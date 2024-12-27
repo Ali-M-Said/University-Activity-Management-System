@@ -36,7 +36,7 @@ namespace DBapplication
             // 
             this.btnRegister.Location = new System.Drawing.Point(100, 150);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(100, 23);
+            this.btnRegister.Size = new System.Drawing.Size(117, 37);
             this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;

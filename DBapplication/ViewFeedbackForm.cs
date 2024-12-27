@@ -10,42 +10,40 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class RegisteredEventsForm : Form
+    public partial class ViewFeedbackForm : Form
     {
-        StudentController studentController = new StudentController();
         int userid = 1;
-        public RegisteredEventsForm(Form parentForm)
+        StudentController studentController=new StudentController();
+        public ViewFeedbackForm(Form parentForm)
         {
-            InitializeComponent();
-
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
-            dgvRegisteredEvents.DataSource = studentController.GetRegisteredEvents(userid);
+            InitializeComponent();
+            dgvFeedbacks.DataSource=studentController.GetFeedbackByUserId(userid);
         }
 
-        private void btCanReg_Click(object sender, EventArgs e)
+        private void btnDeleteFeedback_Click(object sender, EventArgs e)
         {
-            int regId;
-            if (int.TryParse(tbRegId.Text, out regId))
+            int feedId;
+            if (int.TryParse(tbFeedbackID.Text, out feedId))
             {
                 try
                 {
-                    bool success = studentController.CancelEventRegisteration(regId);
+                    bool success = studentController.DeleteFeedbackById(feedId,userid);
                     if (success)
                     {
-                        MessageBox.Show("Successfully Cancelled the Event Registeration!",
+                        MessageBox.Show("Successfully Deleted the Feedback!",
                                       "Success",
                                       MessageBoxButtons.OK,
                                       MessageBoxIcon.Information);
-                        dgvRegisteredEvents.DataSource = studentController.GetRegisteredEvents(userid);
-
+                        dgvFeedbacks.DataSource = studentController.GetFeedbackByUserId(userid);
 
 
                     }
                     else
                     {
-                        MessageBox.Show("Registeration ID Not Found!",
+                        MessageBox.Show("Feedback ID Not Found!",
                                       "Operation failed",
                                       MessageBoxButtons.OK,
                                       MessageBoxIcon.Warning);
@@ -53,12 +51,12 @@ namespace DBapplication
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error Cancelling Event Registeration: " + ex.Message);
+                    MessageBox.Show("Error Deleting Feedback: " + ex.Message);
                 }
             }
             else
             {
-                MessageBox.Show("Please enter a valid Registeration ID!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid Feedback ID!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

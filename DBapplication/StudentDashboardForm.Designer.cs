@@ -17,6 +17,7 @@ namespace DBapplication
             this.btnViewAvailableSpaces = new System.Windows.Forms.Button();
             this.btnViewReservationHistory = new System.Windows.Forms.Button();
             this.grpEvents = new System.Windows.Forms.GroupBox();
+            this.btRegEv = new System.Windows.Forms.Button();
             this.btnViewUpcomingEvents = new System.Windows.Forms.Button();
             this.btnProvideFeedback = new System.Windows.Forms.Button();
             this.grpClubsAndSchedule = new System.Windows.Forms.GroupBox();
@@ -27,9 +28,11 @@ namespace DBapplication
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btRefresh = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btRegEv = new System.Windows.Forms.Button();
-            this.btPersonalSchedule = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btViewFeed = new System.Windows.Forms.Button();
             this.grpReservations.SuspendLayout();
             this.grpEvents.SuspendLayout();
             this.grpClubsAndSchedule.SuspendLayout();
@@ -98,16 +101,26 @@ namespace DBapplication
             // 
             // grpEvents
             // 
+            this.grpEvents.Controls.Add(this.btViewFeed);
             this.grpEvents.Controls.Add(this.btRegEv);
             this.grpEvents.Controls.Add(this.btnViewUpcomingEvents);
-            this.grpEvents.Controls.Add(this.button1);
             this.grpEvents.Controls.Add(this.btnProvideFeedback);
             this.grpEvents.Location = new System.Drawing.Point(286, 120);
             this.grpEvents.Name = "grpEvents";
-            this.grpEvents.Size = new System.Drawing.Size(244, 324);
+            this.grpEvents.Size = new System.Drawing.Size(244, 285);
             this.grpEvents.TabIndex = 4;
             this.grpEvents.TabStop = false;
             this.grpEvents.Text = "Events";
+            // 
+            // btRegEv
+            // 
+            this.btRegEv.Location = new System.Drawing.Point(20, 98);
+            this.btRegEv.Name = "btRegEv";
+            this.btRegEv.Size = new System.Drawing.Size(200, 52);
+            this.btRegEv.TabIndex = 3;
+            this.btRegEv.Text = "View Registered Events / Cancel";
+            this.btRegEv.UseVisualStyleBackColor = true;
+            this.btRegEv.Click += new System.EventHandler(this.btRegEv_Click);
             // 
             // btnViewUpcomingEvents
             // 
@@ -131,12 +144,11 @@ namespace DBapplication
             // 
             // grpClubsAndSchedule
             // 
-            this.grpClubsAndSchedule.Controls.Add(this.btPersonalSchedule);
             this.grpClubsAndSchedule.Controls.Add(this.btnViewClubs);
             this.grpClubsAndSchedule.Controls.Add(this.btnViewClubMembershipStatus);
             this.grpClubsAndSchedule.Location = new System.Drawing.Point(20, 280);
             this.grpClubsAndSchedule.Name = "grpClubsAndSchedule";
-            this.grpClubsAndSchedule.Size = new System.Drawing.Size(260, 208);
+            this.grpClubsAndSchedule.Size = new System.Drawing.Size(260, 164);
             this.grpClubsAndSchedule.TabIndex = 5;
             this.grpClubsAndSchedule.TabStop = false;
             this.grpClubsAndSchedule.Text = "Clubs and Schedule";
@@ -174,7 +186,7 @@ namespace DBapplication
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(186, 20);
+            this.label1.Location = new System.Drawing.Point(185, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 7;
@@ -199,46 +211,67 @@ namespace DBapplication
             // 
             // btRefresh
             // 
-            this.btRefresh.Location = new System.Drawing.Point(348, 50);
+            this.btRefresh.Location = new System.Drawing.Point(435, 80);
             this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(152, 46);
+            this.btRefresh.Size = new System.Drawing.Size(95, 28);
             this.btRefresh.TabIndex = 8;
             this.btRefresh.Text = "Refresh";
             this.btRefresh.UseVisualStyleBackColor = true;
             this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
-            // button1
+            // label5
             // 
-            this.button1.Location = new System.Drawing.Point(20, 223);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 41);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "View / Delete Feedback";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnProvideFeedback_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(211, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(196, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Total Registered Events";
             // 
-            // btRegEv
+            // label4
             // 
-            this.btRegEv.Location = new System.Drawing.Point(20, 98);
-            this.btRegEv.Name = "btRegEv";
-            this.btRegEv.Size = new System.Drawing.Size(200, 52);
-            this.btRegEv.TabIndex = 3;
-            this.btRegEv.Text = "View Registered Events / Cancel";
-            this.btRegEv.UseVisualStyleBackColor = true;
-            this.btRegEv.Click += new System.EventHandler(this.btRegEv_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(211, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 19);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Total Feedback Given:";
             // 
-            // btPersonalSchedule
+            // label6
             // 
-            this.btPersonalSchedule.Location = new System.Drawing.Point(20, 159);
-            this.btPersonalSchedule.Name = "btPersonalSchedule";
-            this.btPersonalSchedule.Size = new System.Drawing.Size(200, 43);
-            this.btPersonalSchedule.TabIndex = 2;
-            this.btPersonalSchedule.Text = "View Personal Schedule";
-            this.btPersonalSchedule.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(400, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 16);
+            this.label6.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(413, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 16);
+            this.label7.TabIndex = 9;
+            // 
+            // btViewFeed
+            // 
+            this.btViewFeed.Location = new System.Drawing.Point(20, 226);
+            this.btViewFeed.Name = "btViewFeed";
+            this.btViewFeed.Size = new System.Drawing.Size(200, 43);
+            this.btViewFeed.TabIndex = 4;
+            this.btViewFeed.Text = "View / Delete Feedback";
+            this.btViewFeed.UseVisualStyleBackColor = true;
+            this.btViewFeed.Click += new System.EventHandler(this.btViewFeed_Click);
             // 
             // StudentDashboardForm
             // 
             this.ClientSize = new System.Drawing.Size(550, 500);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -248,7 +281,9 @@ namespace DBapplication
             this.Controls.Add(this.grpEvents);
             this.Controls.Add(this.grpReservations);
             this.Controls.Add(this.lblClubMemberships);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblUpcomingEvents);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblTotalReservations);
             this.Name = "StudentDashboardForm";
             this.Text = "Dashboard";
@@ -278,8 +313,11 @@ namespace DBapplication
         private Label label2;
         private Label label3;
         private Button btRefresh;
-        private Button button1;
         private Button btRegEv;
-        private Button btPersonalSchedule;
+        private Label label5;
+        private Label label4;
+        private Label label6;
+        private Label label7;
+        private Button btViewFeed;
     }
 }

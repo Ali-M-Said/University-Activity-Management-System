@@ -33,6 +33,16 @@ namespace DBapplication
             string query = $@"SELECT COUNT(*) FROM Club_Membership cm WHERE cm.UserID = '{userid}';";
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
+        public int RegEventCount(int userid)
+        {
+            string query = $@"SELECT COUNT(*) AS RegisteredEventCount FROM RegisteredEvents WHERE  USERID = '{userid}';";
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
+        public int FeedbackCount(int userid)
+        {
+            string query = $@"SELECT COUNT(*) AS GivenFeedbackCount FROM feedback WHERE USERID = '{userid}';";
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
 
         public DataTable GetAvailableSpacesForReservation()
         {
@@ -53,6 +63,49 @@ namespace DBapplication
             availableSpaces = dbMan.ExecuteReader(query);
             return availableSpaces;
         }
+        public DataTable GetFeedbackByUserId(int userId)
+        {
+            DataTable feedbackData = new DataTable();
+            string query = $@"
+        SELECT 
+            f.FeedbackID, 
+            f.UserID, 
+            f.EventID, 
+            f.Ratings, 
+            f.comments
+        FROM 
+            Feedback f
+        WHERE 
+            f.UserID ='{userId}'
+    ";
+
+            feedbackData = dbMan.ExecuteReader(query);
+
+            return feedbackData;
+        }
+        public bool DeleteFeedbackById(int feedbackId, int userId)
+        {
+            bool isDeleted = false;
+            string query = $@"
+        DELETE FROM 
+            Feedback 
+        WHERE 
+            FeedbackID = '{feedbackId}' 
+            AND UserID = '{userId}'
+    ";
+
+            // Execute the query using ExecuteNonQuery method
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+
+            // Check if any rows were affected (i.e., the feedback was deleted)
+            if (rowsAffected > 0)
+            {
+                isDeleted = true;
+            }
+
+            return isDeleted;
+        }
+
 
         public bool ReserveLocation(int userId, int locationId, string startTime, string endTime)
         {
@@ -222,7 +275,25 @@ namespace DBapplication
             // Return true if the registration was successfully added
             return rowsAffected > 0;
         }
+        public bool CancelEventRegisteration(int Regid)
+        {
+            string checkQuery = $@"
+        SELECT COUNT(*) 
+        FROM RegisteredEvents 
+        WHERE RegistrationID = '{Regid}' ";
 
+            int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            if (existingRegistrations < 0)
+            {
+                return false;
+            }
+
+            string deleteQuery = $@" DELETE FROM RegisteredEvents WHERE RegistrationID = '{Regid}';";
+
+            int rowsAffected = dbMan.ExecuteNonQuery(deleteQuery);
+            return rowsAffected > 0;
+        }
 
         public DataTable GetAllClubs()
         {

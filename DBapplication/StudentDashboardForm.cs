@@ -20,10 +20,12 @@ namespace DBapplication
     
             InitializeComponent();
 
-           
+
             label1.Text = controller.ResCount(1).ToString();
             label2.Text = controller.EventCount(1).ToString();
-            label3.Text=controller.ClubCount(1).ToString(); 
+            label3.Text = controller.ClubCount(1).ToString();
+            label6.Text = controller.FeedbackCount(1).ToString();
+            label7.Text = controller.RegEventCount(1).ToString();
 
         }
 
@@ -57,7 +59,7 @@ namespace DBapplication
 
         private void btnProvideFeedback_Click(object sender, EventArgs e)
         {
-            EventFeedbackForm eventFeedbackForm = new EventFeedbackForm(this);
+            GiveFeedbackForm eventFeedbackForm = new GiveFeedbackForm(this);
             eventFeedbackForm.Show();
         }
 
@@ -82,12 +84,20 @@ namespace DBapplication
             label1.Text = controller.ResCount(1).ToString();
             label2.Text = controller.EventCount(1).ToString();
             label3.Text = controller.ClubCount(1).ToString();
+            label6.Text = controller.FeedbackCount(1).ToString();
+            label7.Text=controller.RegEventCount(1).ToString();
         }
 
         private void btRegEv_Click(object sender, EventArgs e)
         {
             RegisteredEventsForm registeredEventsForm=new RegisteredEventsForm(this);
             registeredEventsForm.Show();
+        }
+
+        private void btViewFeed_Click(object sender, EventArgs e)
+        {
+            ViewFeedbackForm viewFeedbackForm = new ViewFeedbackForm(this);
+            viewFeedbackForm.Show();
         }
     }
 }
