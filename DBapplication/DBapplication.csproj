@@ -96,6 +96,18 @@
       <DependentUpon>EventRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="FacultyMemberController.cs" />
+    <Compile Include="GiveFeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiveFeedbackForm.Designer.cs">
+      <DependentUpon>GiveFeedbackForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisteredEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisteredEventsForm.Designer.cs">
+      <DependentUpon>RegisteredEventsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReserveLocationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,12 +151,6 @@
     </Compile>
     <Compile Include="EditLocationsForm.Designer.cs">
       <DependentUpon>EditLocationsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EventFeedbackForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EventFeedbackForm.Designer.cs">
-      <DependentUpon>EventFeedbackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonalScheduleForm.cs">
       <SubType>Form</SubType>
@@ -214,6 +220,12 @@
     <Compile Include="UpcomingEventsForm.Designer.cs">
       <DependentUpon>UpcomingEventsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewFeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewFeedbackForm.Designer.cs">
+      <DependentUpon>ViewFeedbackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,14 +262,17 @@
     <EmbeddedResource Include="EditLocationsForm.resx">
       <DependentUpon>EditLocationsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EventFeedbackForm.resx">
-      <DependentUpon>EventFeedbackForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EventRegister.resx">
       <DependentUpon>EventRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiveFeedbackForm.resx">
+      <DependentUpon>GiveFeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonalScheduleForm.resx">
       <DependentUpon>PersonalScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisteredEventsForm.resx">
+      <DependentUpon>RegisteredEventsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReservationHistoryForm.resx">
       <DependentUpon>ReservationHistoryForm.cs</DependentUpon>
@@ -301,6 +316,9 @@
     </Compile>
     <EmbeddedResource Include="StudentDashboardForm.resx">
       <DependentUpon>StudentDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewFeedbackForm.resx">
+      <DependentUpon>ViewFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewUsersForm.resx">
       <DependentUpon>ViewUsersForm.cs</DependentUpon>

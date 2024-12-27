@@ -13,14 +13,14 @@ namespace DBapplication
     public partial class ViewFeedbackForm : Form
     {
         int userid = 1;
-        StudentController studentController=new StudentController();
+        StudentController studentController = new StudentController();
         public ViewFeedbackForm(Form parentForm)
         {
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
             InitializeComponent();
-            dgvFeedbacks.DataSource=studentController.GetFeedbackByUserId(userid);
+            dgvFeedbacks.DataSource = studentController.GetFeedbackByUserId(userid);
         }
 
         private void btnDeleteFeedback_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace DBapplication
             {
                 try
                 {
-                    bool success = studentController.DeleteFeedbackById(feedId,userid);
+                    bool success = studentController.DeleteFeedbackById(feedId, userid);
                     if (success)
                     {
                         MessageBox.Show("Successfully Deleted the Feedback!",

@@ -90,7 +90,7 @@ namespace DBapplication
 
         private void btRegEv_Click(object sender, EventArgs e)
         {
-            RegisteredEventsForm registeredEventsForm=new RegisteredEventsForm(this);
+          RegisteredEventsForm registeredEventsForm=new RegisteredEventsForm(this);
             registeredEventsForm.Show();
         }
 

@@ -29,7 +29,7 @@ namespace DBapplication
             int memId = Convert.ToInt32(tbMemId.Text);
             try
             {
-                bool success = studentController.LeaveClub(memId);
+                bool success = studentController.LeaveClub(memId, userid);
                 if (success)
                 {
                     MessageBox.Show("Successfully Leaved the club!",

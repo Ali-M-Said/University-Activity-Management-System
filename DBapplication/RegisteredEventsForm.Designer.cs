@@ -5,7 +5,7 @@ namespace DBapplication
 {
     public partial class RegisteredEventsForm : Form
     {
-        
+
 
         private void InitializeComponent()
         {

@@ -31,7 +31,7 @@ namespace DBapplication
             {
                 try
                 {
-                    bool success = studentController.CancelEventRegisteration(regId);
+                    bool success = studentController.CancelEventRegisteration(regId,userid);
                     if (success)
                     {
                         MessageBox.Show("Successfully Cancelled the Event Registeration!",

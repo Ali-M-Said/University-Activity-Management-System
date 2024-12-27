@@ -143,12 +143,12 @@ namespace DBapplication
             return rowsAffected > 0;
         }
 
-        public bool CancelReservation(int Resid)
+        public bool CancelReservation(int Resid, int userid)
         {
             string checkQuery = $@"
         SELECT COUNT(*) 
         FROM Reservation 
-        WHERE ReservationID = '{Resid}' ";
+        WHERE ReservationID = '{Resid}' AND USERID='{userid}' ";
 
             int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
 
@@ -157,7 +157,7 @@ namespace DBapplication
                 return false;
             }
 
-            string deleteQuery = $@" DELETE FROM Reservation WHERE ReservationID = '{Resid}';";
+            string deleteQuery = $@" DELETE FROM Reservation WHERE (ReservationID = '{Resid}' AND USERID='{userid}');";
 
             int rowsAffected = dbMan.ExecuteNonQuery(deleteQuery);
             return rowsAffected > 0;
@@ -275,12 +275,12 @@ namespace DBapplication
             // Return true if the registration was successfully added
             return rowsAffected > 0;
         }
-        public bool CancelEventRegisteration(int Regid)
+        public bool CancelEventRegisteration(int Regid,int userid)
         {
             string checkQuery = $@"
         SELECT COUNT(*) 
         FROM RegisteredEvents 
-        WHERE RegistrationID = '{Regid}' ";
+        WHERE RegistrationID = '{Regid}' AND USERID='{userid}' ";
 
             int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
 
@@ -289,7 +289,7 @@ namespace DBapplication
                 return false;
             }
 
-            string deleteQuery = $@" DELETE FROM RegisteredEvents WHERE RegistrationID = '{Regid}';";
+            string deleteQuery = $@" DELETE FROM RegisteredEvents WHERE RegistrationID = '{Regid}' AND USERID ='{userid}';";
 
             int rowsAffected = dbMan.ExecuteNonQuery(deleteQuery);
             return rowsAffected > 0;
@@ -331,12 +331,12 @@ namespace DBapplication
             return rowsAffected > 0;
         }
 
-        public bool LeaveClub(int memID)
+       public bool LeaveClub(int memID,int userid)
         {
             string checkQuery = $@"
         SELECT COUNT(*) 
         FROM Club_Membership 
-        WHERE MembershipID = '{memID}' ";
+        WHERE MembershipID = '{memID}'AND USERID='{userid}' ";
 
             int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
 
@@ -345,7 +345,7 @@ namespace DBapplication
                 return false;
             }
 
-            string deleteQuery = $@" DELETE FROM Club_Membership WHERE MembershipID = '{memID}';";
+            string deleteQuery = $@" DELETE FROM Club_Membership WHERE MembershipID = '{memID}' AND USERID='{userid}';";
 
             int rowsAffected = dbMan.ExecuteNonQuery(deleteQuery);
             return rowsAffected > 0;

@@ -11,22 +11,66 @@ using System.Windows.Forms;
 namespace DBapplication
 {
     public partial class ReservationHistoryForm : Form
-
     {
-        StudentController studentController=new StudentController();    
+        StudentController studentController = new StudentController();
+        int userid = 1;
+
+        // Flag to track if the DataGridView needs refreshing
+
         public ReservationHistoryForm(Form parentForm)
         {
-            int userid =1;
             InitializeComponent();
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
+
+            LoadReservationHistory();
+
+        }
+
+        private void LoadReservationHistory()
+        {
+            dgvReservationHistory.DataSource = null;
             dgvReservationHistory.DataSource = studentController.GetReservationHistoryForStudent(userid);
         }
 
-        private void dgvReservationHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btCancelRes_Click(object sender, EventArgs e)
         {
+            int resId;
+            if (int.TryParse(tbResID.Text, out resId))
+            {
+                try
+                {
+                    bool success = studentController.CancelReservation(resId, userid);
+                    if (success)
+                    {
+                        MessageBox.Show("Successfully Cancelled the Reservation!",
+                                      "Success",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Information);
+                        dgvReservationHistory.DataSource = studentController.GetReservationHistoryForStudent(userid);
 
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Reservation Not Found!",
+                                      "Operation failed",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Cancelling Reservation: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid Reservation ID!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+
     }
 }

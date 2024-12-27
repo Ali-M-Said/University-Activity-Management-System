@@ -5,7 +5,7 @@ namespace DBapplication
 {
     public partial class ViewFeedbackForm : Form
     {
-      
+
 
         private void InitializeComponent()
         {
@@ -114,6 +114,6 @@ namespace DBapplication
         private Button btnDeleteFeedback;
         private Label lblFeedbackID;
 
-        
+
     }
 }
