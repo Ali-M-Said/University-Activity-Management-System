@@ -10,7 +10,7 @@ namespace DBapplication
 {
     public class DBManager
     {
-        static string DB_Connection_String = @"";
+        static string DB_Connection_String = @"Data Source=DESKTOP-KPE39BO\SQLEXPRESS02;Initial Catalog=Project;Integrated Security=True;Encrypt=False";
         SqlConnection myConnection;
 
         public DBManager()
@@ -28,25 +28,78 @@ namespace DBapplication
             }
         }
 
-        public int ExecuteNonQuery(string query)
+        public int ExecuteNonQuery(string query, Dictionary<string, object> parameters)
         {
             try
             {
-                SqlCommand myCommand = new SqlCommand(query, myConnection);
-                return myCommand.ExecuteNonQuery();
+                // Ensure the connection object is initialized
+                if (myConnection.State != ConnectionState.Open)
+                    myConnection.Open();
+
+                using (SqlCommand myCommand = new SqlCommand(query, myConnection))
+                {
+                    // Add parameters to the command
+                    foreach (var param in parameters)
+                    {
+                        myCommand.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
+                    }
+
+                    // Execute the query and return the number of affected rows
+                    return myCommand.ExecuteNonQuery();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
                 return 0;
+            }
+            finally
+            {
+                if (myConnection.State == ConnectionState.Open)
+                    myConnection.Close(); // Ensure connection is closed
             }
         }
 
-        public DataTable ExecuteReader(string query)
+
+        //public DataTable ExecuteReader(string query, Dictionary<string, object> parameters)
+        //{
+        //    try
+        //    {
+        //        SqlCommand myCommand = new SqlCommand(query, myConnection);
+        //        SqlDataReader reader = myCommand.ExecuteReader();
+        //        if (reader.HasRows)
+        //        {
+        //            DataTable dt = new DataTable();
+        //            dt.Load(reader);
+        //            reader.Close();
+        //            return dt;
+        //        }
+        //        else
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return null;
+        //    }
+        //}
+        public DataTable ExecuteReader(string query, Dictionary<string, object> parameters)
         {
             try
             {
                 SqlCommand myCommand = new SqlCommand(query, myConnection);
+
+                // Add parameters to the command if provided
+                if (parameters != null)
+                {
+                    foreach (var param in parameters)
+                    {
+                        myCommand.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+                }
+
                 SqlDataReader reader = myCommand.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -57,6 +110,7 @@ namespace DBapplication
                 }
                 else
                 {
+                    reader.Close();
                     return null;
                 }
             }
@@ -66,6 +120,7 @@ namespace DBapplication
                 return null;
             }
         }
+
 
         public object ExecuteScalar(string query)
         {
@@ -93,7 +148,7 @@ namespace DBapplication
             }
         }
 
-        
+      
     }
 }
 ;
