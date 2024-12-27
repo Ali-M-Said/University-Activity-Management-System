@@ -34,6 +34,8 @@ namespace DBapplication
             this.txtTotalMembers = new System.Windows.Forms.TextBox();
             this.txtClubDescription = new System.Windows.Forms.TextBox();
             this.txtClubName = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubMembers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +88,7 @@ namespace DBapplication
             // 
             // btnEditClubDetails
             // 
-            this.btnEditClubDetails.Location = new System.Drawing.Point(20, 480);
+            this.btnEditClubDetails.Location = new System.Drawing.Point(24, 533);
             this.btnEditClubDetails.Name = "btnEditClubDetails";
             this.btnEditClubDetails.Size = new System.Drawing.Size(150, 30);
             this.btnEditClubDetails.TabIndex = 10;
@@ -96,7 +98,7 @@ namespace DBapplication
             // 
             // btnRemoveMember
             // 
-            this.btnRemoveMember.Location = new System.Drawing.Point(180, 480);
+            this.btnRemoveMember.Location = new System.Drawing.Point(184, 533);
             this.btnRemoveMember.Name = "btnRemoveMember";
             this.btnRemoveMember.Size = new System.Drawing.Size(150, 30);
             this.btnRemoveMember.TabIndex = 11;
@@ -133,9 +135,28 @@ namespace DBapplication
             this.txtClubName.TabIndex = 2;
             this.txtClubName.TextChanged += new System.EventHandler(this.txtClubName_TextChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(100, 490);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(152, 22);
+            this.textBox1.TabIndex = 12;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 493);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Member ID";
+            // 
             // ClubDetailsForm
             // 
-            this.ClientSize = new System.Drawing.Size(400, 520);
+            this.ClientSize = new System.Drawing.Size(358, 599);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnRemoveMember);
             this.Controls.Add(this.btnEditClubDetails);
             this.Controls.Add(this.dgvClubMembers);
@@ -158,5 +179,7 @@ namespace DBapplication
         private TextBox txtTotalMembers;
         private TextBox txtClubDescription;
         private TextBox txtClubName;
+        private TextBox textBox1;
+        private Label label1;
     }
 }

@@ -17,12 +17,13 @@ namespace DBapplication
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
+            LoadClubDetails();
         }
 
 
         private void ClubDetailsForm_Load(object sender, EventArgs e)
         {
-            LoadClubDetails();
+
         }
 
         private void LoadClubDetails()
@@ -85,10 +86,6 @@ namespace DBapplication
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Please select a member to remove.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
         private void ClubDetailsForm_Load_1(object sender, EventArgs e)
         {
@@ -111,6 +108,11 @@ namespace DBapplication
         }
 
         private void dgvClubMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
