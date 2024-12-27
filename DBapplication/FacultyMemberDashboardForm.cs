@@ -44,7 +44,7 @@ namespace DBapplication
 
         private void ViewFeedback_Click(object sender, EventArgs e)
         {
-            ViewEventFeedbackForm viewEventFeedbackForm = new ViewEventFeedbackForm(this);
+            FacultyViewFeedback viewEventFeedbackForm = new FacultyViewFeedback(this);
             viewEventFeedbackForm.Show();
         }
 

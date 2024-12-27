@@ -96,7 +96,7 @@ namespace DBapplication
 
         private void btViewFeed_Click(object sender, EventArgs e)
         {
-            ViewFeedbackForm viewFeedbackForm = new ViewFeedbackForm(this);
+            StudentViewFeedback viewFeedbackForm = new StudentViewFeedback(this);
             viewFeedbackForm.Show();
         }
 

@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class ViewEventFeedbackForm : Form
+    public partial class FacultyViewFeedback : Form
     {
         private FacultyMemberControler facultyController; // Declare the controller
 
-        public ViewEventFeedbackForm(Form parentForm)
+        public FacultyViewFeedback(Form parentForm)
         {
             InitializeComponent(); // Initialize the form's components
             facultyController = new FacultyMemberControler(); // Initialize the controller

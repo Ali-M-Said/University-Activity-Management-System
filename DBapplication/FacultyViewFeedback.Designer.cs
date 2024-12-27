@@ -2,7 +2,7 @@
 
 namespace DBapplication
 {
-    partial class ViewEventFeedbackForm
+    partial class FacultyViewFeedback
     {
         private System.ComponentModel.IContainer components = null;
         private Label lblTitle;

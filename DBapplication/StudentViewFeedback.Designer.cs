@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class ViewFeedbackForm : Form
+    public partial class StudentViewFeedback : Form
     {
 
 

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class ViewFeedbackForm : Form
+    public partial class StudentViewFeedback : Form
     {
         int userid = 1;
         StudentController studentController = new StudentController();
-        public ViewFeedbackForm(Form parentForm)
+        public StudentViewFeedback(Form parentForm)
         {
             Form ParentForm = parentForm;
             ParentForm.Hide();
