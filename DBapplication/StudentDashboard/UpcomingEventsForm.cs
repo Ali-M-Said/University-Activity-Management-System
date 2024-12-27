@@ -14,6 +14,7 @@ namespace DBapplication
     {
         StudentController studentController=new StudentController();    
 
+
         public UpcomingEventsForm(Form parentForm)
         {
             InitializeComponent();

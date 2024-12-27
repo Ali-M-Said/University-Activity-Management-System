@@ -6,7 +6,7 @@ namespace DBapplication
     public partial class GiveFeedbackForm : Form
     {
         StudentController studentController = new StudentController();
-        int userid = UserSession.UserId;
+        int userid = 1;
 
 
         public GiveFeedbackForm(Form parentForm)

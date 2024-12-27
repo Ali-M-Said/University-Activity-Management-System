@@ -13,7 +13,7 @@ namespace DBapplication
     public partial class ReservationHistoryForm : Form
     {
         StudentController studentController = new StudentController();
-        int userid = UserSession.UserId;
+        int userid = 1;
 
 
         // Flag to track if the DataGridView needs refreshing

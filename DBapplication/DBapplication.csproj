@@ -114,7 +114,7 @@
     <Compile Include="StudentDashboard\ReserveLocationForm.Designer.cs">
       <DependentUpon>ReserveLocationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentController.cs" />
+    <Compile Include="StudentDashboard\StudentController.cs" />
     <Compile Include="CreateAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>

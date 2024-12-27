@@ -13,7 +13,7 @@ namespace DBapplication
     public partial class ClubMembershipStatusForm : Form
     {
         StudentController studentController=new  StudentController();
-         int userid = UserSession.UserId;
+        int userid = 1;
 
         public ClubMembershipStatusForm(Form parentForm)
         {

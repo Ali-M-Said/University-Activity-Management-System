@@ -13,7 +13,7 @@ namespace DBapplication
     public partial class EventRegister : Form
     {
         StudentController studentController=new StudentController();
-        int userid = UserSession.UserId;
+        int userid = 1;
 
         public EventRegister(Form parentForm)
         {

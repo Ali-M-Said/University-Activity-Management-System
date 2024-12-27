@@ -13,14 +13,14 @@ namespace DBapplication
     public partial class StudentDashboardForm : Form
     {
         StudentController controller = new StudentController();
-        int userid = UserSession.UserId;
-        public StudentDashboardForm(Form parentForm)
+        int userid = 1;
+        public StudentDashboardForm()
         {
             
             InitializeComponent();
-            Form ParentForm = parentForm;
-            ParentForm.Hide();
-            this.FormClosed += (sender, e) => { ParentForm.Show(); };
+            //Form ParentForm = parentForm;
+            //ParentForm.Hide();
+            //this.FormClosed += (sender, e) => { ParentForm.Show(); };
             label1.Text = controller.ResCount(userid).ToString();
             label2.Text = controller.UpEventCount().ToString();
             label3.Text = controller.AccClubCount(userid).ToString();

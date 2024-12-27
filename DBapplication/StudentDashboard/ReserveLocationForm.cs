@@ -14,7 +14,7 @@ namespace DBapplication
     {
 
         StudentController studentController=new StudentController();
-        int userid = UserSession.UserId;
+        int userid = 1;
 
         public ReserveLocationForm(Form parentForm)
         {
