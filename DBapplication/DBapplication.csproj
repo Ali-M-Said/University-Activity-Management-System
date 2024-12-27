@@ -65,6 +65,7 @@
     <Compile Include="AdminDashboardForm.Designer.cs">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControllerAdmin.cs" />
     <Compile Include="StudentDashboard\AvailableClubsForm.cs">
       <SubType>Form</SubType>
     </Compile>
