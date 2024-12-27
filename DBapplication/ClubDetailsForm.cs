@@ -13,7 +13,6 @@ namespace DBapplication
             InitializeComponent();
             ClubID = id;
 
-            // Store and manage parent form visibility
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
@@ -21,14 +20,10 @@ namespace DBapplication
         }
 
 
-        private void ClubDetailsForm_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void LoadClubDetails()
         {
-            // Fetch club details
             DataTable clubDetails = controller.GetClubDetails(ClubID);
             if (clubDetails.Rows.Count > 0)
             {
@@ -36,15 +31,13 @@ namespace DBapplication
                 txtClubName.Text = row["Name"].ToString();
                 txtClubDescription.Text = row["Description"].ToString();
 
-                // Fetch and display total number of members
                 int totalMembers = controller.GetTotalMembers(ClubID);
                 txtTotalMembers.Text = totalMembers.ToString();
 
-                // Populate the DataGridView with the list of members
                 DataTable clubMembers = controller.GetClubMembers(ClubID);
                 dgvClubMembers.DataSource = clubMembers;
-                dgvClubMembers.Columns["UserID"].Visible = false; // Hide UserID for better UI
-                dgvClubMembers.AutoResizeColumns(); // Adjust column widths for readability
+                dgvClubMembers.Columns["UserID"].Visible = false; 
+                dgvClubMembers.AutoResizeColumns(); 
             }
             else
             {
@@ -61,9 +54,9 @@ namespace DBapplication
 
         private void btnRemoveMember_Click(object sender, EventArgs e)
         {
-            if (dgvClubMembers.SelectedRows.Count > 0)
+            
             {
-                int memberID = Convert.ToInt32(dgvClubMembers.SelectedRows[0].Cells["UserID"].Value);
+                int memberID = Convert.ToInt32(textBox1.Text);
 
                 DialogResult confirm = MessageBox.Show(
                     "Are you sure you want to remove this member?",
@@ -87,34 +80,6 @@ namespace DBapplication
                 }
             }
         }
-        private void ClubDetailsForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtClubName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtClubDescription_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTotalMembers_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvClubMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

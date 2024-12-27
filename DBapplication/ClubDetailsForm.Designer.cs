@@ -84,7 +84,6 @@ namespace DBapplication
             this.dgvClubMembers.RowHeadersWidth = 51;
             this.dgvClubMembers.Size = new System.Drawing.Size(300, 200);
             this.dgvClubMembers.TabIndex = 9;
-            this.dgvClubMembers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClubMembers_CellContentClick);
             // 
             // btnEditClubDetails
             // 
@@ -113,7 +112,6 @@ namespace DBapplication
             this.txtTotalMembers.ReadOnly = true;
             this.txtTotalMembers.Size = new System.Drawing.Size(200, 22);
             this.txtTotalMembers.TabIndex = 8;
-            this.txtTotalMembers.TextChanged += new System.EventHandler(this.txtTotalMembers_TextChanged);
             // 
             // txtClubDescription
             // 
@@ -123,7 +121,6 @@ namespace DBapplication
             this.txtClubDescription.ReadOnly = true;
             this.txtClubDescription.Size = new System.Drawing.Size(200, 60);
             this.txtClubDescription.TabIndex = 4;
-            this.txtClubDescription.TextChanged += new System.EventHandler(this.txtClubDescription_TextChanged);
             // 
             // txtClubName
             // 
@@ -133,7 +130,6 @@ namespace DBapplication
             this.txtClubName.ReadOnly = true;
             this.txtClubName.Size = new System.Drawing.Size(200, 22);
             this.txtClubName.TabIndex = 2;
-            this.txtClubName.TextChanged += new System.EventHandler(this.txtClubName_TextChanged);
             // 
             // textBox1
             // 
@@ -141,7 +137,6 @@ namespace DBapplication
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(152, 22);
             this.textBox1.TabIndex = 12;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -154,7 +149,7 @@ namespace DBapplication
             // 
             // ClubDetailsForm
             // 
-            this.ClientSize = new System.Drawing.Size(358, 599);
+            this.ClientSize = new System.Drawing.Size(512, 599);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnRemoveMember);
@@ -169,7 +164,6 @@ namespace DBapplication
             this.Controls.Add(this.lblTitle);
             this.Name = "ClubDetailsForm";
             this.Text = "Club Details";
-            this.Load += new System.EventHandler(this.ClubDetailsForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubMembers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
