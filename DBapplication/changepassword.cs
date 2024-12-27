@@ -15,14 +15,18 @@ namespace DBapplication
     public partial class changepassword : Form
     {
         Controller controller;
-        private string currentUserEmail; //msh haarf astakhdemo lazm tedoly el form el baad el login el hykon feha el change passowrd form
+        private int currentid; //msh haarf astakhdemo lazm tedoly el form el baad el login el hykon feha el change passowrd form
 
-        public changepassword()
+        public changepassword(int X)
         {
             InitializeComponent();
             controller = new Controller();
-            
+            currentid = X;
+            newpasstxt.PasswordChar = '*';
+            confnewtxt.PasswordChar = '*';
+
         }
+
 
         private void changepassword_Load(object sender, EventArgs e)
         {
@@ -51,7 +55,7 @@ namespace DBapplication
 
             if (!IsValidPassword(newPassword))
             {
-                MessageBox.Show("New password does not meet the required criteria.");
+                MessageBox.Show("Password must be at least 8 characters long and include an uppercase letter, a number, and a special character..");
                 return;
             }
 

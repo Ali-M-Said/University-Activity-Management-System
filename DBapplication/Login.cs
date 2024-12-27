@@ -117,13 +117,12 @@ namespace DBapplication
             this.PerformLayout();
 
         }
-        
-        public Login(int user)
+        private int currentid = 1;
+        public Login()
         {
             InitializeComponent();
             passwordtxt.PasswordChar = '*';
-
-
+            
         }
         private void button2_Click(object sender, System.EventArgs e)
         {
@@ -159,6 +158,10 @@ namespace DBapplication
             {
                 // Login successful
                 MessageBox.Show("Login successful!");
+                //int currentid = Convert.ToInt32(result.Rows[0]["UserID"]);
+                userprofile user = new userprofile(currentid);
+                user.Show();
+                this.Hide();
             }
             else
             {
@@ -174,7 +177,7 @@ namespace DBapplication
 
         private void button3_Click(object sender, EventArgs e)
         {
-            changepassword change = new changepassword();
+            changepassword change = new changepassword(currentid);
             change.Show();
             this.Hide();
         }

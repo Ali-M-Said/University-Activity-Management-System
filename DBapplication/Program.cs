@@ -15,7 +15,7 @@ namespace DBapplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login(1));
+            Application.Run(new Login());
         }
     }
 }

@@ -59,6 +59,42 @@ namespace DBapplication
                     myConnection.Close(); // Ensure connection is closed
             }
         }
+        public DataTable ExecuteQuery(string query, Dictionary<string, object> parameters)
+        {
+            try
+            {
+                // Ensure the connection object is initialized
+                if (myConnection.State != ConnectionState.Open)
+                    myConnection.Open();
+
+                using (SqlCommand myCommand = new SqlCommand(query, myConnection))
+                {
+                    // Add parameters to the command
+                    foreach (var param in parameters)
+                    {
+                        myCommand.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
+                    }
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(myCommand))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable); // Populate DataTable with query result
+                        return dataTable; // Return the result
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null; // Return null in case of error
+            }
+            finally
+            {
+                if (myConnection.State == ConnectionState.Open)
+                    myConnection.Close(); // Ensure connection is closed
+            }
+        }
+
 
 
         //public DataTable ExecuteReader(string query, Dictionary<string, object> parameters)
@@ -118,6 +154,25 @@ namespace DBapplication
             {
                 MessageBox.Show(ex.Message);
                 return null;
+            }
+        }
+
+        public int ExecuteQuery(string query, SqlParameter[] parameters)
+        {
+            // Replace `myConnection` with the actual connection string
+            string connectionString = "your_connection_string_here"; // Update this with your actual connection string
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
+
+                conn.Open(); // Open the connection
+                return cmd.ExecuteNonQuery(); // Execute and return the number of affected rows
             }
         }
 
