@@ -11,7 +11,7 @@ namespace DBapplication
 
             // Store the parent form
             Form ParentForm = parentForm;
-                
+
             // Hide the parent form when the sub-form opens
             ParentForm.Hide();
 
@@ -23,11 +23,6 @@ namespace DBapplication
         private void ClubDetailsForm_Load(object sender, EventArgs e)
         {
             // Placeholder for any actions, currently no actions are implemented.
-        }
-
-        private void btnEditClubDetails_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
