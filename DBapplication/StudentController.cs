@@ -22,20 +22,35 @@ namespace DBapplication
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
 
-        public int EventCount(int userid)
+        public int UpEventCount()
         {
-            string query = $@"SELECT COUNT(*) FROM Event e JOIN Attendance a ON e.EventID = a.EventID WHERE a.UserID = '{userid}' AND e.StartDate > GETDATE();";
+            string query = $@"SELECT COUNT(*) FROM Event e WHERE e.STARTDATE < GETDATE()";
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
 
-        public int ClubCount(int userid)
+        public int AccClubCount(int userid)
         {
-            string query = $@"SELECT COUNT(*) FROM Club_Membership cm WHERE cm.UserID = '{userid}';";
+            string query = $@"SELECT COUNT(*) FROM Club_Membership cm WHERE cm.UserID = '{userid}' AND cm.mem_status='Accepted';";
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
+        public int RejClubCount(int userid)
+        {
+            string query = $@"SELECT COUNT(*) FROM Club_Membership cm WHERE cm.UserID = '{userid}' AND cm.mem_status='Rejected';";
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
+        public int PenClubCount(int userid)
+        {
+            string query = $@"SELECT COUNT(*) FROM Club_Membership cm WHERE cm.UserID = '{userid}' AND cm.mem_status='Pending';";
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
         public int RegEventCount(int userid)
         {
             string query = $@"SELECT COUNT(*) AS RegisteredEventCount FROM RegisteredEvents WHERE  USERID = '{userid}';";
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
+        public int AttEventCount(int userid)
+        {
+            string query = $@"SELECT COUNT(*) FROM Event e JOIN Attendance a ON e.EventID = a.EventID WHERE a.UserID = '{userid}' AND Status='Checked In';";
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
         public int FeedbackCount(int userid)

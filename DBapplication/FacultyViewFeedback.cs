@@ -13,6 +13,9 @@ namespace DBapplication
             InitializeComponent(); // Initialize the form's components
             facultyController = new FacultyMemberControler(); // Initialize the controller
             facultyController.PopulateEventNames(cbEventFilter);
+            string selectedEventName = cbEventFilter.SelectedItem.ToString();
+            DataTable feedbacks = facultyController.GetFeedBacks(selectedEventName);
+            dgvFeedback.DataSource = feedbacks;
         }
 
      
@@ -23,9 +26,10 @@ namespace DBapplication
 
         private void cbEventFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedEventName = cbEventFilter.SelectedItem.ToString(); 
+            string selectedEventName = cbEventFilter.SelectedItem.ToString();
             DataTable feedbacks = facultyController.GetFeedBacks(selectedEventName);
             dgvFeedback.DataSource = feedbacks;
+
         }
 
      

@@ -47,10 +47,20 @@ namespace DBapplication
 
         public bool RecordAttendance(int studentId, int eventId, string checkInTime)
         {
-            // SQL query to insert the attendance record with CheckInTime
+            string checkQuery = $@"
+        SELECT COUNT(*) 
+        FROM Attendance 
+        WHERE EVENTID= '{eventId}' AND USERID='{studentId}' ";
+
+            int existingRegistrations = Convert.ToInt32(dbMan.ExecuteScalar(checkQuery));
+
+            if (existingRegistrations > 0)
+            {
+                return false;
+            }
             string query = $@"
         INSERT INTO Attendance (UserID, EventID, CheckInTime,Status)
-        VALUES ('{studentId}', '{eventId}', '{checkInTime}','')
+        VALUES ('{studentId}', '{eventId}', '{checkInTime}','Checked IN')
     ";
 
             // Execute the query and check if a row was inserted
@@ -159,7 +169,7 @@ namespace DBapplication
             string query = $@"
         UPDATE Club_Membership
         SET mem_status = 'Accepted'
-        WHERE MembershipID = {membershipId}";
+        WHERE MembershipID = {membershipId} AND mem_status='Pending'" ;
 
             // Execute the query and check if the update was successful
             int rowsAffected = dbMan.ExecuteNonQuery(query);
@@ -167,11 +177,11 @@ namespace DBapplication
         }
         public bool RejectMembership(int membershipId)
         {
-            // SQL query to update the mem_status
+        
             string query = $@"
         UPDATE Club_Membership
         SET mem_status = 'Rejected'
-        WHERE MembershipID = {membershipId}";
+        WHERE MembershipID = {membershipId} AND mem_Status='Pending' " ;
 
             // Execute the query and check if the update was successful
             int rowsAffected = dbMan.ExecuteNonQuery(query);
