@@ -42,6 +42,10 @@ namespace DBapplication
             else if (!controller.DoesUserExist(Convert.ToInt32(txtUserID.Text))){
                 MessageBox.Show("User does not exist.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if(Convert.ToInt32(txtUserID.Text) ==UserID)
+            {
+                MessageBox.Show("You Can't Delete Yourself", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 controller.DeleteUser(Convert.ToInt32(txtUserID.Text));

@@ -112,5 +112,26 @@ namespace DBapplication
             lblTotalEvents.Text = controller.GetTotalEvents();
             lblTotalLocations.Text = controller.GetTotalLocations();
         }
+
+        private void ButtLogout_Click(object sender, EventArgs e)
+        {
+            Login Log = new Login();
+            Log.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            userprofile profile = new userprofile(UserID, this);
+            profile.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            changepassword cpass = new changepassword(UserID, this);
+            cpass.Show();
+            this.Hide();
+        }
     }
 }
