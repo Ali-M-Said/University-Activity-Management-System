@@ -69,10 +69,10 @@ namespace DBapplication
             // Return true if the attendance was successfully recorded
             return rowsAffected > 0;
         }
-        public void PopulateEventNames(ComboBox comboBox)
+        public void PopulateEventNames(ComboBox comboBox,int uid)
         {
             // SQL query to get all event names
-            string query = "SELECT Title FROM Event";
+            string query = $@"SELECT Title FROM Event Where Createdby='{uid}'";
 
             try
             {

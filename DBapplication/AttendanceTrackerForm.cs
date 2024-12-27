@@ -7,10 +7,11 @@ namespace DBapplication
     public partial class AttendanceTrackerForm : Form
     {
         private FacultyMemberControler facultyController;
-        public AttendanceTrackerForm(Form parentForm)
+        int userId;
+        public AttendanceTrackerForm(Form parentForm,int uid)
         {
             InitializeComponent();
-
+            userId = uid;
            
             Form ParentForm = parentForm;
 
@@ -21,7 +22,7 @@ namespace DBapplication
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
 
             facultyController = new FacultyMemberControler(); // Initialize the controller
-            facultyController.PopulateEventNames(cbEventFilter);
+            facultyController.PopulateEventNames(cbEventFilter,userId);
         }
 
         private void dgvEventDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)

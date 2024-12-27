@@ -13,11 +13,13 @@ namespace DBapplication
     public partial class Taking_Attendance : Form
     {
         private FacultyMemberControler facultyController;
-        public Taking_Attendance()
+        int userid;
+        public Taking_Attendance(Form parentform,int usid)
         {
-            facultyController = new FacultyMemberControler(); // Initialize the controller
+            userid=usid;
+            facultyController = new FacultyMemberControler(); 
             InitializeComponent();
-            facultyController.PopulateEventNames(eventnamebox);
+            facultyController.PopulateEventNames(eventnamebox,userid);
         }
 
         private void eventnamebox_SelectedIndexChanged(object sender, EventArgs e)

@@ -111,7 +111,7 @@ namespace DBapplication
 
         private void btEventAtt_Click(object sender, EventArgs e)
         {
-            AttendanceTrackerForm attendanceTrackerForm = new AttendanceTrackerForm(this);
+            AttendanceTrackerForm attendanceTrackerForm = new AttendanceTrackerForm(this,userid);
             attendanceTrackerForm.Show();
         }
 
