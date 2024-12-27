@@ -14,6 +14,8 @@ namespace DBapplication
     {
 
         StudentController studentController=new StudentController();
+        int userid = UserSession.UserId;
+
         public ReserveLocationForm(Form parentForm)
         {
             InitializeComponent();
@@ -32,10 +34,9 @@ namespace DBapplication
 
         private void btnReserve_Click(object sender, EventArgs e)
         {
-            int currentUserId = 1;
             try
             {
-                bool success = studentController.ReserveLocation(currentUserId, (int)cmbLocation.SelectedValue, dtpStartTime.Value.ToString("HH:mm:ss"), dtpEndTime.Value.ToString("HH:mm:ss"));
+                bool success = studentController.ReserveLocation(userid, (int)cmbLocation.SelectedValue, dtpStartTime.Value.ToString("HH:mm:ss"), dtpEndTime.Value.ToString("HH:mm:ss"));
 
                 if (success)
                 {

@@ -13,7 +13,7 @@ namespace DBapplication
     public partial class RegisteredEventsForm : Form
     {
         StudentController studentController = new StudentController();
-        int userid = 1;
+        int userid = UserSession.UserId;
         public RegisteredEventsForm(Form parentForm)
         {
             InitializeComponent();

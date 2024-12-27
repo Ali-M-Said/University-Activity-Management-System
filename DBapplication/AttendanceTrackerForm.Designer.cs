@@ -37,7 +37,7 @@ namespace DBapplication
             this.lblTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(192, 22);
+            this.lblTitle.Size = new System.Drawing.Size(234, 29);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Attendance Tracker";
             // 
@@ -46,7 +46,7 @@ namespace DBapplication
             this.cbEventFilter.FormattingEnabled = true;
             this.cbEventFilter.Location = new System.Drawing.Point(20, 60);
             this.cbEventFilter.Name = "cbEventFilter";
-            this.cbEventFilter.Size = new System.Drawing.Size(200, 21);
+            this.cbEventFilter.Size = new System.Drawing.Size(200, 24);
             this.cbEventFilter.TabIndex = 1;
             this.cbEventFilter.SelectedIndexChanged += new System.EventHandler(this.cbEventFilter_SelectedIndexChanged);
             // 
@@ -74,7 +74,7 @@ namespace DBapplication
             // 
             this.textBox1.Location = new System.Drawing.Point(417, 426);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 20);
+            this.textBox1.Size = new System.Drawing.Size(161, 22);
             this.textBox1.TabIndex = 7;
             // 
             // label1
@@ -82,16 +82,16 @@ namespace DBapplication
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(272, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "Event Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(332, 429);
+            this.label2.Location = new System.Drawing.Point(324, 429);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.Size = new System.Drawing.Size(91, 16);
             this.label2.TabIndex = 9;
             this.label2.Text = "Attendance ID";
             // 

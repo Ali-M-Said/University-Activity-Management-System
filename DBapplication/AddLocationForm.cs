@@ -12,8 +12,10 @@ namespace DBapplication
 {
     public partial class AddLocationForm : Form
     {
-        public AddLocationForm()
+        int userid;
+        public AddLocationForm(int uid)
         {
+            this.userid = uid;
             InitializeComponent();
         }
 

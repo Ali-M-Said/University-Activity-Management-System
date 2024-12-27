@@ -13,15 +13,14 @@ namespace DBapplication
     public partial class StudentDashboardForm : Form
     {
         StudentController controller = new StudentController();
-        int userid = 1;
-        public StudentDashboardForm()
+        int userid = UserSession.UserId;
+        public StudentDashboardForm(Form parentForm)
         {
-    
-
-    
+            
             InitializeComponent();
-
-
+            Form ParentForm = parentForm;
+            ParentForm.Hide();
+            this.FormClosed += (sender, e) => { ParentForm.Show(); };
             label1.Text = controller.ResCount(userid).ToString();
             label2.Text = controller.UpEventCount().ToString();
             label3.Text = controller.AccClubCount(userid).ToString();
@@ -88,7 +87,6 @@ namespace DBapplication
         {
             label1.Text = controller.ResCount(userid).ToString();
             label2.Text = controller.UpEventCount().ToString();
-            label2.Text = controller.AttEventCount(userid).ToString();
             label3.Text = controller.AccClubCount(userid).ToString();
             label11.Text = controller.RejClubCount(userid).ToString();
             label10.Text = controller.PenClubCount(userid).ToString();
@@ -109,6 +107,10 @@ namespace DBapplication
             viewFeedbackForm.Show();
         }
 
-      
+        private void btEventAtt_Click(object sender, EventArgs e)
+        {
+            AttendanceTrackerForm attendanceTrackerForm = new AttendanceTrackerForm(this);
+            attendanceTrackerForm.Show();
+        }
     }
 }

@@ -6,6 +6,8 @@ namespace DBapplication
     public partial class GiveFeedbackForm : Form
     {
         StudentController studentController = new StudentController();
+        int userid = UserSession.UserId;
+
 
         public GiveFeedbackForm(Form parentForm)
         {
@@ -15,7 +17,7 @@ namespace DBapplication
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
 
-            cboEventSelection.DataSource = studentController.LoadAttendedEvents(1);
+            cboEventSelection.DataSource = studentController.LoadAttendedEvents(userid);
             cboEventSelection.DisplayMember = "Title";
             cboEventSelection.ValueMember = "EventID";
         }
@@ -36,7 +38,7 @@ namespace DBapplication
             }
 
             // Submit feedback if all validations are passed
-            studentController.ProvideFeedback(1, (int)cboEventSelection.SelectedValue, (int)numRating.Value, txtComments.Text);
+            studentController.ProvideFeedback(userid, (int)cboEventSelection.SelectedValue, (int)numRating.Value, txtComments.Text);
             MessageBox.Show("Feedback submitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

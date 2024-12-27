@@ -10,46 +10,46 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class EventRegister : Form
+    public partial class ClubMembershipStatusForm : Form
     {
-        StudentController studentController=new StudentController();
-        public EventRegister(Form parentForm)
+        StudentController studentController=new  StudentController();
+         int userid = UserSession.UserId;
+
+        public ClubMembershipStatusForm(Form parentForm)
         {
             InitializeComponent();
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
-            cmbEvents.DataSource = studentController.GetUpcomingEvents();
-            cmbEvents.DisplayMember ="Title";
-            cmbEvents.ValueMember = "EventID";
+            dgvClubMemberships.DataSource = studentController.GetMemberships(userid);
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnLeaveClub_Click(object sender, EventArgs e)
         {
-         int currentUserID = 1;
-          int selectedEventID=(int)cmbEvents.SelectedValue;
+            int memId = Convert.ToInt32(tbMemId.Text);
             try
             {
-                bool success = studentController.RegisterStudentInEvent(currentUserID, selectedEventID);
+                bool success = studentController.LeaveClub(memId, userid);
                 if (success)
                 {
-                    MessageBox.Show("Successfully registered for the event!",
+                    MessageBox.Show("Successfully Leaved the club!",
                                   "Success",
                                   MessageBoxButtons.OK,
                                   MessageBoxIcon.Information);
-                   
+                    dgvClubMemberships.DataSource = studentController.GetMemberships(userid);
+
                 }
                 else
                 {
-                    MessageBox.Show("You are already registered for this event!",
-                                  "Registration Failed",
+                    MessageBox.Show("Membership ID Not Found!",
+                                  "Operation failed",
                                   MessageBoxButtons.OK,
                                   MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error registering for event: " + ex.Message);
+                MessageBox.Show("Error Leaving Club: " + ex.Message);
             }
         }
     }

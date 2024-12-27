@@ -12,8 +12,9 @@ namespace DBapplication
 {
     public partial class StudentViewFeedback : Form
     {
-        int userid = 1;
         StudentController studentController = new StudentController();
+        int userid = UserSession.UserId;
+
         public StudentViewFeedback(Form parentForm)
         {
             Form ParentForm = parentForm;

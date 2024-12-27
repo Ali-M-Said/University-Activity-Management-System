@@ -10,36 +10,39 @@ using System.Windows.Forms;
 
 namespace DBapplication
 {
-    public partial class AvailableClubsForm : Form
+    public partial class EventRegister : Form
     {
-        StudentController studentController  = new StudentController();
-        public AvailableClubsForm(Form parentForm)
+        StudentController studentController=new StudentController();
+        int userid = UserSession.UserId;
+
+        public EventRegister(Form parentForm)
         {
             InitializeComponent();
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };
-            dgvClubsList.DataSource = studentController.GetAllClubs();
+            cmbEvents.DataSource = studentController.GetUpcomingEvents();
+            cmbEvents.DisplayMember ="Title";
+            cmbEvents.ValueMember = "EventID";
         }
 
-        private void btnJoinClub_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-            int userid = 1;
-            int clubid = Convert.ToInt32(tbClubID.Text);
+          int selectedEventID=(int)cmbEvents.SelectedValue;
             try
             {
-                bool success = studentController.JoinClub(userid, clubid);
+                bool success = studentController.RegisterStudentInEvent(userid, selectedEventID);
                 if (success)
                 {
-                    MessageBox.Show("Successfully registered for the club!",
+                    MessageBox.Show("Successfully registered for the event!",
                                   "Success",
                                   MessageBoxButtons.OK,
                                   MessageBoxIcon.Information);
-
+                   
                 }
                 else
                 {
-                    MessageBox.Show("You are already registered for this club!",
+                    MessageBox.Show("You are already registered for this event!",
                                   "Registration Failed",
                                   MessageBoxButtons.OK,
                                   MessageBoxIcon.Warning);
@@ -47,10 +50,8 @@ namespace DBapplication
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error registering for club: " + ex.Message);
+                MessageBox.Show("Error registering for event: " + ex.Message);
             }
         }
-
-       
     }
 }

@@ -13,6 +13,7 @@ namespace DBapplication
     public partial class UpcomingEventsForm : Form
     {
         StudentController studentController=new StudentController();    
+
         public UpcomingEventsForm(Form parentForm)
         {
             InitializeComponent();

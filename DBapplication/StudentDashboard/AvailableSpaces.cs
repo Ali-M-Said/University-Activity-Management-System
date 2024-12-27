@@ -12,9 +12,11 @@ namespace DBapplication
 {
     public partial class AvailableSpaces : Form
     {
+        StudentController studentController = new StudentController();
+        int userid = UserSession.UserId;
+
         public AvailableSpaces(Form parentForm)
         {
-            StudentController studentController = new StudentController();
             InitializeComponent();
             DataTable dt = studentController.GetAvailableSpacesForReservation();
             dgvAvailableSpaces.Rows.Clear();

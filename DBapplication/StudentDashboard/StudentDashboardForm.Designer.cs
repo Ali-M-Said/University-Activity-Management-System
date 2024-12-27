@@ -22,8 +22,6 @@ namespace DBapplication
             this.btnViewUpcomingEvents = new System.Windows.Forms.Button();
             this.btnProvideFeedback = new System.Windows.Forms.Button();
             this.grpClubsAndSchedule = new System.Windows.Forms.GroupBox();
-            this.btnViewClubs = new System.Windows.Forms.Button();
-            this.btnViewClubMembershipStatus = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,9 +39,14 @@ namespace DBapplication
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btEventAtt = new System.Windows.Forms.Button();
             this.grpReservations.SuspendLayout();
             this.grpEvents.SuspendLayout();
             this.grpClubsAndSchedule.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTotalReservations
@@ -80,12 +83,12 @@ namespace DBapplication
             // 
             this.grpReservations.Controls.Add(this.btnViewAvailableSpaces);
             this.grpReservations.Controls.Add(this.btnViewReservationHistory);
-            this.grpReservations.Location = new System.Drawing.Point(20, 157);
+            this.grpReservations.Location = new System.Drawing.Point(24, 165);
             this.grpReservations.Name = "grpReservations";
-            this.grpReservations.Size = new System.Drawing.Size(250, 150);
+            this.grpReservations.Size = new System.Drawing.Size(250, 168);
             this.grpReservations.TabIndex = 3;
             this.grpReservations.TabStop = false;
-            this.grpReservations.Text = "Reservations Management";
+            this.grpReservations.Text = "Reservations ";
             // 
             // btnViewAvailableSpaces
             // 
@@ -109,20 +112,19 @@ namespace DBapplication
             // 
             // grpEvents
             // 
-            this.grpEvents.Controls.Add(this.btViewFeed);
+            this.grpEvents.Controls.Add(this.btEventAtt);
             this.grpEvents.Controls.Add(this.btRegEv);
             this.grpEvents.Controls.Add(this.btnViewUpcomingEvents);
-            this.grpEvents.Controls.Add(this.btnProvideFeedback);
-            this.grpEvents.Location = new System.Drawing.Point(286, 167);
+            this.grpEvents.Location = new System.Drawing.Point(318, 165);
             this.grpEvents.Name = "grpEvents";
-            this.grpEvents.Size = new System.Drawing.Size(244, 285);
+            this.grpEvents.Size = new System.Drawing.Size(244, 227);
             this.grpEvents.TabIndex = 4;
             this.grpEvents.TabStop = false;
             this.grpEvents.Text = "Events";
             // 
             // btViewFeed
             // 
-            this.btViewFeed.Location = new System.Drawing.Point(20, 226);
+            this.btViewFeed.Location = new System.Drawing.Point(30, 100);
             this.btViewFeed.Name = "btViewFeed";
             this.btViewFeed.Size = new System.Drawing.Size(200, 43);
             this.btViewFeed.TabIndex = 4;
@@ -152,7 +154,7 @@ namespace DBapplication
             // 
             // btnProvideFeedback
             // 
-            this.btnProvideFeedback.Location = new System.Drawing.Point(20, 160);
+            this.btnProvideFeedback.Location = new System.Drawing.Point(30, 38);
             this.btnProvideFeedback.Name = "btnProvideFeedback";
             this.btnProvideFeedback.Size = new System.Drawing.Size(200, 44);
             this.btnProvideFeedback.TabIndex = 2;
@@ -162,40 +164,20 @@ namespace DBapplication
             // 
             // grpClubsAndSchedule
             // 
-            this.grpClubsAndSchedule.Controls.Add(this.btnViewClubs);
-            this.grpClubsAndSchedule.Controls.Add(this.btnViewClubMembershipStatus);
-            this.grpClubsAndSchedule.Location = new System.Drawing.Point(20, 313);
+            this.grpClubsAndSchedule.Controls.Add(this.btnProvideFeedback);
+            this.grpClubsAndSchedule.Controls.Add(this.btViewFeed);
+            this.grpClubsAndSchedule.Location = new System.Drawing.Point(24, 361);
             this.grpClubsAndSchedule.Name = "grpClubsAndSchedule";
             this.grpClubsAndSchedule.Size = new System.Drawing.Size(260, 164);
             this.grpClubsAndSchedule.TabIndex = 5;
             this.grpClubsAndSchedule.TabStop = false;
-            this.grpClubsAndSchedule.Text = "Clubs and Schedule";
-            // 
-            // btnViewClubs
-            // 
-            this.btnViewClubs.Location = new System.Drawing.Point(20, 30);
-            this.btnViewClubs.Name = "btnViewClubs";
-            this.btnViewClubs.Size = new System.Drawing.Size(200, 47);
-            this.btnViewClubs.TabIndex = 0;
-            this.btnViewClubs.Text = "View / Join Available Clubs";
-            this.btnViewClubs.UseVisualStyleBackColor = true;
-            this.btnViewClubs.Click += new System.EventHandler(this.btnViewClubs_Click);
-            // 
-            // btnViewClubMembershipStatus
-            // 
-            this.btnViewClubMembershipStatus.Location = new System.Drawing.Point(20, 94);
-            this.btnViewClubMembershipStatus.Name = "btnViewClubMembershipStatus";
-            this.btnViewClubMembershipStatus.Size = new System.Drawing.Size(200, 49);
-            this.btnViewClubMembershipStatus.TabIndex = 1;
-            this.btnViewClubMembershipStatus.Text = "View Club Membership Status / Leave Club\r\n";
-            this.btnViewClubMembershipStatus.UseVisualStyleBackColor = true;
-            this.btnViewClubMembershipStatus.Click += new System.EventHandler(this.btnViewClubMembershipStatus_Click);
+            this.grpClubsAndSchedule.Text = "Feedback";
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(348, 458);
+            this.btnLogout.Location = new System.Drawing.Point(680, 101);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(182, 30);
+            this.btnLogout.Size = new System.Drawing.Size(128, 30);
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -229,9 +211,9 @@ namespace DBapplication
             // 
             // btRefresh
             // 
-            this.btRefresh.Location = new System.Drawing.Point(443, 133);
+            this.btRefresh.Location = new System.Drawing.Point(680, 65);
             this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(95, 28);
+            this.btRefresh.Size = new System.Drawing.Size(128, 30);
             this.btRefresh.TabIndex = 8;
             this.btRefresh.Text = "Refresh";
             this.btRefresh.UseVisualStyleBackColor = true;
@@ -351,9 +333,50 @@ namespace DBapplication
             this.label15.Size = new System.Drawing.Size(0, 16);
             this.label15.TabIndex = 11;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Location = new System.Drawing.Point(613, 165);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(250, 164);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Clubs ";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(20, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 47);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "View / Join Available Clubs";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnViewClubs_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(20, 97);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(200, 49);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "View Club Membership Status / Leave Club\r\n";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnViewClubMembershipStatus_Click);
+            // 
+            // btEventAtt
+            // 
+            this.btEventAtt.Location = new System.Drawing.Point(20, 166);
+            this.btEventAtt.Name = "btEventAtt";
+            this.btEventAtt.Size = new System.Drawing.Size(200, 47);
+            this.btEventAtt.TabIndex = 4;
+            this.btEventAtt.Text = "View Events Attendance";
+            this.btEventAtt.UseVisualStyleBackColor = true;
+            this.btEventAtt.Click += new System.EventHandler(this.btEventAtt_Click);
+            // 
             // StudentDashboardForm
             // 
-            this.ClientSize = new System.Drawing.Size(550, 500);
+            this.ClientSize = new System.Drawing.Size(876, 546);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
@@ -365,6 +388,7 @@ namespace DBapplication
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpClubsAndSchedule);
             this.Controls.Add(this.grpEvents);
             this.Controls.Add(this.grpReservations);
@@ -382,6 +406,7 @@ namespace DBapplication
             this.grpReservations.ResumeLayout(false);
             this.grpEvents.ResumeLayout(false);
             this.grpClubsAndSchedule.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,8 +423,6 @@ namespace DBapplication
         private Button btnViewUpcomingEvents;
         private Button btnProvideFeedback;
         private GroupBox grpClubsAndSchedule;
-        private Button btnViewClubs;
-        private Button btnViewClubMembershipStatus;
         private Button btnLogout;
         private Label label1;
         private Label label2;
@@ -419,5 +442,9 @@ namespace DBapplication
         private Label label13;
         private Label label14;
         private Label label15;
+        private GroupBox groupBox1;
+        private Button button2;
+        private Button button3;
+        private Button btEventAtt;
     }
 }
