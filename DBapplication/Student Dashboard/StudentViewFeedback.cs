@@ -13,10 +13,11 @@ namespace DBapplication
     public partial class StudentViewFeedback : Form
     {
         StudentController studentController = new StudentController();
-        int userid = 1;
+        int userid ;
 
-        public StudentViewFeedback(Form parentForm)
+        public StudentViewFeedback(Form parentForm,int uid)
         {
+            userid = uid;
             Form ParentForm = parentForm;
             ParentForm.Hide();
             this.FormClosed += (sender, e) => { ParentForm.Show(); };

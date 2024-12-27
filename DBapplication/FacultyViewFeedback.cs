@@ -9,6 +9,7 @@ namespace DBapplication
     public partial class FacultyViewFeedback : Form
     {
         private FacultyMemberControler facultyController = new FacultyMemberControler();
+        private FacultyMemberControler facultyController; // Declare the controller
         private Controller c = new Controller();
         int userId;
         string UserType;
@@ -20,6 +21,12 @@ namespace DBapplication
             InitializeComponent();
             this.FormClosed += (s, e) => prevForm.Show();
 
+            InitializeComponent(); // Initialize the form's components
+            facultyController = new FacultyMemberControler(); // Initialize the controller
+          //  facultyController.PopulateEventNames(cbEventFilter,userId);
+            string selectedEventName = cbEventFilter.SelectedItem.ToString();
+            DataTable feedbacks = facultyController.GetFeedBacks(selectedEventName);
+            dgvFeedback.DataSource = feedbacks;
             btnExportFeedback.Visible = false;
             label1.Visible = false;
             txtResponse.Visible = false;

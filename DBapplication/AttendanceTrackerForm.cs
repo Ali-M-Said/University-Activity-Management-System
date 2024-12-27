@@ -20,6 +20,20 @@ namespace DBapplication
             this.FormClosed += (s, e) => prevForm.Show();            
 
             btnExport.Visible = false;
+           
+            Form ParentForm = parentForm;
+            ParentForm.Hide();
+
+            
+            this.FormClosed += (sender, e) => { ParentForm.Show(); };
+
+            facultyController = new FacultyMemberControler(); 
+                                                             
+            cbEventFilter.DataSource = facultyController.GetEventData(UserID,c.GetType(UserID));
+            cbEventFilter.DisplayMember = "Title";
+            cbEventFilter.ValueMember = "EventID";
+            DataTable Attendance = facultyController.TrackAttendance((int)cbEventFilter.SelectedValue);
+            dgvEventDetails.DataSource = Attendance; btnExport.Visible = false;
             label2.Visible = false;
             textBox1.Visible = false;
             if (c.GetType(UserID) == "Admin")
@@ -49,6 +63,8 @@ namespace DBapplication
         private void cbEventFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvEventDetails.DataSource = facultyController.TrackAttendance(Convert.ToInt32(cbEventFilter.SelectedValue));
+            DataTable Attendance = facultyController.TrackAttendance(Convert.ToInt32(cbEventFilter.SelectedValue));
+            dgvEventDetails.DataSource = Attendance;
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -67,6 +83,8 @@ namespace DBapplication
                 // Optionally, display a message to confirm deletion
                 MessageBox.Show("Attendance is  deleted successfully.");
                 dgvEventDetails.DataSource = facultyController.TrackAttendance(Convert.ToInt32(cbEventFilter.SelectedValue));
+                DataTable Attendance = facultyController.TrackAttendance((int)cbEventFilter.SelectedValue);
+                dgvEventDetails.DataSource = Attendance; btnExport.Visible = false;
             }
             else
             {

@@ -40,6 +40,7 @@ namespace DBapplication
             eventnamebox.DisplayMember = "Title";
             eventnamebox.ValueMember = "EventID";
             eventnamebox.DataSource = facultyController.GetEventData(userid, UserType);
+          //  facultyController.PopulateEventNames(eventnamebox,userid);
         }
 
         private void eventnamebox_SelectedIndexChanged(object sender, EventArgs e)

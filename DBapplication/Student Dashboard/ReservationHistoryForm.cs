@@ -13,13 +13,14 @@ namespace DBapplication
     public partial class ReservationHistoryForm : Form
     {
         StudentController studentController = new StudentController();
-        int userid = 1;
+        int userid ;
 
 
         // Flag to track if the DataGridView needs refreshing
 
-        public ReservationHistoryForm(Form parentForm)
+        public ReservationHistoryForm(Form parentForm, int uid)
         {
+            userid = uid;  
             InitializeComponent();
             Form ParentForm = parentForm;
             ParentForm.Hide();
