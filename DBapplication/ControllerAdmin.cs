@@ -20,6 +20,29 @@ namespace DBapplication
             string query = "SELECT COUNT(*) FROM Users";
             return Convert.ToString(dbMan.ExecuteScalar(query));
         }
+        public int GetTotalMembers(int clubID)
+        {
+            string query = $@"SELECT COUNT(*) 
+                      FROM Club_Membership 
+                      WHERE ClubID = {clubID}";
+            return Convert.ToInt32(dbMan.ExecuteScalar(query));
+        }
+
+        public DataTable GetClubMembers(int clubID)
+        {
+            string query = $@"SELECT U.UserID, CONCAT(U.FName, ' ', U.LName) AS Name, U.Email
+                      FROM Club_Membership CM
+                      INNER JOIN Users U ON CM.UserID = U.UserID
+                      WHERE CM.ClubID = {clubID}";
+            return dbMan.ExecuteReader(query);
+        }
+        public bool RemoveMemberFromClub(int clubID, int userID)
+        {
+            string query = $@"DELETE FROM Club_Membership 
+                      WHERE ClubID = {clubID} AND UserID = {userID}";
+            return dbMan.ExecuteNonQuery(query) > 0;
+        }
+
         public bool CheckEvent(int eventid, int userid)
         {
 

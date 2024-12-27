@@ -82,6 +82,7 @@ namespace DBapplication
             this.dgvClubMembers.RowHeadersWidth = 51;
             this.dgvClubMembers.Size = new System.Drawing.Size(300, 200);
             this.dgvClubMembers.TabIndex = 9;
+            this.dgvClubMembers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClubMembers_CellContentClick);
             // 
             // btnEditClubDetails
             // 
@@ -101,6 +102,7 @@ namespace DBapplication
             this.btnRemoveMember.TabIndex = 11;
             this.btnRemoveMember.Text = "Remove Member";
             this.btnRemoveMember.UseVisualStyleBackColor = true;
+            this.btnRemoveMember.Click += new System.EventHandler(this.btnRemoveMember_Click);
             // 
             // txtTotalMembers
             // 
@@ -109,6 +111,7 @@ namespace DBapplication
             this.txtTotalMembers.ReadOnly = true;
             this.txtTotalMembers.Size = new System.Drawing.Size(200, 22);
             this.txtTotalMembers.TabIndex = 8;
+            this.txtTotalMembers.TextChanged += new System.EventHandler(this.txtTotalMembers_TextChanged);
             // 
             // txtClubDescription
             // 
@@ -118,6 +121,7 @@ namespace DBapplication
             this.txtClubDescription.ReadOnly = true;
             this.txtClubDescription.Size = new System.Drawing.Size(200, 60);
             this.txtClubDescription.TabIndex = 4;
+            this.txtClubDescription.TextChanged += new System.EventHandler(this.txtClubDescription_TextChanged);
             // 
             // txtClubName
             // 
@@ -127,6 +131,7 @@ namespace DBapplication
             this.txtClubName.ReadOnly = true;
             this.txtClubName.Size = new System.Drawing.Size(200, 22);
             this.txtClubName.TabIndex = 2;
+            this.txtClubName.TextChanged += new System.EventHandler(this.txtClubName_TextChanged);
             // 
             // ClubDetailsForm
             // 
