@@ -70,9 +70,9 @@ AND c.SupervisorID = {userid};";
         }
         public DataTable GetFeedBacks(int id)
         {
-       
-                DataTable feedbacks = new DataTable();
-                string query = $@"
+
+            DataTable feedbacks = new DataTable();
+            string query = $@"
         SELECT 
             f.FeedbackID,
             e.Title AS EventName,
@@ -86,11 +86,11 @@ AND c.SupervisorID = {userid};";
         ORDER BY f.FeedbackID DESC;
     ";
 
-                // Assuming ExecuteReader executes the query and maps it to the DataTable
-                feedbacks = dbMan.ExecuteReader(query);
-                return feedbacks;
+            // Assuming ExecuteReader executes the query and maps it to the DataTable
+            feedbacks = dbMan.ExecuteReader(query);
+            return feedbacks;
 
-            }
+        }
         public DataTable GetFeedbacks()
         {
             string query = "SELECT FeedbackID FROM Feedback";  // Get only the Feedback IDs or other relevant columns
@@ -162,6 +162,8 @@ AND c.SupervisorID = {userid};";
                 throw new Exception("Error retrieving event data: " + ex.Message);
             }
         }
+
+
         public bool DeleteFeedback(int feedbackId)
         {
             // Check if the feedback with the given FeedbackID exists
@@ -211,7 +213,7 @@ AND c.SupervisorID = {userid};";
             return -1;
 
         }
-        public DataTable TrackAttendance(int id)
+        public DataTable TrackAttendance(int eid)
         {
 
             DataTable Attendance = new DataTable();
@@ -225,7 +227,7 @@ AND c.SupervisorID = {userid};";
         FROM Attendance a
         INNER JOIN Event e ON a.EventID = e.EventID
         INNER JOIN Users u ON a.UserID = u.UserID
-        WHERE e.EventID = '{id}'
+        WHERE e.Eventid = '{eid}'
         ORDER BY a.AttendanceID DESC;
     ";
 
@@ -234,6 +236,7 @@ AND c.SupervisorID = {userid};";
             return Attendance;
 
         }
+        
         public DataTable GetPendingMemberships()
         {
             // SQL query to fetch membership IDs with "Pending" status

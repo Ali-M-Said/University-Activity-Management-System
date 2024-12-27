@@ -119,6 +119,7 @@ namespace DBapplication
             this.btnEditClubDetails.TabIndex = 10;
             this.btnEditClubDetails.Text = "Edit Club Details";
             this.btnEditClubDetails.UseVisualStyleBackColor = true;
+            this.btnEditClubDetails.Click += new System.EventHandler(this.btnEditClubDetails_Click);
             // 
             // btnRemoveMember
             // 

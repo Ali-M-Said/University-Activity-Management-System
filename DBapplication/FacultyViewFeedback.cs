@@ -20,6 +20,7 @@ namespace DBapplication
             InitializeComponent();
             this.FormClosed += (s, e) => prevForm.Show();
 
+            facultyController = new FacultyMemberControler(); 
             btnExportFeedback.Visible = false;
             label1.Visible = false;
             txtResponse.Visible = false;
@@ -51,25 +52,32 @@ namespace DBapplication
 
         }
 
-     
+
         private void btnExportFeedback_Click(object sender, EventArgs e)
         {
             int feedbackId;
-
-            // Check if the entered Feedback ID is a valid integer
-            if (int.TryParse(txtResponse.Text, out feedbackId))
+            if (int.TryParse(txtResponse.Text.Trim(), out feedbackId))
             {
-                // Check if the feedback ID exists in the database
-                bool feedbackExists = facultyController.DeleteFeedback(feedbackId);
-
-                if (feedbackExists)
+                // Find the matching row in the DataGridView
+                bool feedbackExistsInGrid = false;
+                foreach (DataGridViewRow row in dgvFeedback.Rows)
                 {
-                    // Proceed with the deletion
-                    bool isDeleted = facultyController.DeleteFeedback(feedbackId);
+                    if (row.Cells["FeedbackID"].Value != null &&
+                        Convert.ToInt32(row.Cells["FeedbackID"].Value) == feedbackId)
+                    {
+                        feedbackExistsInGrid = true;
+                        break;
+                    }
+                }
 
+                if (feedbackExistsInGrid)
+                {
+                    // Proceed to delete the feedback
+                    bool isDeleted = facultyController.DeleteFeedback(feedbackId);
                     if (isDeleted)
                     {
                         MessageBox.Show("Feedback deleted successfully.");
+                        dgvFeedback.DataSource = facultyController.GetFeedBacks(Convert.ToInt32(cbEventFilter.SelectedValue));
                     }
                     else
                     {
@@ -78,7 +86,7 @@ namespace DBapplication
                 }
                 else
                 {
-                    MessageBox.Show("Feedback ID not found.");
+                    MessageBox.Show("Feedback ID not found in the current list.");
                 }
             }
             else
@@ -86,6 +94,8 @@ namespace DBapplication
                 MessageBox.Show("Please enter a valid Feedback ID.");
             }
         }
+    
+
 
 
         private void label1_Click(object sender, EventArgs e)

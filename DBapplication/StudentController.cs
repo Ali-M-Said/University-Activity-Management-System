@@ -121,7 +121,11 @@ namespace DBapplication
             return isDeleted;
         }
 
-
+        public DataTable ViewAttendance(int uid)
+        {
+            string query = $@"SELECT e.EventID,e.Title, e.StartDate,e.EndDate, a.CheckInTime , a.Status FROM Event e INNER JOIN Attendance a ON e.EventID = a.EventID WHERE a.userId = '{uid}';";
+            return dbMan.ExecuteReader(query);
+        }
         public bool ReserveLocation(int userId, int locationId, string startTime, string endTime)
         {
             string checkQuery = $@"

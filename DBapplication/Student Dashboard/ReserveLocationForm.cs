@@ -14,10 +14,11 @@ namespace DBapplication
     {
 
         StudentController studentController=new StudentController();
-        int userid = 1;
+        int userid ;
 
-        public ReserveLocationForm(Form parentForm)
+        public ReserveLocationForm(Form parentForm,int uid)
         {
+            userid = uid;
             InitializeComponent();
             Form ParentForm = parentForm;
 

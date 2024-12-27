@@ -6,11 +6,12 @@ namespace DBapplication
     public partial class GiveFeedbackForm : Form
     {
         StudentController studentController = new StudentController();
-        int userid = 1;
+        int userid ;
 
 
-        public GiveFeedbackForm(Form parentForm)
+        public GiveFeedbackForm(Form parentForm,int uid)
         {
+            userid = uid;
             InitializeComponent();
 
             Form ParentForm = parentForm;
