@@ -20,72 +20,42 @@ namespace DBapplication
         public DataTable CheckEmailAndPassword(string email, string password)
         {
 
-            string query = "SELECT * FROM Users WHERE Email = @Email AND Password = @Password;";
-
-            Dictionary<string, object> parameters = new Dictionary<string, object>
-    {
-        { "@Email", email },
-        { "@Password", password }
-    };
-
-            return dbMan.ExecuteReader(query, parameters);
+            string query = $@"SELECT * FROM Users WHERE Email = '{email}' AND Password = '{password}';";
+            return dbMan.ExecuteReader(query);
         }
 
 
         private bool IsPasswordCorrect(string email, string password)
         {
-            string query = "SELECT COUNT(*) FROM Users WHERE Email = @Email AND Password = @Password";
-            Dictionary<string, object> parameters = new Dictionary<string, object>
-    {
-        { "@Email", email },
-        { "@Password", password }
-    };
+            string query = $@"SELECT COUNT(*) FROM Users WHERE Email = '{email}' AND Password = '{password}'";
 
-            DataTable dt = dbMan.ExecuteReader(query, parameters);
+            DataTable dt = dbMan.ExecuteReader(query);
             return dt != null && dt.Rows.Count > 0 && Convert.ToInt32(dt.Rows[0][0]) > 0;
         }
         public string AddUser(string firstname, string lastname, string email, string department, string password, string userType)
         {
-            // Check if the email already exists
             if (IsEmailRegistered(email))
                 return "Email is already registered.";
 
-            // Validate password strength
             if (!IsValidPassword(password))
                 return "Password must be at least 8 characters long and include an uppercase letter, a number, and a special character.";
 
-            // Hash the password before storing it
-            //string hashedPassword = HashPassword(password); HASH YAEKHWATY
+            string query = $@"INSERT INTO Users (FName, LName, Email, Department, Password, Type) " +
+                           $@"VALUES ('{firstname}', '{lastname}', '{email}', '{department}', '{password}', '{userType}')";
 
-            // SQL query to insert a new user
-            string query = "INSERT INTO Users (FName, LName, Email, Department, Password, Type) " +
-                           "VALUES (@FName, @LName, @Email, @Department, @Password, @Type)";
-
-            // Parameters for the query
-            Dictionary<string, object> parameters = new Dictionary<string, object>
-            {
-                { "@FName", firstname },
-                { "@LName", lastname },
-                { "@Email", email },
-                { "@Department", department },
-                { "@Password", password },
-                { "@Type", userType }
-            };
-
-            // Execute the query and return the result
-            int result = dbMan.ExecuteNonQuery(query, parameters);
+            int result = dbMan.ExecuteNonQuery(query);
             return result > 0 ? "User successfully registered." : "Error during registration.";
         }
         public DataTable department()
         {
             string query = "SELECT DISTINCT Department FROM Users;";
-            return dbMan.ExecuteReader(query, new Dictionary<string, object>());
+            return dbMan.ExecuteReader(query);
         }
 
         public DataTable usertype()
         {
             string query = "SELECT DISTINCT Type FROM Users;";
-            return dbMan.ExecuteReader(query, new Dictionary<string, object>());
+            return dbMan.ExecuteReader(query);
         }
 
         public string ChangePassword(string email, string oldPassword, string newPassword)
@@ -99,16 +69,9 @@ namespace DBapplication
 
             // Hash the new password
             //string newPasswordHash = HashPassword(newPassword);
+            string query = $@"UPDATE Users SET Password = '{newPassword}' WHERE Email = '{email}'";
 
-            // Update the password in the database
-            string query = "UPDATE Users SET Password = @NewPassword WHERE Email = @Email";
-            Dictionary<string, object> parameters = new Dictionary<string, object>
-    {
-        { "@NewPassword", newPassword },
-        { "@Email", email }
-    };
-
-            int result = dbMan.ExecuteNonQuery(query, parameters);
+            int result = dbMan.ExecuteNonQuery(query);
 
             return result > 0 ? "Password successfully updated." : "Error updating password.";
         }
@@ -134,100 +97,54 @@ namespace DBapplication
 
         private bool IsEmailRegistered(string email)
         {
-            string query = "SELECT COUNT(*) FROM Users WHERE Email = @Email";
-            Dictionary<string, object> parameters = new Dictionary<string, object> { { "@Email", email } };
-            DataTable dt = dbMan.ExecuteReader(query, parameters);
+            string query = $@"SELECT COUNT(*) FROM Users WHERE Email = '{email}'";
+            DataTable dt = dbMan.ExecuteReader(query);
             return dt != null && dt.Rows.Count > 0 && Convert.ToInt32(dt.Rows[0][0]) > 0;
         }
         public DataTable GetUserById(int userId)
         {
-            try
-            {
-                string query = "SELECT FirstName, LastName, Year, Email, Department, Type FROM Users WHERE UserID = @UserId";
-                var parameters = new Dictionary<string, object>
-        {
-            { "@UserId", userId }
-        };
+                string query = $@"SELECT FirstName, LastName, Year, Email, Department, Type FROM Users WHERE UserID = '{userId}'";
 
-                // Use ExecuteQuery to retrieve the data
-                return dbMan.ExecuteQuery(query, parameters);
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it as needed
-                MessageBox.Show($"Error retrieving user data: {ex.Message}");
-                return null; // Return null in case of an error
-            }
+                return dbMan.ExecuteReader(query);
         }
 
 
         public int GetStudentYear(int userId)
         {
-            string query = "SELECT Year FROM Student WHERE UserID = @UserId";
-            var parameters = new Dictionary<string, object>
-    {
-        { "@UserId", userId }
-    };
+            string query = $@"SELECT Year FROM Student WHERE UserID = '{userId}'";
 
-            DataTable result = dbMan.ExecuteQuery(query, parameters);
+            DataTable result = dbMan.ExecuteReader(query);
             return result.Rows.Count > 0 ? Convert.ToInt32(result.Rows[0]["Year"]) : 0;
         }
 
         public DataTable GetActivityHistory(int userId)
         {
-            string query = @"
+            string query = $@"
         SELECT c.Name AS ClubName, cm.JoinDate, cm.Mem_Status
         FROM Club_Membership cm
         INNER JOIN Club c ON cm.ClubID = c.ClubID
-        WHERE cm.UserID = @UserId
+        WHERE cm.UserID = '{userId}'
         UNION
         SELECT e.Title AS EventTitle, a.CheckInTime, a.Status
         FROM Attendance a
         INNER JOIN Event e ON a.EventID = e.EventID
-        WHERE a.UserID = @UserId";
+        WHERE a.UserID = '{userId}'";
 
-            var parameters = new Dictionary<string, object>
-    {
-        { "@UserId", userId }
-    };
-
-            return dbMan.ExecuteQuery(query, parameters);
+            return dbMan.ExecuteReader(query);
         }
 
 
         public bool UpdateUserProfile(int userId, string firstName, string lastName, string email, string department, string userType)
         {
-            string query = @"
+            string query = $@"
         UPDATE Users
-        SET FName = @FName,
-            LName = @LName,
-            Email = @Email,
-            Department = @Department , Type = @UserType
-        WHERE UserID = @UserID";
-
-            // Create a dictionary for the parameters
-            var parameters = new Dictionary<string, object>
-    {
-        { "@FName", firstName },
-        { "@LName", lastName },
-        { "@Email", email },
-        { "@Department", department },
-        { "@UserID", userId },
-        { "@Type", userType }
-
-    };
-
-            try
-            {
-                int rowsAffected = dbMan.ExecuteNonQuery(query, parameters); // Pass the dictionary
-                return rowsAffected > 0; // Return true if rows were updated
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it as needed
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+        SET FName = '{firstName}',
+            LName = '{lastName}',
+            Email = '{email}',
+            Department = '{department}' , Type = '{userType}'
+        WHERE UserID = '{userId}'";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            return rowsAffected > 0;
         }
 
     }
