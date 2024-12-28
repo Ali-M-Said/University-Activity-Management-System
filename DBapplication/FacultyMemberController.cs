@@ -36,8 +36,7 @@ namespace DBapplication
             string query = $@"
     SELECT COUNT(*) 
     FROM Event e
-    INNER JOIN Club c ON e.CreatedBy = c.SupervisorID
-    WHERE c.SupervisorID = {userId} AND e.StartDate > GETDATE();
+    WHERE e.CreatedBy = {userId} AND e.StartDate > GETDATE();
 ";
 
             // Execute the query and return the result as a count
@@ -49,8 +48,7 @@ namespace DBapplication
             string query = $@"
         SELECT COUNT(*) 
         FROM Event e
-        INNER JOIN Club c ON e.CreatedBy = c.SupervisorID
-        WHERE c.SupervisorID = {userId};
+        WHERE e.CreatedBy = {userId};
     ";
 
             // Execute the query and return the result as a count
@@ -73,7 +71,7 @@ AND c.SupervisorID = {userid};";
             DataTable feedbackTable = new DataTable();
 
             // Open connection
-            using (SqlConnection conn = new SqlConnection("Data Source=administrator;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection conn = new SqlConnection("Data Source=Ali\\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
             {
                 conn.Open();
 
@@ -220,7 +218,7 @@ AND c.SupervisorID = {userid};";
             DataTable Attendance = new DataTable();
 
             // Open connection
-            using (SqlConnection conn = new SqlConnection("Data Source=administrator;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection conn = new SqlConnection("Data Source=Ali\\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
             {
                 conn.Open();
 

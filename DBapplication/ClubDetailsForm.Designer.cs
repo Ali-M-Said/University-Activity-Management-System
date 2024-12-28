@@ -78,6 +78,8 @@ namespace DBapplication
             // 
             // dgvClubMembers
             // 
+            this.dgvClubMembers.AllowUserToAddRows = false;
+            this.dgvClubMembers.AllowUserToDeleteRows = false;
             this.dgvClubMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClubMembers.Location = new System.Drawing.Point(20, 260);
             this.dgvClubMembers.Name = "dgvClubMembers";

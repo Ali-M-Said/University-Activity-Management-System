@@ -13,6 +13,7 @@ namespace DBapplication
     public partial class ViewUsersForm : Form
     {
         ControllerAdmin controller = new ControllerAdmin();
+        Controller c=new Controller();
         Form prevForm;
         int UserID;
         public ViewUsersForm(Form pf, int userID)
@@ -72,7 +73,7 @@ namespace DBapplication
             }
             else
             {
-                newpassword=controller.UpdateUserPassword(Convert.ToInt32(txtUserID.Text));
+                newpassword = controller.UpdateUserPassword(Convert.ToInt32(txtUserID.Text));
                 MessageBox.Show("New Password: "+newpassword);
                 dgvUsers.DataSource = controller.AllUsers();
             }

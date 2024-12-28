@@ -51,8 +51,8 @@ namespace DBapplication
                 if (row["Email"] != DBNull.Value)
                     emailtxt.Text = row["Email"].ToString();
 
-                if (row["DepartmentId"] != DBNull.Value)
-                    deptxt.Text = row["DepartmentId"].ToString();
+                if (row["DepartmentID"] != DBNull.Value)
+                    deptxt.Text = row["DepartmentID"].ToString();
 
 
                 if (row["Type"].ToString() == "Student")

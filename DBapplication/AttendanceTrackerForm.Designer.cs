@@ -52,6 +52,8 @@ namespace DBapplication
             // 
             // dgvEventDetails
             // 
+            this.dgvEventDetails.AllowUserToAddRows = false;
+            this.dgvEventDetails.AllowUserToDeleteRows = false;
             this.dgvEventDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEventDetails.Location = new System.Drawing.Point(20, 100);
             this.dgvEventDetails.Name = "dgvEventDetails";

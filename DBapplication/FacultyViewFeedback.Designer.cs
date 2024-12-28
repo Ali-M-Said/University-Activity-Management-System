@@ -54,6 +54,8 @@ namespace DBapplication
             // 
             // dgvFeedback
             // 
+            this.dgvFeedback.AllowUserToAddRows = false;
+            this.dgvFeedback.AllowUserToDeleteRows = false;
             this.dgvFeedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFeedback.Location = new System.Drawing.Point(12, 87);
             this.dgvFeedback.Name = "dgvFeedback";
