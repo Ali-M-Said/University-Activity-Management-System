@@ -142,7 +142,7 @@ namespace DBapplication
         }
         public DataTable GetUserById(int userId)
         {
-            string query = $@"SELECT U.FName, U.LName, U.Email, U.Department, U.Type, S.Year 
+            string query = $@"SELECT U.FName, U.LName, U.Email, U.DepartmentID, U.Type, S.Year 
                       FROM Users U 
                       LEFT JOIN Student S ON U.UserID = S.UserID 
                       WHERE U.UserID = '{userId}'";
@@ -184,7 +184,7 @@ namespace DBapplication
         SET FName = '{firstName}',
             LName = '{lastName}',
             Email = '{email}',
-            Department = '{department}'
+            Departmentid = '{department}'
         WHERE UserID = '{userId}'";
             int rowsAffected = dbMan.ExecuteNonQuery(query);
             return rowsAffected > 0;

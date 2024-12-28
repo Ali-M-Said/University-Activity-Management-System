@@ -24,7 +24,7 @@ namespace DBapplication
 
         public int UpEventCount()
         {
-            string query = $@"SELECT COUNT(*) FROM Event e WHERE e.STARTDATE < GETDATE()";
+            string query = $@"SELECT COUNT(*) FROM Event e WHERE e.STARTDATE >= GETDATE()";
             return Convert.ToInt32(dbMan.ExecuteScalar(query));
         }
 
@@ -244,7 +244,7 @@ namespace DBapplication
         FROM Event e
         INNER JOIN Location l ON e.LocationID = l.LocationID
         INNER JOIN Users u ON e.CreatedBy = u.UserID
-        WHERE e.StartDate < CAST(GETDATE() AS DATE)
+        WHERE e.StartDate > CAST(GETDATE() AS DATE)
         ORDER BY e.StartDate ASC;
     ";
 
