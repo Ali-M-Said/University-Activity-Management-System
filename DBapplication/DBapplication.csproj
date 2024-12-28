@@ -67,6 +67,24 @@
     <Compile Include="AttendanceTrackerForm.Designer.cs">
       <DependentUpon>AttendanceTrackerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailedReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailedReportsForm.Designer.cs">
+      <DependentUpon>DetailedReportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerialReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerialReportsForm.Designer.cs">
+      <DependentUpon>ManagerialReportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportsForm.Designer.cs">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student Dashboard\AvailableClubsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +235,7 @@
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportsController.cs" />
     <Compile Include="StudentController.cs" />
     <Compile Include="Student Dashboard\StudentDashboardForm.cs">
       <SubType>Form</SubType>
@@ -268,6 +287,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AttendanceTrackerForm.resx">
       <DependentUpon>AttendanceTrackerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailedReportsForm.resx">
+      <DependentUpon>DetailedReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerialReportsForm.resx">
+      <DependentUpon>ManagerialReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportsForm.resx">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Dashboard\AvailableClubsForm.resx">
       <DependentUpon>AvailableClubsForm.cs</DependentUpon>
