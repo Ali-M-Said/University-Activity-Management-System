@@ -87,6 +87,8 @@
             // 
             // dgvEvents
             // 
+            this.dgvEvents.AllowUserToAddRows = false;
+            this.dgvEvents.AllowUserToDeleteRows = false;
             this.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEvents.Location = new System.Drawing.Point(71, 39);
             this.dgvEvents.Name = "dgvEvents";

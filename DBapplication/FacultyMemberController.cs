@@ -73,7 +73,7 @@ AND c.SupervisorID = {userid};";
             DataTable feedbackTable = new DataTable();
 
             // Open connection
-            using (SqlConnection conn = new SqlConnection("Data Source=administrator;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection conn = new SqlConnection("Data Source=Ali\\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
             {
                 conn.Open();
 
@@ -220,7 +220,7 @@ AND c.SupervisorID = {userid};";
             DataTable Attendance = new DataTable();
 
             // Open connection
-            using (SqlConnection conn = new SqlConnection("Data Source=administrator;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection conn = new SqlConnection("Data Source=Ali\\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;Encrypt=False"))
             {
                 conn.Open();
 

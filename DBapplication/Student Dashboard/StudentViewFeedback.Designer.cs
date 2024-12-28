@@ -43,6 +43,8 @@ namespace DBapplication
             // 
             // dgvFeedbacks
             // 
+            this.dgvFeedbacks.AllowUserToAddRows = false;
+            this.dgvFeedbacks.AllowUserToDeleteRows = false;
             this.dgvFeedbacks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFeedbacks.Location = new System.Drawing.Point(20, 30);
             this.dgvFeedbacks.Name = "dgvFeedbacks";
@@ -88,13 +90,13 @@ namespace DBapplication
             this.lblFeedbackID.TabIndex = 0;
             this.lblFeedbackID.Text = "Enter Feedback ID:";
             // 
-            // ViewFeedbackForm
+            // StudentViewFeedback
             // 
             this.ClientSize = new System.Drawing.Size(640, 520);
             this.Controls.Add(this.grpDeleteFeedback);
             this.Controls.Add(this.grpFeedbackList);
             this.Controls.Add(this.lblViewFeedback);
-            this.Name = "ViewFeedbackForm";
+            this.Name = "StudentViewFeedback";
             this.Text = "View and Delete Feedback";
             this.grpFeedbackList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFeedbacks)).EndInit();

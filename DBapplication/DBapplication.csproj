@@ -73,12 +73,6 @@
     <Compile Include="DetailedReportsForm.Designer.cs">
       <DependentUpon>DetailedReportsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagerialReportsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManagerialReportsForm.Designer.cs">
-      <DependentUpon>ManagerialReportsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,9 +284,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DetailedReportsForm.resx">
       <DependentUpon>DetailedReportsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManagerialReportsForm.resx">
-      <DependentUpon>ManagerialReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>

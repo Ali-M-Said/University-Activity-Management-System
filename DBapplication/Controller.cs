@@ -142,7 +142,7 @@ namespace DBapplication
         }
         public DataTable GetUserById(int userId)
         {
-            string query = $@"SELECT U.FName, U.LName, U.Email, U.Department, U.Type, S.Year 
+            string query = $@"SELECT U.FName, U.LName, U.Email, U.DepartmentID, U.Type, S.Year 
                       FROM Users U 
                       LEFT JOIN Student S ON U.UserID = S.UserID 
                       WHERE U.UserID = '{userId}'";
