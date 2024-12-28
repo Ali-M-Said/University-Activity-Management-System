@@ -65,7 +65,7 @@ namespace DBapplication
             else
             {
                 controller.DeleteClub(Convert.ToInt32(txtClubID.Text));
-                MessageBox.Show("User Deleted Successfully");
+                MessageBox.Show("Club Deleted Successfully");
                 dgvEvents.DataSource = controller.Clubs();
             }
         }

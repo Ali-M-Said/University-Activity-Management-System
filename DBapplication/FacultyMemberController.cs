@@ -36,8 +36,7 @@ namespace DBapplication
             string query = $@"
     SELECT COUNT(*) 
     FROM Event e
-    INNER JOIN Club c ON e.CreatedBy = c.SupervisorID
-    WHERE c.SupervisorID = {userId} AND e.StartDate > GETDATE();
+    WHERE e.CreatedBy = {userId} AND e.StartDate > GETDATE();
 ";
 
             // Execute the query and return the result as a count
@@ -49,8 +48,7 @@ namespace DBapplication
             string query = $@"
         SELECT COUNT(*) 
         FROM Event e
-        INNER JOIN Club c ON e.CreatedBy = c.SupervisorID
-        WHERE c.SupervisorID = {userId};
+        WHERE e.CreatedBy = {userId};
     ";
 
             // Execute the query and return the result as a count

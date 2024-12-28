@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace DBapplication
 {
@@ -220,12 +221,23 @@ WHERE CreatedBy = '{userid}' AND EventId='{eventid}'   ";
 
             return new string(password);
         }
-
+        public string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                    builder.Append(b.ToString("x2"));
+                return builder.ToString();
+            }
+        }
         public string UpdateUserPassword(int userId)
         {
             string newPassword = GenerateRandomPassword();
+            string hashedPassword = HashPassword(newPassword);
 
-            string query = $@"UPDATE Users SET Password = '{newPassword}' WHERE UserID = {userId}";
+            string query = $@"UPDATE Users SET Password = '{hashedPassword}' WHERE UserID = {userId}";
 
             dbMan.ExecuteNonQuery(query);
             return newPassword;
@@ -338,7 +350,7 @@ WHERE CreatedBy = '{userid}' AND EventId='{eventid}'   ";
         }
         public DataTable FacultyMembers()
         {
-            string query = $" SELECT UserID,CONCAT(FName, ' ', LName) AS Name FROM Users WHERE Type='Student'";
+            string query = $" SELECT UserID,CONCAT(FName, ' ', LName) AS Name FROM Users WHERE Type='Faculty Member'";
             return dbMan.ExecuteReader(query);
         }
         public DataTable Clubs()
