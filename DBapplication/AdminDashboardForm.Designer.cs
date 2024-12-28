@@ -47,6 +47,7 @@
             this.lblOverview = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -70,7 +71,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.pnlQuickStats.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -282,6 +282,16 @@
             this.panel1.Size = new System.Drawing.Size(968, 277);
             this.panel1.TabIndex = 4;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(511, 230);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(163, 36);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Manage Attendance";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(760, 230);
@@ -290,6 +300,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "Generate  Reports";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label14
             // 
@@ -503,16 +514,6 @@
             this.button4.Text = "Profile";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(511, 230);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(163, 36);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "Manage Attendance";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // AdminDashboardForm
             // 

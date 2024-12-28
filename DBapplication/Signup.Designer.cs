@@ -43,6 +43,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lastnamebox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.yeartxt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // firstnamebox
@@ -93,7 +95,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(335, 308);
+            this.button1.Location = new System.Drawing.Point(354, 344);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 37);
             this.button1.TabIndex = 7;
@@ -145,6 +147,7 @@
             this.label6.Size = new System.Drawing.Size(71, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "User Type";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -171,6 +174,23 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Last name";
             // 
+            // yeartxt
+            // 
+            this.yeartxt.Location = new System.Drawing.Point(217, 306);
+            this.yeartxt.Name = "yeartxt";
+            this.yeartxt.Size = new System.Drawing.Size(121, 22);
+            this.yeartxt.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(75, 312);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 16);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Year";
+            this.label8.Click += new System.EventHandler(this.label6_Click);
+            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -179,6 +199,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lastnamebox);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -188,6 +209,7 @@
             this.Controls.Add(this.usertypebox);
             this.Controls.Add(this.departmentcombo);
             this.Controls.Add(this.confirmpassbox);
+            this.Controls.Add(this.yeartxt);
             this.Controls.Add(this.passwordbox);
             this.Controls.Add(this.emailbox);
             this.Controls.Add(this.firstnamebox);
@@ -216,5 +238,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox lastnamebox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox yeartxt;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -23,8 +23,8 @@ namespace DBapplication
             // Populate the department combo box
             DataTable departmentTable = c.department();
             departmentcombo.DataSource = departmentTable;
-            departmentcombo.DisplayMember = "Department";
-            departmentcombo.ValueMember = "Department"; // Optional if you need a value
+            departmentcombo.DisplayMember = "Name";
+            departmentcombo.ValueMember = "DepartmentID"; // Optional if you need a value
 
             // Populate the user type combo box
             DataTable userTypeTable = c.usertype();
@@ -120,17 +120,23 @@ namespace DBapplication
                 MessageBox.Show(errorMessages, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string hashedPassword =c.HashPassword(passwordbox.Text);
+            if (!int.TryParse(yeartxt.Text, out int year))
+            {
+                MessageBox.Show("Please enter a valid year.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string hashedPassword = c.HashPassword(passwordbox.Text);
             string result = c.AddUser(
                 firstnamebox.Text,
                 lastnamebox.Text,
                 emailbox.Text,
-                departmentcombo.Text,
+                Convert.ToInt16(departmentcombo.SelectedValue),
                 hashedPassword,
-                usertypebox.Text
+                usertypebox.Text,
+                year
             );
 
-            if (result == "User successfully registered.")
+            if (result.Contains("successfully registered"))
             {
                 MessageBox.Show(result, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Login Log = new Login();
@@ -143,7 +149,12 @@ namespace DBapplication
             }
         }
 
-    private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

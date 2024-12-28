@@ -20,8 +20,6 @@ namespace DBapplication
             this.btnViewFeedbackAttendance = new System.Windows.Forms.Button();
             this.grpClubManagement = new System.Windows.Forms.GroupBox();
             this.btnApproveMembershipRequests = new System.Windows.Forms.Button();
-            this.grpReporting = new System.Windows.Forms.GroupBox();
-            this.btnGenerateReports = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
@@ -33,7 +31,6 @@ namespace DBapplication
             this.label3 = new System.Windows.Forms.Label();
             this.grpEventManagement.SuspendLayout();
             this.grpClubManagement.SuspendLayout();
-            this.grpReporting.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,25 +148,6 @@ namespace DBapplication
             this.btnApproveMembershipRequests.UseVisualStyleBackColor = true;
             this.btnApproveMembershipRequests.Click += new System.EventHandler(this.btnApproveMembershipRequests_Click);
             // 
-            // grpReporting
-            // 
-            this.grpReporting.Controls.Add(this.btnGenerateReports);
-            this.grpReporting.Location = new System.Drawing.Point(280, 295);
-            this.grpReporting.Name = "grpReporting";
-            this.grpReporting.Size = new System.Drawing.Size(250, 73);
-            this.grpReporting.TabIndex = 8;
-            this.grpReporting.TabStop = false;
-            this.grpReporting.Text = "Reporting";
-            // 
-            // btnGenerateReports
-            // 
-            this.btnGenerateReports.Location = new System.Drawing.Point(20, 30);
-            this.btnGenerateReports.Name = "btnGenerateReports";
-            this.btnGenerateReports.Size = new System.Drawing.Size(200, 30);
-            this.btnGenerateReports.TabIndex = 0;
-            this.btnGenerateReports.Text = "Generate Reports";
-            this.btnGenerateReports.UseVisualStyleBackColor = true;
-            // 
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(430, 442);
@@ -268,7 +246,6 @@ namespace DBapplication
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.grpReporting);
             this.Controls.Add(this.grpClubManagement);
             this.Controls.Add(this.grpEventManagement);
             this.Controls.Add(this.lblPendingMembershipRequests);
@@ -279,7 +256,6 @@ namespace DBapplication
             this.Load += new System.EventHandler(this.FacultyMemberDashboardForm_Load);
             this.grpEventManagement.ResumeLayout(false);
             this.grpClubManagement.ResumeLayout(false);
-            this.grpReporting.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -295,8 +271,6 @@ namespace DBapplication
         private Button btnCreateNewEvent;
         private Button btnViewFeedbackAttendance;
         private GroupBox grpClubManagement;
-        private GroupBox grpReporting;
-        private Button btnGenerateReports;
         private Button btnLogout;
         private Button btnManageEvents;
         private Button btnApproveMembershipRequests;

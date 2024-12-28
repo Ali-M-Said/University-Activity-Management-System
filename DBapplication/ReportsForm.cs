@@ -9,15 +9,19 @@ namespace DBapplication
         // Initialize the ReportsController instance
         private ReportsController controller;
 
-        public ReportsForm()
+        public ReportsForm(Form parentForm)
         {
             InitializeComponent();
             controller = new ReportsController();
-
-            
-            comboBoxReports.SelectedIndex = 0; // Set default selected index
-
-            // Set event handler for ComboBox selection change
+            Form ParentForm = parentForm;
+            ParentForm.Hide();
+            this.FormClosed += (sender, e) => { ParentForm.Show(); };
+            DataTable data = null;
+            data = controller.GetEventsAttendedByEachUser();
+            dataGridViewEventsAttended.DataSource = data;
+            dataGridViewEventsAttended.Visible = true;
+            labelEventsAttended.Visible = true;
+            comboBoxReports.SelectedIndex = 0; 
             comboBoxReports.SelectedIndexChanged += ComboBoxReports_SelectedIndexChanged;
         }
 

@@ -48,20 +48,46 @@ namespace DBapplication
             DataTable dt = dbMan.ExecuteReader(query);
             return dt != null && dt.Rows.Count > 0 && Convert.ToInt32(dt.Rows[0][0]) > 0;
         }
-        public string AddUser(string firstname, string lastname, string email, string department, string password, string userType)
+        public string AddUser(string firstname, string lastname, string email, int department, string password, string userType, int year)
         {
             if (IsEmailRegistered(email))
                 return "Email is already registered.";
 
-            string query = $@"INSERT INTO Users (FName, LName, Email, Department, Password, Type) " +
-                           $@"VALUES ('{firstname}', '{lastname}', '{email}', '{department}', '{password}', '{userType}')";
+            string insertUserQuery = $@"INSERT INTO Users (FName, LName, Email, Departmentid, Password, Type)
+                        VALUES ('{firstname}', '{lastname}', '{email}', '{department}', '{password}', '{userType}')";
+            int userInsertResult = dbMan.ExecuteNonQuery(insertUserQuery);
 
-            int result = dbMan.ExecuteNonQuery(query);
-            return result > 0 ? "User successfully registered." : "Error during registration.";
+            if (userInsertResult > 0)
+            {
+                string getUserIdQuery = $@"SELECT UserID FROM Users WHERE Email = '{email}'";
+                DataTable userIdTable = dbMan.ExecuteReader(getUserIdQuery);
+
+                if (userIdTable.Rows.Count > 0)
+                {
+                    int userId = Convert.ToInt32(userIdTable.Rows[0]["UserID"]);
+
+                    if (userType == "Student")
+                    {
+                        string insertStudentQuery = $@"INSERT INTO Student (UserID, Year) VALUES ({userId}, {year})";
+                        int studentInsertResult = dbMan.ExecuteNonQuery(insertStudentQuery);
+
+                        return studentInsertResult > 0
+                            ? "User successfully registered."
+                            : "Error during student registration.";
+                    }
+
+                    return "User successfully registered.";
+                }
+                else
+                {
+                    return "Error retrieving User ID.";
+                }
+            }
+            return "Error during registration.";
         }
         public DataTable department()
         {
-            string query = "SELECT DISTINCT Department FROM Users;";
+            string query = "SELECT DISTINCT *  FROM Department;";
             return dbMan.ExecuteReader(query);
         }
 
