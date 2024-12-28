@@ -49,34 +49,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddLocationForm.cs">
+    <Compile Include="Admin Dashboard\AddLocationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddLocationForm.Designer.cs">
+    <Compile Include="Admin Dashboard\AddLocationForm.Designer.cs">
       <DependentUpon>AddLocationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminDashboardForm.cs">
+    <Compile Include="Admin Dashboard\AdminDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminDashboardForm.Designer.cs">
+    <Compile Include="Admin Dashboard\AdminDashboardForm.Designer.cs">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AttendanceTrackerForm.cs">
+    <Compile Include="Faculty Dashboard\AttendanceTrackerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AttendanceTrackerForm.Designer.cs">
+    <Compile Include="Faculty Dashboard\AttendanceTrackerForm.Designer.cs">
       <DependentUpon>AttendanceTrackerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetailedReportsForm.cs">
+    <Compile Include="Admin Dashboard\DetailedReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetailedReportsForm.Designer.cs">
+    <Compile Include="Admin Dashboard\DetailedReportsForm.Designer.cs">
       <DependentUpon>DetailedReportsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportsForm.cs">
+    <Compile Include="Admin Dashboard\ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportsForm.Designer.cs">
+    <Compile Include="Admin Dashboard\ReportsForm.Designer.cs">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Student Dashboard\AvailableClubsForm.cs">
@@ -91,16 +91,16 @@
     <Compile Include="Student Dashboard\AvailableSpaces.Designer.cs">
       <DependentUpon>AvailableSpaces.cs</DependentUpon>
     </Compile>
-    <Compile Include="changepassword.cs">
+    <Compile Include="General\changepassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="changepassword.Designer.cs">
+    <Compile Include="General\changepassword.Designer.cs">
       <DependentUpon>changepassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClubDetailsForm.cs">
+    <Compile Include="Faculty Dashboard\ClubDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClubDetailsForm.Designer.cs">
+    <Compile Include="Faculty Dashboard\ClubDetailsForm.Designer.cs">
       <DependentUpon>ClubDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Student Dashboard\ClubMembershipStatusForm.cs">
@@ -109,43 +109,43 @@
     <Compile Include="Student Dashboard\ClubMembershipStatusForm.Designer.cs">
       <DependentUpon>ClubMembershipStatusForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller.cs" />
-    <Compile Include="ControllerAdmin.cs" />
-    <Compile Include="CreateAdminForm.cs">
+    <Compile Include="General\Controller.cs" />
+    <Compile Include="Admin Dashboard\ControllerAdmin.cs" />
+    <Compile Include="Admin Dashboard\CreateAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateAdminForm.Designer.cs">
+    <Compile Include="Admin Dashboard\CreateAdminForm.Designer.cs">
       <DependentUpon>CreateAdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateClubForm.cs">
+    <Compile Include="Admin Dashboard\CreateClubForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateClubForm.Designer.cs">
+    <Compile Include="Admin Dashboard\CreateClubForm.Designer.cs">
       <DependentUpon>CreateClubForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateEventForm.cs">
+    <Compile Include="Admin Dashboard\CreateEventForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateEventForm.Designer.cs">
+    <Compile Include="Admin Dashboard\CreateEventForm.Designer.cs">
       <DependentUpon>CreateEventForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBManager.cs" />
-    <Compile Include="EditClubForm.cs">
+    <Compile Include="Admin Dashboard\EditClubForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditClubForm.Designer.cs">
+    <Compile Include="Admin Dashboard\EditClubForm.Designer.cs">
       <DependentUpon>EditClubForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditEventForm.cs">
+    <Compile Include="Admin Dashboard\EditEventForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditEventForm.Designer.cs">
+    <Compile Include="Admin Dashboard\EditEventForm.Designer.cs">
       <DependentUpon>EditEventForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditLocationsForm.cs">
+    <Compile Include="Admin Dashboard\EditLocationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditLocationsForm.Designer.cs">
+    <Compile Include="Admin Dashboard\EditLocationsForm.Designer.cs">
       <DependentUpon>EditLocationsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Student Dashboard\EventRegister.cs">
@@ -154,17 +154,17 @@
     <Compile Include="Student Dashboard\EventRegister.Designer.cs">
       <DependentUpon>EventRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacultyMemberController.cs" />
-    <Compile Include="FacultyMemberDashboardForm.cs">
+    <Compile Include="Faculty Dashboard\FacultyMemberController.cs" />
+    <Compile Include="Faculty Dashboard\FacultyMemberDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacultyMemberDashboardForm.Designer.cs">
+    <Compile Include="Faculty Dashboard\FacultyMemberDashboardForm.Designer.cs">
       <DependentUpon>FacultyMemberDashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacultyViewFeedback.cs">
+    <Compile Include="Faculty Dashboard\FacultyViewFeedback.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacultyViewFeedback.Designer.cs">
+    <Compile Include="Faculty Dashboard\FacultyViewFeedback.Designer.cs">
       <DependentUpon>FacultyViewFeedback.cs</DependentUpon>
     </Compile>
     <Compile Include="Student Dashboard\GiveFeedbackForm.cs">
@@ -173,34 +173,34 @@
     <Compile Include="Student Dashboard\GiveFeedbackForm.Designer.cs">
       <DependentUpon>GiveFeedbackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="General\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="General\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageClubsForm.cs">
+    <Compile Include="Admin Dashboard\ManageClubsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageClubsForm.Designer.cs">
+    <Compile Include="Admin Dashboard\ManageClubsForm.Designer.cs">
       <DependentUpon>ManageClubsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageEventsForm.cs">
+    <Compile Include="Admin Dashboard\ManageEventsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageEventsForm.Designer.cs">
+    <Compile Include="Admin Dashboard\ManageEventsForm.Designer.cs">
       <DependentUpon>ManageEventsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageLocationsForm.cs">
+    <Compile Include="Admin Dashboard\ManageLocationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageLocationsForm.Designer.cs">
+    <Compile Include="Admin Dashboard\ManageLocationsForm.Designer.cs">
       <DependentUpon>ManageLocationsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageMembershipRequestsForm.cs">
+    <Compile Include="Admin Dashboard\ManageMembershipRequestsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageMembershipRequestsForm.Designer.cs">
+    <Compile Include="Admin Dashboard\ManageMembershipRequestsForm.Designer.cs">
       <DependentUpon>ManageMembershipRequestsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -223,14 +223,14 @@
     <Compile Include="Student Dashboard\ReserveLocationForm.Designer.cs">
       <DependentUpon>ReserveLocationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Signup.cs">
+    <Compile Include="General\Signup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Signup.Designer.cs">
+    <Compile Include="General\Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportsController.cs" />
-    <Compile Include="StudentController.cs" />
+    <Compile Include="Admin Dashboard\ReportsController.cs" />
+    <Compile Include="Student Dashboard\StudentController.cs" />
     <Compile Include="Student Dashboard\StudentDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,16 +243,16 @@
     <Compile Include="Student Dashboard\StudentViewFeedback.Designer.cs">
       <DependentUpon>StudentViewFeedback.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentViewAttendance.cs">
+    <Compile Include="Student Dashboard\StudentViewAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentViewAttendance.Designer.cs">
+    <Compile Include="Student Dashboard\StudentViewAttendance.Designer.cs">
       <DependentUpon>StudentViewAttendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Taking Attendance.cs">
+    <Compile Include="Faculty Dashboard\Taking Attendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Taking Attendance.Designer.cs">
+    <Compile Include="Faculty Dashboard\Taking Attendance.Designer.cs">
       <DependentUpon>Taking Attendance.cs</DependentUpon>
     </Compile>
     <Compile Include="Student Dashboard\UpcomingEventsForm.cs">
@@ -261,31 +261,31 @@
     <Compile Include="Student Dashboard\UpcomingEventsForm.Designer.cs">
       <DependentUpon>UpcomingEventsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="userprofile.cs">
+    <Compile Include="General\userprofile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="userprofile.Designer.cs">
+    <Compile Include="General\userprofile.Designer.cs">
       <DependentUpon>userprofile.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewUsersForm.cs">
+    <Compile Include="Admin Dashboard\ViewUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewUsersForm.Designer.cs">
+    <Compile Include="Admin Dashboard\ViewUsersForm.Designer.cs">
       <DependentUpon>ViewUsersForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddLocationForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\AddLocationForm.resx">
       <DependentUpon>AddLocationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminDashboardForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AttendanceTrackerForm.resx">
+    <EmbeddedResource Include="Faculty Dashboard\AttendanceTrackerForm.resx">
       <DependentUpon>AttendanceTrackerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetailedReportsForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\DetailedReportsForm.resx">
       <DependentUpon>DetailedReportsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportsForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Dashboard\AvailableClubsForm.resx">
@@ -294,58 +294,58 @@
     <EmbeddedResource Include="Student Dashboard\AvailableSpaces.resx">
       <DependentUpon>AvailableSpaces.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="changepassword.resx">
+    <EmbeddedResource Include="General\changepassword.resx">
       <DependentUpon>changepassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClubDetailsForm.resx">
+    <EmbeddedResource Include="Faculty Dashboard\ClubDetailsForm.resx">
       <DependentUpon>ClubDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Dashboard\ClubMembershipStatusForm.resx">
       <DependentUpon>ClubMembershipStatusForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateAdminForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\CreateAdminForm.resx">
       <DependentUpon>CreateAdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateClubForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\CreateClubForm.resx">
       <DependentUpon>CreateClubForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateEventForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\CreateEventForm.resx">
       <DependentUpon>CreateEventForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditClubForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\EditClubForm.resx">
       <DependentUpon>EditClubForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditEventForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\EditEventForm.resx">
       <DependentUpon>EditEventForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditLocationsForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\EditLocationsForm.resx">
       <DependentUpon>EditLocationsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Dashboard\EventRegister.resx">
       <DependentUpon>EventRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacultyMemberDashboardForm.resx">
+    <EmbeddedResource Include="Faculty Dashboard\FacultyMemberDashboardForm.resx">
       <DependentUpon>FacultyMemberDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacultyViewFeedback.resx">
+    <EmbeddedResource Include="Faculty Dashboard\FacultyViewFeedback.resx">
       <DependentUpon>FacultyViewFeedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Dashboard\GiveFeedbackForm.resx">
       <DependentUpon>GiveFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="General\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageClubsForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\ManageClubsForm.resx">
       <DependentUpon>ManageClubsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageEventsForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\ManageEventsForm.resx">
       <DependentUpon>ManageEventsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageLocationsForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\ManageLocationsForm.resx">
       <DependentUpon>ManageLocationsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageMembershipRequestsForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\ManageMembershipRequestsForm.resx">
       <DependentUpon>ManageMembershipRequestsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -367,7 +367,7 @@
     <EmbeddedResource Include="Student Dashboard\ReserveLocationForm.resx">
       <DependentUpon>ReserveLocationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Signup.resx">
+    <EmbeddedResource Include="General\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Dashboard\StudentDashboardForm.resx">
@@ -376,19 +376,19 @@
     <EmbeddedResource Include="Student Dashboard\StudentViewFeedback.resx">
       <DependentUpon>StudentViewFeedback.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentViewAttendance.resx">
+    <EmbeddedResource Include="Student Dashboard\StudentViewAttendance.resx">
       <DependentUpon>StudentViewAttendance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Taking Attendance.resx">
+    <EmbeddedResource Include="Faculty Dashboard\Taking Attendance.resx">
       <DependentUpon>Taking Attendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student Dashboard\UpcomingEventsForm.resx">
       <DependentUpon>UpcomingEventsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userprofile.resx">
+    <EmbeddedResource Include="General\userprofile.resx">
       <DependentUpon>userprofile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewUsersForm.resx">
+    <EmbeddedResource Include="Admin Dashboard\ViewUsersForm.resx">
       <DependentUpon>ViewUsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
